@@ -1,0 +1,969 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block;}
+audio, canvas, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+/* END reset */
+
+
+/* Baseline Styles */
+html { width: 100%; height: 100%; -webkit-font-smoothing: antialiased; }
+body { width: 100%; }
+a:focus { outline: thin dotted; }
+a:active, a:hover { outline: 0; }
+nav ul, nav ol { list-style: none; list-style-image: none; }
+h1,h2,h3,h4,h5,h6 { text-rendering: optimizeLegibility; }
+ins, mark { background-color:#ff9; color:#000; text-decoration:none; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted #000; cursor:help; }
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+img { border: 0; }
+img, object, embed { max-width: 100%; }
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+acronym, abbr { cursor: help;  text-transform: uppercase; font-size: 10; letter-spacing: 1px; border-bottom: 1px dotted #666; }
+pre, code, kbd, samp, tt { font-family: "Courier New", Courier, monospace, sans-serif; font-size: 1em; }
+pre { padding: 0 1em; white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+sup, sub { font-size: .5em; margin-left: .25em; }
+sub { vertical-align: sub; }
+sup { vertical-align: super; }
+small { font-size:75%; }
+dt { font-weight: bold; }
+[hidden] { display: none; }
+
+table { border-collapse: collapse; border-spacing: 0; font-size:inherit; font:100%; }
+tfoot, thead { font-family: inherit; }
+td, th { padding: 8px 9px 9px 0; border-top: 1pt solid #eee; }
+thead th { text-transform: uppercase; border-top: 1pt solid #ccc; background: #eee; color: #111; }
+tfoot td, tfoot th { border-top: 1pt solid #ccc; border-bottom: 1px solid #ccc; }
+td, td img { vertical-align:top; } 
+
+form { font-size: inherit; line-height: inherit; margin: 0; }
+input, select { vertical-align: middle; }
+input, textarea { margin: 0; }
+textarea { font-family: inherit; font-size: inherit; overflow: auto; vertical-align: top; }
+button, input { line-height: normal; }
+button, select { text-transform: none; }
+button, input.submit { width: auto; overflow: visible; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; *overflow: visible; }
+input[type="radio"], input[type="checkbox"] { width: auto; margin-left: 0; cursor: pointer; box-sizing: border-box; padding: 0; }
+input[type="checkbox"], input.checkbox { vertical-align: top; }
+label, input[type=button], input[type=submit], input[type=reset], button { cursor: pointer; }
+button[disabled], html input[disabled] { cursor: default; }
+/* END baseline */
+
+body,
+.from-the-journal em {
+	font-family: "brandon-grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	font-weight: 400;
+	font-size: 16px;
+	overflow: hidden;
+	}
+
+.from-the-journal #text,
+#archive .from-the-journal { font-family: "adelle", Georgia, serif; }
+
+.from-the-journal { 
+	color: #333; 
+	overflow: visible;
+	line-height: 1.5;
+	}
+
+	.from-the-journal em {
+		color: inherit;
+		font-style: normal;
+		font-size: inherit;
+		}
+
+	.from-the-journal .u-all-caps {
+		text-transform: uppercase;
+		font-size: .75em;
+		}
+
+.the-coding { font-family: "Courier New", mono;	}
+
+.the-archive { overflow: visible; }
+
+::-moz-selection { color: white; background: black; }
+::selection { color: white; background: black; } 
+
+:target { background: yellow; }
+	
+a { 
+	background: #fff;
+	color: #000;
+	text-decoration: none;
+	padding: 0 .5em;
+	}
+	
+.the-coding a { 
+	background: #000;
+	color: #fff;
+	}
+
+a:hover, a:focus, a:active { color: #fff; }
+
+sup a,
+sub a { padding: .125em .5em; }
+
+h2 {
+	font-size: 3em;
+	line-height: 1;
+	margin-bottom: .5em;
+	}
+
+blockquote {
+	padding: 1.5em 0 1.5em 1.5em;
+	position: relative;
+	}
+
+	blockquote:before {
+		content: '“';
+		position: absolute;
+		line-height: 1;
+		font-size: 9em;
+		color: rgba( 0, 0, 0, .2 );
+		left: -.25em;
+		top: -.125em;
+		}
+
+.u-visually-hidden { 
+  position: absolute;
+  clip: rect(0 0 0 0);
+  visibility: hidden;
+  opacity: 0;
+  }
+
+time { border-bottom: 1px dotted; }
+
+.u-censor { 
+	background: #000;
+	color: #000;
+	}
+
+#image, #text, #video-background { 
+	-webkit-transition: all 8s ease-out;
+	   -moz-transition: all 8s ease-out;
+		-ms-transition: all 8s ease-out;
+	 	 -o-transition: all 8s ease-out;
+			transition: all 8s ease-out;
+	}
+
+#text {
+	position: absolute;
+	z-index: 1;
+	bottom: 2em;
+	width: 80%;
+	left: 10%;
+	}
+
+.from-the-journal #text { 
+	width: 90%;
+	max-width: 40em;
+	position: relative; 
+	left: auto;
+	top: auto;
+	bottom: auto;
+	margin: 4.5em auto 3em;
+	}
+
+	.from-the-journal.has-media #text { margin-top: 6em; }
+
+	.from-the-journal #text p,
+	.from-the-journal #text ul { margin-bottom: 1.5em; }
+
+	@media screen and ( min-width: 600px ) {
+		.from-the-journal #text p,
+		.from-the-journal #text ul { font-size: 1.5em; }
+	}
+
+	.from-the-journal #text .date { margin-bottom: -1.5em; }
+
+	.from-the-journal.has-media #text .date { color: #fff; }
+	
+	.the-before #text,
+	.the-romanticism #text {
+		top: 5%;
+		bottom: auto;
+		right: 5%;
+		text-align: center;
+		border-radius: 500px;
+		}	
+
+	.the-before #text,
+	.the-romanticism #text,
+	.the-mccafe #text { 
+		width: auto;
+		padding: 3em 2em;
+		}
+		
+	.the-before #text,
+	#archive .the-before h1,
+	#archive .the-before p { background: rgba( 156, 188, 29, .7 ); }
+		
+	.the-beginning #text { color: #E1E9F4; }
+	#archive .the-beginning h1,
+	#archive .the-beginning p { background: #2F77A8; }
+	
+	.the-end #text { color: #FEFFE4; }
+	#archive .the-end h1,
+	#archive .the-end p { background: #602E23; }
+	
+	#archive .the-coding h1,
+	#archive .the-coding p, 
+	.the-coding #text { 
+		background: #F4F7A6;
+		color: #000;
+		}
+
+	.the-coding #text { 
+		width: auto;
+		float: left;
+		left: 0;
+		bottom: 0;
+		}
+		
+	.the-alps #text { color: #F4F1FD; }
+	#archive .the-alps h1,
+	#archive .the-alps p { background: #666F82; }
+	
+	.the-appartment #text { color: #fdf69b; }
+	#archive .the-appartment h1,
+	#archive .the-appartment p { background: #8D8731; }
+		
+	.the-empty #text,
+	.the-tarmac #text,
+	.the-before #text,
+	.the-sunshine #text,
+	.the-rainy #text,
+	.the-passionate #text,
+	.the-back #text,
+	.the-41-hours #text,
+	.the-mccafe #text,
+	.the-consequences #text { left: 5%; }
+	
+	.the-empty #text { color: #FEFBC1; }
+	#archive .the-empty h1,
+	#archive .the-empty p { background: #6C2000; }
+	
+	.the-happy #text { color: #E9DCD3; }
+	#archive .the-happy h1,
+	#archive .the-happy p { background: #3E480D; }
+	
+	.the-sunshine #text {
+		top: 2em;
+		bottom: auto;
+		width: 90%;
+		}
+	#archive .the-sunshine h1,
+	#archive .the-sunshine p { background: #EAB6BA; }
+		
+	#archive .the-summer h1,
+	#archive .the-summer p { background: #BF691B; }
+	
+	.the-tarmac #text {
+		bottom: 5%;
+		color: #9D8239;
+		}
+	#archive .the-tarmac h1,
+	#archive .the-tarmac p { background: #9D8239; }
+		
+		
+	.the-rainy #text { color: #ddd; }
+	#archive .the-rainy h1,
+	#archive .the-rainy p { background: #ddd; }
+	
+	.the-passionate #text { color: #FEFCF0; }
+	#archive .the-passionate h1,
+	#archive .the-passionate p { background: #D1B182; }
+
+	.the-suncat #text { 
+		color: #838995;
+		top: 5%;
+		bottom: auto;
+		}
+	#archive .the-suncat h1,
+	#archive .the-suncat p { background: #838995; }
+	
+	.the-back #text {
+		color: #333;
+		background: rgba( 255, 255, 255, .8 ); 
+		width: auto;
+		float: left;
+		border: .75em solid #0D408B;
+		border-radius: .5em;
+		padding: 1em;
+		text-align: center;
+		}
+		
+		.the-back a,
+		#archive .the-back h1,
+		#archive .the-back p { 
+			background: #0D408B; 
+			color: #fff; 
+			}
+			
+	.the-romanticism #text,
+	#archive .the-romanticism h1,
+	#archive .the-romanticism p { background: rgba( 166, 60, 66, .7 ); }
+	
+	.the-41-hours #text { 
+		top: 2em;
+		bottom: auto;
+		color: #faf7f3;
+		}
+	#archive .the-41-hours h1,
+	#archive .the-41-hours p { background: #EEC399; }
+		
+	.the-perspective #text { color: #E8FDFE; }
+	#archive .the-perspective h1,
+	#archive .the-perspective p { background: #728F9F; }
+		
+	.the-mccafe #text,
+	#archive .the-mccafe h1,
+	#archive .the-mccafe p { background: rgba( 228,212,178, .6 ); }
+	.the-mccafe #text { 
+		left: -1em;
+		padding-bottom: 1em;
+		bottom: 0;
+		border-radius: 0 500px 0 0;
+		max-width: 265px; 
+		}
+		
+	.the-consequences #text { color: #a90000; }
+	#archive .the-consequences h1,
+	#archive .the-consequences p { background: #a90000; }
+
+	.the-angry #text,
+	.the-supermoon #text {
+		left: 5%;
+		top: 5%;
+		bottom: auto;
+		}
+	
+	.the-autumn #text { 
+		bottom: 5%; 
+		left: 5%;
+		}
+
+	.the-angry #text,
+	.the-supermoon #text,
+	.the-alright #text,
+	.the-autumn #text { 
+		width: 90%;
+		}
+
+
+	
+#text h1 { 
+	font-weight: 700;
+	font-size: 6em;
+	line-height: 1;
+	}
+	
+	.the-coding #text h1 { 
+		padding-left: .25em;
+		padding-right: .25em;
+		}
+		
+	.the-angry #text h1,
+	.the-supermoon #text h1,
+	.the-alright #text h1,
+	.the-autumn #text h1 { font-size: 3em; }
+
+	.from-the-journal h1 { margin-bottom: .25em; }
+
+	.from-the-journal.has-media #text h1 { 
+		color: #fff;
+		margin-bottom: 1.5em; 
+		}
+
+	@media ( min-width: 400px ) {
+		.from-the-journal.has-media #text h1 { margin-bottom: 1em; }
+		}
+
+	@media ( min-width: 1024px ) {
+		.from-the-journal.has-media #text h1 { margin-bottom: .75em; }
+		}
+
+#subtitle { 
+	font-weight: 700;
+	font-size: 1em;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	}
+	
+	.the-coding #subtitle { 
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+		}
+	
+#explain {
+	font-size: 1em;
+	line-height: 1.5;
+	}
+	
+	.the-coding #explain { 
+		padding: 0 1.5em 1.5em;
+		max-width: 22em;
+		}
+		
+	.story #explain br { display: block; }
+	
+	@media screen and (max-width: 360px) { 
+		.the-beginning #explain br,
+		.the-41-hours #explain br { display: none; } 
+		}
+	@media screen and (max-width: 385px) { .the-sunshine #explain br { display: none; } }
+	@media screen and (max-width: 410px) { 
+		.the-coding #explain br,
+		.the-suncat #explain br { display: none; } 
+		}
+	@media screen and (max-width: 430px) { 
+		.the-before #explain br { display: none; } 
+		}
+	@media screen and (max-width: 440px) { 
+		.the-appartment #explain br,
+		.the-passionate #explain br,
+		.the-tarmac #explain br,
+		.the-romanticism #explain br,
+		.the-perspective #explain br { display: none; } 
+		}
+	@media screen and (max-width: 450px) { .the-alps #explain br { display: none; } }
+	@media screen and (max-width: 460px) { .the-happy #explain br { display: none; } }
+	@media screen and (max-width: 470px) { 
+		.the-summer #explain br,
+		.the-mccafe #explain br,
+		.the-consequences #explain br { display: none; } 
+		}
+	@media screen and (max-width: 495px) { .the-end #explain br { display: none; } }
+	@media screen and (max-width: 540px) { 
+		.the-empty #explain br,
+		.the-rainy #explain br { display: none; } 
+		}
+	@media screen and (min-width: 780px) and (max-width: 1010px) { .the-end #explain br { display: none; } }
+	
+#image, 
+#video-background {
+	right: 0; 
+	bottom: 0;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+		 -o-background-size: cover;
+			background-size: cover;
+	}
+	
+#image { 
+	position: absolute;
+	-webkit-transition: all 1s ease;
+	   -moz-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+		 -o-transition: all 1s ease;
+			transition: all 1s ease;
+  	}
+
+.from-the-journal #image {
+	background-attachment: scroll;
+	height: 18em;
+	bottom: auto;
+	}
+
+@media screen and ( min-width: 400px ) {
+	.from-the-journal.has-media #image { height: 21em; }
+	}
+
+@media screen and ( min-width: 1024px ) {
+	.from-the-journal.has-media #image { height: 24em; }
+	}
+	
+#video-background {
+	position: fixed;
+	overflow: hidden;
+	}
+	
+	#video-background > video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		}
+	
+	@media (min-aspect-ratio: 16/9) { #video-background > video { height: 300%; top: -100%; } }
+	@media (max-aspect-ratio: 16/9) { #video-background > video { width: 300%; left: -100%; } }
+	
+	@supports (object-fit: cover) {
+		#video-background > video {
+			width: 100%; 
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}	  
+	}
+	
+#indicator {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 5%;
+	opacity: 0;
+	z-index: 2;
+	}
+	
+	#indicator.left-side  {
+		left: 0;
+		background: -moz-linear-gradient(left,  rgba(188,37,37,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(188,37,37,1)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  rgba(188,37,37,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  rgba(188,37,37,1) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  rgba(188,37,37,1) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+		background: linear-gradient(to right,  rgba(188,37,37,1) 0%,rgba(0,0,0,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bc2525', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+		}
+		
+	#indicator.right-side {
+		right: 0;
+		background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(188,37,37,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(188,37,37,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(188,37,37,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(188,37,37,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(188,37,37,1) 100%); /* IE10+ */
+		background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(188,37,37,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bc2525',GradientType=1 ); /* IE6-9 */
+		}
+		
+#overlay { 
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background: rgba( 255, 255, 255, .8 );
+	cursor: pointer;
+	}
+	
+#video-container { 
+	max-width: 600px;
+	margin: 0 auto;
+	}
+
+#video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+	}
+	
+#video iframe,
+#video object,  
+#video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;	
+	}
+	
+#history {
+	position: absolute;
+	top: 0;
+	left: 0; 
+	right: auto;
+	width: 100%;
+	z-index: 5;
+	-webkit-transition: all 1s ease;
+	   -moz-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+		 -o-transition: all 1s ease;
+			transition: all 1s ease;
+	}
+
+#history.off-canvas { 
+	right: 100%;
+	left: auto;
+	}
+
+@media screen and ( min-width: 61.5em ) {
+
+	.from-the-journal #history {
+		top: 12.5em;
+		left: 0;
+		right: auto;
+		width: 9em;
+		}
+
+	.from-the-journal.has-media #history { top: 23.5em; }
+
+	}
+
+@media screen and ( min-width: 64em ) {
+
+	.from-the-journal #history { top: 16em; }
+
+	.from-the-journal.has-media #history { top: 26.5em; }
+
+	}
+
+
+	#history li { display: inline-block; }
+
+	@media screen and ( min-width: 61.5em ) {
+		.from-the-journal #history li { display: block; }
+		}
+		
+		#history a { 
+			border: .25em solid rgba( 0, 0, 0, .1 );
+			border-width: 0 .25em .25em 0;
+			background-color: #fff;
+			color: #000;
+			display: block;
+			line-height: 3;
+			}
+
+		#history a:visited { color: #777; }
+
+		@media screen and ( min-width: 61.5em ) {
+			.from-the-journal #history a { 
+				border-width: 0 0 1px; 
+				background: none;
+				border-color: #666;
+				border-style: dashed;
+				line-height: 2.9375em;
+				padding: 0 .75em;
+				}
+			}
+
+		#history a:hover, #history a:focus { 
+			color: #fff;
+			background: #666;
+			}
+		
+		body #history .active, body #history .active:hover, body #history .active:focus, body #history .active:active {
+			background-color: #000;
+			color: #fff;
+			cursor: default;
+			}
+			
+			#history small { 
+				color: #fff; 
+				display: none;
+				}
+
+			@media screen and ( min-width: 61.5em ) {
+
+				.from-the-journal #history small { color: #333; }
+
+				.from-the-journal #history a:visited small { color: #777; }
+
+				.from-the-journal #history .active small { color: inherit; }
+
+				}
+
+			
+			@media screen and ( min-width: 600px ) {
+				#history small { display: inline; }
+			}
+
+			#history:hover small,
+			#history a:active small, #history a:focus small, #history a:hover small { color: inherit; }
+
+
+.the-archive { 
+	padding-top: 4em;
+	background: #000; 
+	}
+	
+.the-archive #text {
+	position: fixed;
+	background: rgba( 0, 0, 0, .8 );
+	width: 100%;
+	top: 0;
+	bottom: auto;
+	left: 0;
+	z-index: 4;
+	}
+	
+	.the-archive #text h1 { 
+		font-size: 2em; 
+		padding: .5em 5%;
+		}
+	
+#archive li {
+	width: 100%;
+	float: left;
+	position: relative;
+	list-style: none;
+	}
+
+#archive .from-the-journal { background: #fff; }
+
+	#archive article {
+		width: 100%;
+		position: relative;
+		padding-bottom: 45%;
+		overflow: hidden;
+		height: 0;
+		}
+		
+		#archive a {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			padding: 0;
+			}
+
+		#archive a,
+		#archive .from-the-journal.has-media a { color: #fff; }
+
+		#archive .from-the-journal a { 
+			background: none;
+			color: #333; 
+			}
+	
+			#archive figure {
+				width: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+				}
+			
+			#archive header {
+				position: absolute;
+				left: 5%;
+				top: 1em;
+				z-index: 2;
+				}
+				
+				#archive h1,
+				#archive p { 
+					float: left;
+					clear: both;
+					}
+
+				#archive .from-the-journal h1,
+				#archive .from-the-journal p { padding: 0; } 
+					
+				#archive h1 {
+					font-size: 2em;
+					font-weight: 500;
+					padding: 0 .5em 0 .25em;
+					}
+
+				#archive .from-the-journal h1 { 
+					font-size: 4.5em; 
+					line-height: .8;
+					}
+
+				@media ( max-width: 480px ), ( min-width: 640px ) and ( max-width: 700px ), ( min-width: 940px ) and ( max-width: 1024px ), ( min-width: 1280px ) {
+						#archive .from-the-journal h1 { font-size: 6em; }
+					}
+					
+				#archive p { padding: 0 1em .25em .5em; }
+
+				
+
+.the-archive #indicator { display: none; }
+	
+
+@media screen and (min-width: 340px) {
+	
+	.the-before #text,
+	.the-romanticism #text,
+	.the-mccafe #text { padding: 4em 3em; }
+	
+	.the-mccafe #text { 
+		padding-bottom: 1em;
+		left: -2em;
+		}
+	
+	}
+	
+@media screen and (min-width: 400px) {
+	
+	#text h1 { font-size: 9em; }
+	
+	#subtitle {	letter-spacing: 5px; }
+	
+	.the-mccafe #text { max-width: 290px; }
+	
+	}
+	
+
+@media screen and (min-width: 440px) {
+	
+	.the-before #text,
+	.the-romanticism #text,
+	.the-mccafe #text { padding: 5em 2em; }
+		
+	.the-before #text,
+	.the-romanticism #text { left: auto; }
+
+	.the-mccafe #text { 
+		right: auto;
+		padding-bottom: 1em; 
+		left: -1em;
+		}
+
+	}
+	
+@media screen and (min-width: 470px) {
+	
+	.the-mccafe #text { max-width: none; }
+			
+	#archive li { width: 50%; }
+	
+	.the-archive #text h1 { 
+		padding-left: 2.5%;
+		padding-right: 2.5%;
+		}
+	
+	}
+	
+@media screen and (min-width: 580px) {
+	
+	.the-suncat #text { 
+		left: auto; 
+		right: 5%;
+		width: auto; 
+		}
+	
+	}
+	
+	
+@media screen and (min-width: 700px) {
+
+	.the-angry #text h1,
+	.the-supermoon #text h1,
+	.the-autumn #text h1 { font-size: 4.5em; }
+
+	.the-alright #text h1 { font-size: 9em; }
+	
+	#text { bottom: 10%; }
+	
+		.the-coding #text { bottom: 0; }
+			
+		.the-end #text {
+			bottom: auto;
+			padding-top: 3em;
+			max-width: 40%;
+			}
+			
+	#archive li { width: 33.3333%; }
+	
+	.the-archive #text h1 { 
+		padding-left: 1.666666%;
+		padding-right: 1.666666%;
+		}
+	
+	}
+
+
+@media screen and (min-width: 1024px) {
+	
+	.the-end #text { 
+		padding: 5em 0 0 5em;
+		left: auto;
+		max-width: none;
+		}
+		
+	.the-before #text,
+	.the-romanticism #text,
+	.the-mccafe #text { padding: 4em 3em; }
+	
+	.the-mccafe #text { 
+		padding-bottom: 1em;
+		left: -2em;
+		}
+		
+	#text h1 { font-size: 12em; }
+	
+		.the-coding #text h1 { padding: 0 .125em; }
+		
+		.the-angry #text h1,
+		.the-supermoon #text h1,
+		.the-autumn #text h1 { font-size: 6em; }
+
+		.the-alright #text h1 { font-size: 12em; }
+	
+	#subtitle { 
+		font-size: 1.5em;
+		line-height: 2;
+		letter-spacing: 4px;
+		margin-top: -.5em;
+		}
+		
+		.the-coding #subtitle { 
+			line-height: 1;
+			padding: 0 1em;
+			}
+			
+	#archive li { width: 25%; }
+	
+	.the-archive #text h1 { 
+		padding-left: 1.25%;
+		padding-right: 1.25%;
+		}
+	
+	}
+
+
+/**
+ * Initialiazing a `footnotes` counter on the wrapper
+ */
+
+.footnote-link,
+.footnote-link:hover,
+.footnote-link:focus {
+	text-decoration: none; 
+	color: inherit;
+	outline: none; 
+	background: none;
+	padding: 0;
+	}
+
+sup[id^="fnref"]:target { background: none; }
+
+	sup[id^="fnref"]:target a { background: rgba( 255, 255, 255, .5 ); }
+
+@media ( min-width: 600px ) {
+	.footnotes { line-height: 2.25; }
+	}
+
+	.footnotes hr { 
+		border-top: 1px dashed; 
+		margin: 0 0 1.5em;
+		}
+
+	@media ( min-width: 600px ) {
+		.footnotes hr { margin-bottom: 2.25em; }
+		}
+
+	#text .footnotes p { 
+		font: inherit; 
+		margin-bottom: 0;
+		}
+
+	.footnotes :target { background: rgba( 0, 0, 0, .1 ); }
