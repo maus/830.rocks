@@ -1,0 +1,7 @@
+#Ignore files
+.ftpquota
+error_log
+
+# Ignore folders.
+stats/*
+
