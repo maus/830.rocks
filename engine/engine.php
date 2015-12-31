@@ -519,6 +519,8 @@ function get_imageHTML( $page = '' ) {
 
 
 function get_video( $extension, $page = '' ) {
+	global $thingies;
+
 	if ( ! $page ) {
 		$page = PAGE;	
 	}
