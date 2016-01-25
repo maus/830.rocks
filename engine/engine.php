@@ -207,6 +207,12 @@ $journal = array(
 		'song' => 'Citizen Cope - Sideways',
 		'embed' => 'ezz-nazThiM',
 		),
+	'25-01-2016_01-10' => array(
+		'background' => 'rgba(140, 70, 0, .3)',
+		'song' => 'The Smashing Pumpkins - The Beginning Is the End Is the Beginning',
+		'embed' => '59g5R8rwqpY',
+		'image' => 'cut-the-bullshit.jpg'
+		),
 
 	);
 

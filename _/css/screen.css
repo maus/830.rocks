@@ -179,11 +179,17 @@ time { border-bottom: 1px dotted; }
 	.from-the-journal.has-media #text { margin-top: 6em; }
 
 	.from-the-journal #text p,
-	.from-the-journal #text ul { margin-bottom: 1.5em; }
+	.from-the-journal #text ul,
+	.from-the-journal #text ol { margin-bottom: 1.5em; }
+
+	.from-the-journal #text .footnotes ol { margin-bottom: 0; }
 
 	@media screen and ( min-width: 600px ) {
 		.from-the-journal #text p,
-		.from-the-journal #text ul { font-size: 1.5em; }
+		.from-the-journal #text ul,
+		.from-the-journal #text ol { font-size: 1.5em; }
+
+		.from-the-journal #text .footnotes li { font-size: .66em; }
 	}
 
 	.from-the-journal #text .date { margin-bottom: -1.5em; }
