@@ -37,7 +37,7 @@
                 <mark>Your guests</mark>
                 </br>
                 <small>Only to get an idea of what we're planning for.</small><br />
-                <label>Grown-ups <input required type='number' name='adults' /> & Kids <input required type='number' name='kids'></label>
+                <label>Grown-ups <input required type='number' min='0' value='0' name='adults' /> & Kids <input required type='number' min='0' name='kids' value='0' /></label>
             </p>
             <?php
             if( isset( $_GET['id'] ) && ctype_alnum( $_GET['id'] ) ) :

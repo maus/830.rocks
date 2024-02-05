@@ -1,6 +1,6 @@
 #Ignore files
 .ftpquota
-error_log
+web/rsvp.csv
 
 # Ignore folders.
 stats/*
