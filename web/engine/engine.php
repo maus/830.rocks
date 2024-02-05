@@ -1,10 +1,18 @@
 <?php
 
+if( isset( $_POST['submit'] ) ) {
+	exit;
+}
+
 $pages = [    	
 	'rsvp' => [
 		'image' => 'PXL_20230203_131915978.MP.jpg',
 		'video' => 'infinity',
 		'title' => 'RSVP'
+	],
+	'process-rsvp' => [
+		'title' => '🤞 Sending',
+		'hidden' => true,
 	],
 	'home' => [
 		'title' => '830.rocks',
@@ -27,6 +35,7 @@ $pages = [
 define( "SITEROOT", get_siteRoot() );
 define( "IMGS_URL", SITEROOT . 'assets/img/' );
 define( "IMGS_PATH", ABSPATH . 'assets/img/' );
+define( "VIDEO_URL", SITEROOT . 'assets/video/' );
 define( "THUMBS_URL", IMGS_URL . 'thumbs/' );
 define( "THUMBS_PATH", IMGS_PATH . 'thumbs/' );
 define( 'PAGE', page() );
@@ -185,7 +194,7 @@ function get_image( $page = '' ) {
 	return str_replace( array( "background-image: url( ", " );" ), "", $backgroundStyle );
 	*/
 	
-	return ( ! empty( $pages[$page]['image'] ) ? "assets/img/" . $pages[$page]['image'] : false );
+	return ( ! empty( $pages[$page]['image'] ) ? IMGS_URL . $pages[$page]['image'] : false );
 }
 
 function get_imageHTML( $page = '' ) {
@@ -204,7 +213,7 @@ function get_video( $extension, $page = '' ) {
 		$page = PAGE;	
 	}
 	
-	return 'assets/video/' . $pages[$page]['video'] . '.' . $extension;
+	return VIDEO_URL . $pages[$page]['video'] . '.' . $extension;
 }
 
 function get_videoHTML( $page = '' ) {

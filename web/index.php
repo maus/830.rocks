@@ -1,13 +1,15 @@
-<?php define( "ABSPATH", dirname( __FILE__ ) . '/' ); ?>
+<?php 
 
-<?php require_once ABSPATH . "engine/engine.php"; ?>
+define( "ABSPATH", dirname( __FILE__ ) . '/' ); 
+require_once ABSPATH . "engine/engine.php"; 
+?>
 
 <!doctype html>
 <html>
 	<head>
     	<meta charset='utf-8' />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    	<title>830.rocks</title>
+    	<title>830.rocks 🎉 <?= get_title() ?></title>
     </head>
     <body class='<?php echo get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>    
     	<?php include get_pageTemplate(); ?>
