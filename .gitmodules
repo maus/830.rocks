@@ -1,0 +1,7 @@
+[submodule "parsedown"]
+	path = engine/vendor/parsedown
+	url = https://github.com/erusev/parsedown.git
+
+[submodule "parsedown-extra"]
+	path = engine/vendor/parsedown-extra
+	url = https://github.com/erusev/parsedown-extra.git
