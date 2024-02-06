@@ -24,7 +24,7 @@ require_once ABSPATH . "engine/engine.php";
 		<?php display_pagesMenu(); ?>
 
         <script>
-            if( typeof( document.getElementById( 'rsvp-data' ) !== 'null' ) ) {
+            if( document.getElementById( 'rsvp-data' ) != null ) {
                 document.getElementById( 'rsvp-yup' ).addEventListener( 'change', function( ev ) {
                     document.getElementById( 'rsvp-data' ).classList.remove( 'js-hidden' );
                     toggleRequired( true );
