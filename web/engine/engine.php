@@ -6,7 +6,7 @@ if( isset( $_POST['submit'] ) ) {
 
 $pages = [    	
 	'rsvp' => [
-		'image' => 'PXL_20230203_131915978.MP.jpg',
+		'image' => 'infinity.jpg',
 		'video' => 'infinity',
 		'title' => 'RSVP',
 		'description' => "We'd love for you to join us on August 30th for Ana and Marius's Big Day.",
