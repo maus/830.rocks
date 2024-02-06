@@ -7,6 +7,7 @@ if( isset( $_POST['submit'] ) ) {
 $pages = [    	
 	'rsvp' => [
 		'image' => 'infinity.jpg',
+		'thumb' => 'thumbs/infinity.jpg',
 		'video' => 'infinity',
 		'title' => 'RSVP',
 		'description' => "We'd love for you to join us on August 30th for Ana and Marius's Big Day.",
@@ -202,6 +203,16 @@ function get_image( $page = '' ) {
 	return ( ! empty( $pages[$page]['image'] ) ? IMGS_URL . $pages[$page]['image'] : false );
 }
 
+function get_thumb( $page = '' ) {
+	global $pages;
+	
+	if ( ! $page ) {
+		$page = PAGE;	
+	}
+		
+	return ( ! empty( $pages[$page]['thumb'] ) ? IMGS_URL . $pages[$page]['thumb'] : false );
+}
+
 function get_imageHTML( $page = '' ) {
 	if ( ! $page ) {
 		$page = PAGE;	
@@ -273,7 +284,11 @@ function openGraphMeta() {
 				break;
 
 			case 'image' :
-				$value = get_image( PAGE );
+				if( $thumb = get_thumb( PAGE ) ) {
+					$value = $thumb;
+				} else {
+					$value = get_thumb( PAGE );
+				}
 				break;
 
 			default :
