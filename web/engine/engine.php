@@ -8,14 +8,15 @@ $pages = [
 	'rsvp' => [
 		'image' => 'PXL_20230203_131915978.MP.jpg',
 		'video' => 'infinity',
-		'title' => 'RSVP'
+		'title' => 'RSVP',
+		'description' => "We'd love for you to join us on August 30th for Ana and Marius's Big Day.",
 	],
 	'process-rsvp' => [
 		'title' => '🤞 Sending',
 		'hidden' => true,
 	],
 	'home' => [
-		'title' => '830.rocks',
+		'title' => get_siteTitle(),
 		'locked' => true,
 	],
 	'the-big-day' => [
@@ -46,6 +47,10 @@ require_once ABSPATH . 'engine/vendor/parsedown-extra/ParsedownExtra.php';
 if ( ! in_array( PAGE, array_keys( $pages ) ) ) {
 	header( 'HTTP/1.1 404 Not Found' );
 	die( "<h1>That's not a page</h1>" );
+}
+
+function get_siteTitle() {
+	return "830.rocks";
 }
 
 function get_siteRoot() {
@@ -243,6 +248,41 @@ function get_media( $page = '' ) {
 		return get_videoHTML( $page );
 	} else {
 		return get_imageHTML( $page );
+	}
+}
+
+function openGraphMeta() {
+	global $pages;
+
+	if( empty( $pages[PAGE] ) ) {
+		return;
+	}
+	
+	$pageData = $pages[PAGE];
+	foreach( [
+		'title',
+		'description',
+		'image'
+	] as $elementId ) {
+		if( empty( $pageData[$elementId] ) ) {
+			continue;
+		}
+		switch( $elementId ) {
+			case 'title' :
+				$value = get_siteTitle() . " 🎉 " . $pageData[$elementId];
+				break;
+
+			case 'image' :
+				$value = get_image( PAGE );
+				break;
+
+			default :
+				$value = $pageData[$elementId];
+				break;
+		}
+		?>
+		<meta name="og:<?= $elementId ?>" content="<?= $value ?>" />
+		<?php
 	}
 }
 

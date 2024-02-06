@@ -9,7 +9,8 @@ require_once ABSPATH . "engine/engine.php";
 	<head>
     	<meta charset='utf-8' />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    	<title>830.rocks 🎉 <?= get_title() ?></title>
+    	<title><?= get_siteTitle() ?> 🎉 <?= get_title() ?></title>
+        <?= openGraphMeta() ?>
     </head>
     <body class='<?php echo get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>    
     	<?php include get_pageTemplate(); ?>
