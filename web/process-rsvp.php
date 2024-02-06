@@ -10,6 +10,7 @@ if( ! isset( $_POST['submit-rsvp'] ) ) {
 $RSVPResource = fopen( ABSPATH . 'rsvp.csv', 'a+' );
 fputcsv( $RSVPResource, [
     $_POST['uuid'],
+    $_POST['rsvp'],
     $_POST['name'],
     $_POST['email'],
     $_POST['adults'],

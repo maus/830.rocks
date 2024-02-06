@@ -302,6 +302,65 @@ function openGraphMeta() {
 	}
 }
 
+function maybe_getData( $recordId = NULL ) {
+	$headerMap = [
+		'uuid' => '',
+		'nick' => '',
+		'name' => '',
+		'email' => '',
+	];
+
+	$res = fopen( ABSPATH . 'export.csv', 'r' );
+	if( ! $res ) {
+		return $headerMap;
+	}
+
+	if( is_null( $recordId ) ) {
+		if( empty( $_GET ) || empty( $_GET['id'] ) || ! ctype_alnum( $_GET['id'] ) ) {
+			return $headerMap;
+		}
+
+		$recordId = "rec{$_GET['id']}";
+	}
+
+	$idx = 0;
+	$uuidKey = NULL;
+	$headers = [];
+	while( ( $data = fgetcsv( $res, 1000, "," ) ) !== FALSE ) {
+		if( ! $idx ) {
+			$headers = $data;
+			foreach( $headers as $key => $header ) {
+				switch( $header ) {
+					case 'Uuid' :
+						$uuidKey = $key;
+						$headerMap['uuid'] = $key;
+						break;
+					case 'Email' :
+						$headerMap['email'] = $key;
+						break;
+					case 'Nick' :
+						$headerMap['nick'] = $key;
+						break;
+					case 'First name' :
+						$headerMap['name'] = $key;
+						break;
+
+				}
+			}
+		} else {
+			if( $data[$uuidKey] == $recordId ) {
+				foreach( $headerMap as $key => $idx ) {
+					$output[$key] = ! empty( $data[$idx] ) ? $data[$idx] : '';
+				}
+				return $output;
+			}
+		}
+		$idx++;
+	}
+	
+	return NULL;
+}
+
 function get_pageClass( $page = '' ) {
 	global $pages;
 	

@@ -11,52 +11,46 @@
         <summary><u>Fill out the form 🎉</u></summary>
         <form method='POST' action='/process-rsvp'>
             <fieldset>
+                <?php
+                $data = maybe_getData(); 
+                ?>
+                <input type='hidden' name='uuid' value='<?= $data['uuid'] ?>' />
                 <p><label>
                     <mark>Your name</mark>
                     <br />
                     <small>Or nickname or aka.</small><br />
-                    <input required type='text' name='name'>
+                    <input required type='text' name='name' value='<?php 
+                        if( ! empty( $data['nick'] ) ) {
+                            echo $data['nick'];
+                        } else {
+                            echo $data['name'];
+                        } ?>' />
                 </label></p>
                 <p>
                     <mark>Are you gonna join us?</mark>
                     <br />
                     <small>Let's get this out of the way first.</small><br />
-                    <label><input required type='radio' name='rsvp' value='yup' /> Joyfully attending</label>
-                    <label><input required type='radio' name='rsvp' value='nope' /> Respectfully declining</label>
-                </label></p>
-                <?php
-                if( isset( $_GET['em'] ) && $_GET['em'] == '1' && isset( $_GET['id'] ) ) :
-                    ?>
-                    <input type='hidden' name='email' value='em1' />
-                    <?php
-                else :
-                    ?>
+                    <label><input id='rsvp-yup' required type='radio' name='rsvp' value='yup' /> Joyfully attending</label>
+                    <label><input id='rsvp-nope' required type='radio' name='rsvp' value='nope' /> Respectfully declining</label>
+                </p>
+                <div id='rsvp-data' class='js-hidden'>
                     <p>
                         <label>
                             <mark>Your email</mark><br />
                             <small>Would be really cool if we could keep you updated via email.</small><br />
-                            <input type='email' name='email' />
+                            <input id='rsvp-email' type='email' name='email' value='<?= $data['email'] ?>' />
                         </label>
                     </p>
-                    <?php
-                endif;
-                ?>
-                <p>
-                    <mark>Your +1s</mark>
-                    </br>
-                    <small>Only to get an idea of what we're planning for</small><br />
-                    <label>Grown-ups you're bringing (excluding yourself) <input required type='number' min='0' value='0' name='adults' /> & kids <input required type='number' min='0' name='kids' value='0' /></label>
-                </p>
-                <?php
-                if( isset( $_GET['id'] ) && ctype_alnum( $_GET['id'] ) ) :
-                    ?>
-                    <input type='hidden' name='uuid' value='<?= $_GET['id'] ?>' />
-                    <?php
-                    endif;
-                ?>
+                    <p>
+                        <mark>Your +1s</mark>
+                        <br />
+                        <small>Only to get an idea of what we're planning for</small><br />
+                        <label>Grown-ups you're bringing (excluding yourself) <input id='rsvp-adults' type='number' min='0' value='0' name='adults' /> & kids <input id='rsvp-kids' type='number' min='0' name='kids' value='0' /></label>
+                    </p>
+                </div>
             </fieldset>
 
-            <button name='submit-rsvp' type='submit'>🤞 Send your RSVP</button>
+            <button id='rsvp-submit' name='submit-rsvp' type='submit'>🤞 Send your RSVP</button>
         </form>
     </details>
     <hr />
@@ -67,6 +61,6 @@
         <li>Branding this website (a couple <a href='https://www.typewolf.com/go/roc-grotesk'>nice</a> <a href='https://www.typewolf.com/go/mrs-eaves'>typefaces</a> and a solid color palette).</li>
         <li>The Big Day schedule and info about the location. We know now it's on 30.08.2024 at <a href='https://www.bohoforest.ro/services/nunti/'>Boho Forest</a>.</li>
         <li>Stuff to do in Bucharest for a couple of days. It's really nice.</li>
-        <li>The post-wedding weekend in Vama Veche, by the sea. IYKYK.</li>
+        <li>The post-wedding weekend in Vama Veche, by the sea.</li>
     </ol>
 </div>
