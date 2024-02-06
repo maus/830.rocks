@@ -9,7 +9,8 @@ $pages = [
 		'image' => 'infinity.jpg',
 		'thumb' => 'thumbs/infinity.jpg',
 		'video' => 'infinity',
-		'title' => 'RSVP',
+		'title' => "RSVP",
+		'og:title' => "RSVP to Ana & Marius's Wedding",
 		'description' => "We'd love for you to join us on August 30th for Ana and Marius's Big Day.",
 	],
 	'process-rsvp' => [
@@ -280,7 +281,7 @@ function openGraphMeta() {
 		}
 		switch( $elementId ) {
 			case 'title' :
-				$value = get_siteTitle() . " 🎉 " . $pageData[$elementId];
+				$value = get_siteTitle() . " 🎉 " . ( ! empty( $pageData["og:{$elementId}"] ) ? $pageData["og:{$elementId}"] : $pageData[$elementId] );
 				break;
 
 			case 'image' :
@@ -292,7 +293,7 @@ function openGraphMeta() {
 				break;
 
 			default :
-				$value = $pageData[$elementId];
+				$value = ! empty( $pageData["og:{$elementId}"] ) ? $pageData["og:{$elementId}"] : $pageData[$elementId];
 				break;
 		}
 		?>
