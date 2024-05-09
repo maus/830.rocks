@@ -1,0 +1,5 @@
+@mixin vertically-aligned( $position: 'center' ) {
+    display: flex;
+    justify-content: #{$position};
+    flex-direction: column;
+}

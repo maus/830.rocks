@@ -1,0 +1,19 @@
+@mixin list--unstyled {
+  padding: 0;
+  list-style: none;
+
+  li > ul,
+  li > ol { padding: 0; }
+}
+
+@mixin list--horizontal {
+    @include list--unstyled();
+
+    > li {
+        display: inline-block;
+
+        &:not( :last-child ) {
+            margin-#{$endDirection}: $tight-spacing;
+        }
+    }
+}

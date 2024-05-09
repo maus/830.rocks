@@ -1,0 +1,11 @@
+@mixin image-cover-background() {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+
+    .c-media {
+        height: 0;
+        margin: 0;
+        visibility: hidden;
+    }
+}

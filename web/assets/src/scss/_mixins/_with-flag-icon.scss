@@ -1,0 +1,11 @@
+@mixin with-flag-icon( $container-size: $normal-spacing, $flag: 'none', $background-color-name: 'white' ) {
+    padding-#{$startDirection}: #{to-number( $container-size ) + to-number( $hairline-spacing )};
+    position: relative;
+
+    @if $flag != 'none' {
+        background-image: url( '../graphic/flags/' + $flag + '.svg' );
+    }
+    background-position: #{$startDirection} center;
+    background-repeat: no-repeat;
+    background-size: auto #{to-number( $container-size ) - to-number( $hairline-spacing )};
+}

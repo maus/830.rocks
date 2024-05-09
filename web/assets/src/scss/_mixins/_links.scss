@@ -1,0 +1,26 @@
+@mixin muted-link() {
+    @include expanding-background( 'light-gray' );
+
+    border-bottom-color: hex( 'light-gray' );
+}
+
+@mixin minimal-link( $color: 'link-border-color' ) {
+    background-image: none;
+    border-bottom-color: hex( $color );
+
+    &:focus,
+    &:hover {
+        @include expanding-background( $color );
+    }
+}
+
+@mixin disabled-link() {
+    cursor: default;
+    pointer-events: none;
+}
+
+@mixin hidden-link() {
+    cursor: default;
+    background: none !important;
+    border: none;
+}

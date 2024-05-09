@@ -1,0 +1,33 @@
+@mixin grid( $content: 'medium', $items: 100 ) {
+    @include list--unstyled;
+    
+    margin-bottom: 0;
+    
+    @media ( min-width: $breakpoint-small ) {
+        display: grid;
+        row-gap: 0;
+        column-gap: $gutter-width;
+        
+        @if $items != 3 {
+            grid-template-columns: repeat( 2, minmax( 0, 1fr ) );
+        }
+    }
+
+    @if ( $items > 1 ) and ( $items != 2 ) and ( $items != 4 ) { 
+        @media ( min-width: $breakpoint-medium ) {
+            grid-template-columns: repeat( 3, minmax( 0, 1fr ) );
+        }
+    }
+
+    @if ( $content == 'medium' or $content == 'compact' ) and ( $items > 6 ) or ( $items == 4 ) {
+        @media ( min-width: $breakpoint-large ) {
+            grid-template-columns: repeat( 4, minmax( 0, 1fr ) );
+        }
+    }
+
+    @if ( $content == 'compact' ) and ( $items > 10 ) {
+        @media ( min-width: $breakpoint-x-large ) {
+            grid-template-columns: repeat( 6, minmax( 0, 1fr ) );
+        }
+    }
+}

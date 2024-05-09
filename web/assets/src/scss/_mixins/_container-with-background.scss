@@ -1,0 +1,118 @@
+@mixin container-with-background( $color-name, $addImportant: false, $transparency: 0 ) {
+    $color: hex( $color-name );
+    
+    @if $transparency != 0 {
+        $color: transparentize( $color, $transparency )
+    }
+
+    $important: "";
+    @if $addImportant != false {
+        $important: " !important";
+    } 
+
+    background-color: $color#{$important};
+
+    $text-color: null;
+    $link-border-color-name: null;
+    @if has-low-contrast( $color-name ) {
+        $text-color: hex( 'text-color' );
+        $link-border-color-name: 'link-border-color';
+    } @else {
+        $text-color: hex( 'inverted' );
+        $link-border-color-name: 'inverted';
+    }
+
+    $link-border-color: hex( #{$link-border-color-name} );
+    $link-border-color-contrast-color: get-contrast-color( $link-border-color-name );
+
+    color: $text-color;
+        
+    a:not( .c-button ):not( .c-link--icon-only ):not( .c-site-branding__link ) {
+        @include expanding-background( $link-border-color-name );
+
+        border-bottom-color: $link-border-color;
+        color: inherit;
+    }
+
+    a:not( .c-button ):not( .c-link--icon-only ):not( [class*='link--current'] ):hover,
+    a:not( .c-button ):not( .c-link--icon-only ):not( [class*='link--current'] ):focus {
+        color: $link-border-color-contrast-color;
+        }
+    
+    
+    .c-menu {
+        .c-menu__item a.c-menu__item__link:not( [class*='link--current'] ):not( :hover ) { 
+            background-size: 0 0;
+        }
+
+        .c-menu__item a.c-menu__item__link[class*='link--current']:hover, 
+        .c-menu__item a.c-menu__item__link[class*='link--current']:focus {
+            color: inherit;
+            background-size: $thick-border-width $medium-border-width;
+        } 
+    }
+
+    .c-button:not([class*='button--']):not([disabled]),
+    button:not([class*='button--']),
+    input[type="submit"] {
+        &:hover,
+        &:focus {
+            background-color: $link-border-color-contrast-color;
+            color: $link-border-color;
+            }
+        }
+
+    blockquote:before { color: $text-color; }
+    
+    h1, 
+    h2, 
+    h3, 
+    h4, 
+    thead tr > *, 
+    dt,
+    .p-name, 
+    .c-lead,
+    .c-stat .c-stat__figure, 
+    .c-stat .c-stat__highlight,
+    .c-section-header,
+    .c-section-header .c-heading,
+    .c-heading {
+        color: $text-color#{$important};
+    }
+
+    .c-section-header .c-section-header__supra,
+    .c-section-header .c-section-header__sub {
+        color: transparentize( $text-color, .5 );
+    }
+
+    @if has-low-contrast( $color-name ) == false {
+        .c-site-branding:not( [class*='negative'] ) {
+            @include site-logo--white-type();
+        }
+
+        .c-icon[class*="c-icon"]:not( [class*='icon--flag'] ):not( .c-icon--negative ),
+        .js-toggle:not( [class*='--in-place'] ).c-icon-close {
+            filter: brightness( 0 ) invert( 1 );
+        }
+
+        .c-tag {
+            background-color: get-contrast-color( $color-name );
+            color: $color;
+            }
+
+        .form-row .form-input { border: none; }
+    } @else {
+        .c-icon[class*="c-icon"]:not( [class*='icon--flag'] ):not( .c-icon--negative ),
+        .js-toggle.c-icon-close {
+            filter: none;
+        }
+    }
+
+    .c-avatar { 
+        background-color: $color; 
+
+        .c-icon {
+            filter: none;
+        }
+    }
+}

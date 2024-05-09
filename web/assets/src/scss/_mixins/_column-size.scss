@@ -1,0 +1,4 @@
+@mixin column-size( $divider ) {
+    flex: 0 0 calc( ( 100% - #{to-number( $gutter-width )} * #{$divider} ) / #{$divider} ); 
+    max-width: calc( ( 100% - #{to-number( $gutter-width )} * #{$divider} ) / #{$divider} ); 
+}

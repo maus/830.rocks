@@ -1,0 +1,54 @@
+@use "sass:color";
+
+@keyframes bounce {
+    0% {
+        position: relative;
+        top: -#{$normal-spacing};
+    }
+    80% {
+        top: $tight-spacing;
+    }
+    100% {
+        position: static;
+    }
+}
+
+@keyframes fade-out-opacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes reveal-opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+	from {
+		transform: translate3d( 0, 100%, 0 );
+		visibility: visible;
+	}
+
+	to {
+		transform: translate3d( 0, 0, 0 );
+	}
+}
+
+@keyframes slide-down {
+	from {
+		transform: translate3d( 0, 0, 0 );
+	}
+
+	to {
+		visibility: hidden;
+		transform: translate3d( 0, 100%, 0 );
+	}
+}

@@ -1,0 +1,26 @@
+@mixin framed( $border-thickness: $medium-border-width, $border-color-name: 'inverted' ) {
+    @at-root #{&} {
+        border-radius: $controls-border-radius;
+        position: relative;
+    }
+
+    margin-left: -$hairline-spacing;
+    margin-right: -$hairline-spacing;
+    
+    & > * { 
+        position: relative;
+        z-index: $z-index-level-1; 
+        }
+
+    &:after {
+        content: '';
+        border: $border-thickness solid transparentize( hex( $border-color-name ), .5 );
+        border-radius: $controls-border-radius;
+        bottom: $hairline-spacing;
+        left: $hairline-spacing;
+        position: absolute;
+        right: $hairline-spacing;
+        top: $hairline-spacing;
+        z-index: $z-index-base;
+    }
+}

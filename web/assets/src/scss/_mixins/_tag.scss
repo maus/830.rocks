@@ -1,0 +1,19 @@
+@mixin tag() {
+    @include color-coded();
+
+    @extend %smaller;
+
+    background-color: hex( 'light-gray' );
+    border-radius: $hairline-spacing;
+    border-bottom-#{$endDirection}-radius: 0;
+    border: 0 solid hex( 'dark-blue' );
+    border-width: 0 0 $medium-border-width $medium-border-width;
+    display: inline-block;
+    padding: 0 $hairline-spacing;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &.c-tag--neutral { border-color: hex( 'dark-gray'); }
+
+    & + & { margin-#{$startDirection}: $tight-spacing; }
+}

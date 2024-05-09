@@ -1,0 +1,11 @@
+@mixin complementary( $rule-base, $theme-id: '' ) {
+    @if $theme-id != '' {
+        @if $rule-base != 'color' {
+            $rule-base: #{$rule-base}-color;
+        }
+        
+        #{$rule-base}: hex( get-theme-complementary-color-name( $theme-id ) );
+    } @else {
+        @warn "The complementary() mixin needs a theme argument";
+    }
+}

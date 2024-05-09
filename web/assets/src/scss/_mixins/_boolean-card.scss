@@ -1,0 +1,11 @@
+@mixin boolean-card() {
+
+    &[class*='boolean--0'] {
+        background-color: rgba( hex( 'error' ), .1 );
+    }
+    
+    &[class*='boolean--1'] {
+        background-color: rgba( hex( 'success' ), .1 );
+    }
+    
+}

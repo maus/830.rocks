@@ -15,30 +15,33 @@ $pages = [
 	],
 	'process-rsvp' => [
 		'title' => '🤞 Sending',
-		'hidden' => true,
+		'hidden' => TRUE,
 	],
 	'home' => [
 		'title' => get_siteTitle(),
-		'locked' => true,
+		'locked' => TRUE,
+		'og:title' => "Ana & Marius's Big Website",
+		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest." 
 	],
 	'the-big-day' => [
 		'title' => 'The Big Day',
-		'locked' => true,
+		'locked' => TRUE,
 	],
 	'to-the-sea' => [
 		'title' => 'Trip to the Sea',
-		'locked' => true,
+		'locked' => TRUE,
 	],
 	'on-bucharest' => [
-		'title' => 'See Bucharest',
-		'locked' => true
+		'title' => 'Going to Bucharest',
+		'locked' => TRUE
 	]
 ];
 
 define( "SITEROOT", get_siteRoot() );
-define( "IMGS_URL", SITEROOT . 'assets/img/' );
-define( "IMGS_PATH", ABSPATH . 'assets/img/' );
-define( "VIDEO_URL", SITEROOT . 'assets/video/' );
+define( "ASSETS_URL", SITEROOT . 'assets/dist/' );
+define( "IMGS_URL", ASSETS_URL . 'graphic/' );
+define( "IMGS_PATH", ABSPATH . 'assets/dist/graphic/' );
+define( "VIDEO_URL", ASSETS_URL . 'video/' );
 define( "THUMBS_URL", IMGS_URL . 'thumbs/' );
 define( "THUMBS_PATH", IMGS_PATH . 'thumbs/' );
 define( 'PAGE', page() );
@@ -93,9 +96,9 @@ function version_asset( $URL ) {
 	if ( $version ) {
 		$path = pathinfo( $URL );
 		
-		$output = SITEROOT . 'assets/' . $path['dirname'] . '/' . $path['filename'] . '.' . $version . '.' . $path['extension'];
+		$output = SITEROOT . 'assets/dist/' . $path['dirname'] . '/' . $path['filename'] . '.' . $version . '.' . $path['extension'];
 	} else {
-		$output = SITEROOT . 'assets/' . $URL;	
+		$output = SITEROOT . 'assets/dist/' . $URL;	
 	}
 	
 	echo $output;
@@ -104,6 +107,10 @@ function version_asset( $URL ) {
 
 function is_from_theJournal( $page = '' ) {
 	global $journal;
+
+	if( ! is_array( $journal ) ) {
+		return FALSE;
+	}
 
 	if ( ! $page ) {
 		$page = PAGE;	

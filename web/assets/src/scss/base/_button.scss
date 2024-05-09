@@ -1,0 +1,95 @@
+@use "sass:math";
+
+.c-button,
+button,
+input[type="submit"] {
+    background-color: hex( 'link-border-color' );
+    background-image: none;
+    border: none;
+    border-radius: $controls-border-radius;
+    color: get-contrast-color( 'link-border-color' );
+    display: inline-block;
+    font-weight: $bold;
+    height: auto;
+    line-height: #{ to-number( $half-large-spacing ) + to-number( $medium-border-width ) };
+    margin: $tight-spacing $normal-spacing 0;
+    margin-#{$startDirection}: 0;
+    padding: #{ to-number( $tight-spacing ) - to-number( $medium-border-width ) * 2 } $normal-spacing;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    
+    &:hover,
+    &:focus { 
+        background-color: darken( hex( 'link-border-color' ), 40% );
+    }
+
+    &[class*="--disabled"],
+    &[disabled] {
+        cursor: default;
+        pointer-events: none;
+        opacity: .4;
+    }
+
+    &:last-child { margin-#{$endDirection}: 0; }
+}
+
+.c-button--small {
+    @extend %smaller;
+
+    line-height: #{ to-number( $normal-spacing ) - to-number( $medium-border-width ) * 2 };
+    margin-top: 0;
+    padding: 0 $tight-spacing;
+}
+
+.c-button--secondary {
+    color: hex( 'inverted' );
+    background-color: hex( 'dark-gray' );
+}
+
+.c-button--muted {
+    color: hex( 'gray' );
+    background-color: hex( 'light-gray' );
+
+    &:hover,
+    &:focus { 
+        background-color: hex( 'gray' );
+        color: inherit; 
+        }
+}
+
+.c-button--inverted {
+    background-color: hex( 'inverted' );
+    color: hex( 'text-color' );
+
+    &:hover,
+    &:focus { 
+        background-color: hex( 'link-border-color' );
+        color: hex( 'inverted' ); 
+    }
+}
+
+$utility-modifiers: 'success', 'warning', 'error';
+@each $utility-modifier in $utility-modifiers {
+    .c-button--#{$utility-modifier} {
+        background-color: hex( #{$utility-modifier} );
+        color: get-contrast-color( #{$utility-modifier} );
+
+        &:hover,
+        &:focus {
+            background: darken( hex( #{$utility-modifier} ), 40% );
+        }
+    }
+}
+
+.c-button--close {
+    border-radius: 50%;
+
+    &:hover, 
+    &:focus { background-color: hex( 'inverted' ); }
+
+    &:hover::before, 
+    &:focus::before {
+        @include color-to-filter( 'text-color' );
+    } 
+}

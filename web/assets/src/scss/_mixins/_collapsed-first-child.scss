@@ -1,0 +1,13 @@
+@mixin collapsed-first-child() {
+    > header:first-child,
+    .c-section-header:first-child {
+        .c-heading,
+        h1,
+        h2 { margin-top: 0; }
+    }
+
+    > :first-child:not( .c-country-map ):not( .c-notice ) { 
+        margin-top: 0; 
+        padding-top: 0;
+    }
+}

@@ -1,0 +1,230 @@
+
+%sans-stack {
+    font-family: 'PT Sans', sans-serif;
+}
+
+%serif-stack {
+    font-family: 'PT Serif', sans-serif; 
+}
+
+%headline-stack {
+    font-family: 'PT Serif', sans-serif; 
+}
+
+%headline {
+    @extend %headline-stack;
+    @include relative-font-size( $large-spacing, $tight-leading );
+
+    color: hex( 'dark-blue' );
+    font-weight: normal;
+    line-height: $tight-leading;
+}
+
+%smaller {
+    @extend %sans-stack;
+
+    font-size: $small;
+}
+
+%micro {
+    @extend %sans-stack;
+
+    font-size: $micro;
+}
+
+%huge {
+    @extend %headline;
+    @include relative-font-size( $huge-spacing, $tight-leading );
+
+    font-weight: $normal;
+}
+
+html {
+    font-size: 100%;
+
+    @media ( min-width: $breakpoint-x-large ) {
+        font-size: 110%;
+    }
+
+    @media ( min-width: $breakpoint-huge ) {
+        font-size: 125%;
+    }
+}
+
+body { 
+    @extend %sans-stack;
+
+    color: hex( 'text-color' );
+    font-size: 1rem;
+    font-weight: $normal;
+    line-height: $normal-spacing;
+}
+
+h1,
+h2,
+h3 {
+    @extend %headline;
+
+    margin: 0;
+    }
+
+h4,
+h5,
+h6 {
+    font-weight: $bold;
+    font-size: inherit;
+    margin-bottom: 0;
+}
+
+h1 {
+    @include relative-font-size( $double-spacing, $tight-leading );
+
+    margin: $double-spacing 0 $large-spacing;
+}
+
+h2 { margin: $large-spacing 0 $normal-spacing; }
+
+h3 {
+    @include relative-font-size( $normal-spacing, $tight-leading );
+
+    margin-bottom: $normal-spacing;
+}
+
+h4 {
+    @include relative-font-size( $normal-spacing, $leading );
+
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+address,
+details,
+details summary,
+dl,
+figcaption,
+p,
+pre,
+ol,
+ul { margin: 0 0 $normal-spacing; }
+
+dt {
+    @extend h4;
+}
+
+hr {
+    border: $thin-border-width solid hex( 'light-gray' );
+    margin: $normal-spacing 0;
+    }
+
+ol,
+ul {
+    padding-#{$startDirection}: $gutter-width;
+    list-style-position: outside;
+}
+
+li > ol,
+li > ul {
+    padding-#{$startDirection}: $gutter-width;
+    margin-bottom: 0;
+}
+
+mark {
+    background-color: hex( 'notice' );
+    padding: 0 $hairline-spacing;
+}
+
+del { background-color: hex( 'error' ); }
+
+ins {
+    background-color: hex( 'success' );
+    text-decoration: none;
+    
+    &:before { content: '+'; }
+}
+
+kbd,
+code {
+    background-color: hex( 'light-gray' );
+}
+
+pre code {
+    display: block;
+    border-#{$startDirection}: $thick-border-width solid hex( 'gray' );
+    padding: $hairline-spacing $large-spacing;
+}
+
+sub,
+sup { font-size: $micro; }
+
+q { 
+    @extend %serif-stack;
+
+    font-style: normal;
+}
+
+abbr {
+    @extend %sans-stack;
+
+    &[title], 
+    &[data-original-title] {
+        border-bottom: $thin-border-width dotted hex( 'text-color' );
+        text-decoration: none;
+    }
+}
+
+blockquote {
+    @extend %serif-stack;
+
+    margin: 0 0 $large-spacing;
+    max-width: calc( #{$x-large-spacing} + #{$text-readability-width} );
+    padding: $normal-spacing 0 0;
+    padding-#{$startDirection}: $double-spacing;
+    position: relative;
+
+    &:before {
+        color: hex( 'dark-blue' );
+        content: "\201c";
+        font-size: $huge-spacing;
+        #{$startDirection}: -.066667em;
+        line-height: 0;
+        position: absolute;
+        top: .5em;
+        }
+    
+    > p { margin-bottom: $tight-spacing; }
+
+    footer,
+    & + figcaption {
+        @extend %sans-stack;
+        
+        margin: -#{$tight-spacing} 0 $double-spacing;
+
+        &:before { content: "\2014\00A0"; }
+    }
+
+    footer { margin-top: 0; }
+}
+
+cite {
+    @extend %sans-stack;
+
+    font-style: normal;
+}
+
+details {
+
+    summary > strong {
+        color: inherit;
+        border-bottom: $thin-border-width solid hex( 'link-border-color' );
+    }
+
+    summary:hover strong {
+        border: none;
+    }
+    
+}
+
+::selection {
+    background-color: hex( 'link-border-color' );
+    color: get-contrast-color( 'link-border-color' );
+}

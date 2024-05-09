@@ -1,0 +1,8 @@
+@mixin leaf-border-radius( $radius ) {
+    border-radius: $radius;
+    @if( $endDirection ) {
+        border-bottom-#{$endDirection}-radius: 0;
+    } @else {
+        border-bottom-right-radius: 0;
+    }
+}

@@ -1,0 +1,13 @@
+/**
+ * Based on:
+ * https://codepen.io/sosuke/pen/Pjoqqp in turn based on
+ * https://stackoverflow.com/questions/42966641/how-to-transform-black-into-any-given-color-using-only-css-filters/43960991#43960991
+ */
+
+$color-filters: (
+    'error': 'invert(64%) sepia(9%) saturate(2128%) hue-rotate(309deg) brightness(95%) contrast(98%)',
+    'inverted': 'invert(100%)',
+    'text-color': 'invert(11%) sepia(29%) saturate(14%) hue-rotate(319deg) brightness(100%) contrast(97%)',
+    'notice': 'invert(78%) sepia(71%) saturate(389%) hue-rotate(7deg) brightness(111%) contrast(89%)',
+    'white': 'invert(100%)',
+);

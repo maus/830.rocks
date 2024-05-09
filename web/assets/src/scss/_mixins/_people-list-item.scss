@@ -1,0 +1,39 @@
+@mixin people-list-item( $fit: 'comfy' ) {
+    @include list-item( 'compact' );
+
+    display: block;
+    
+    .c-index-card {
+        display: flex;
+        width: 100%;
+
+        &.h-card,
+        .c-headshot { margin-bottom: 0; }
+
+        .c-headshot { max-width: $x-large-spacing; }
+
+        @media ( min-width: $breakpoint-small ) {
+            .c-headshot { max-width: $huge-spacing; }
+        }
+        
+        &__entity__links,
+        .c-social-links,
+        .h-adr {
+            @include sr-only();
+        }
+
+        .p-name { 
+            @extend .c-heading;
+            @extend .c-heading--minor;
+
+            text-transform: none;
+        }
+
+        a:not( [class*='p-name'] ) {
+            @include minimal-link();
+            @include muted-link();
+        }
+         
+    }
+
+}

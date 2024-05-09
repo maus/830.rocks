@@ -1,0 +1,34 @@
+@mixin has-overlay( $overlay-color-name: 'dark-blue' ) {
+    $contrast-color-name: get-contrast-color-name( $overlay-color-name );
+    $contrast-color: hex( $contrast-color-name );
+
+    &::before { 
+        @include overlay( $overlay-color-name ); 
+    }
+
+    & > * { 
+        position: relative;
+        z-index: $z-index-level-1;
+        }
+    
+    & * {
+        color: $contrast-color;
+    }
+
+    & .c-icon:not( [class*='icon-sia'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--map'] ):not( [class*='icon--flag'] ) {
+        circle,
+        ellipse,
+        polygon,
+        path,
+        rect { fill: $contrast-color !important; }
+
+        line,
+        polyline { stroke: $contrast-color !important; }
+    }
+
+    @if $contrast-color-name != 'inverted' {
+
+        & .c-heading { color: hex( 'dark-blue' ); }
+    
+    }
+}

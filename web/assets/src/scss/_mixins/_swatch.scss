@@ -1,0 +1,36 @@
+@mixin swatch( $background-color-name: '', $fit: 'comfy' ) {
+    @if $fit == 'compact' {
+        @include spacing( 'padding', $hairline-spacing );
+    } @else {
+        @include spacing( 'padding', $tight-spacing );
+
+        @media ( min-width: $breakpoint-large ) {
+            @include spacing( 'padding', $normal-spacing );
+        }
+    }
+    @include leaf-border-radius( $controls-border-radius );
+
+    background-color: white;
+    border: $thin-border-width solid hex( 'light-gray' );
+
+    @if $background-color-name != 'muted' {
+        box-shadow: $thick-border-width $thick-border-width 0 0 hex( 'muted' );
+    }
+
+    @if $background-color-name != '' {
+        color: get-contrast-color( $background-color-name );
+        background-color: hex( $background-color-name );
+        border-color: transparent;
+    }
+
+    &[class*='--error'],
+    &[class*='--danger'],
+    &[class*='--status'],
+    &[class*='--success'],
+    &[class*='--notice'],
+    &[class*='--warning'],
+    &[class*='--bubble'],
+    &[class*='background--'] {
+        border-color: transparent;
+    }
+}

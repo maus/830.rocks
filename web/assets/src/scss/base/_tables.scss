@@ -1,0 +1,33 @@
+table { 
+    @include row();
+    @extend %sans-stack;
+
+    width: 100%;
+    margin-bottom: $normal-spacing;
+}
+
+caption { 
+    @extend %smaller;
+
+    padding-top: $normal-spacing;
+    }
+
+tr > * {
+    padding: $tight-spacing;
+    border: $thin-border-width solid hex( 'light-gray' );
+    }
+
+thead tr > * {
+    @extend h4;
+
+    border-bottom: $medium-border-width solid hex( 'text-color' );
+}
+
+tbody th {
+    font-weight: $bold;
+    }
+
+tfoot tr > * { 
+    background-color: transparentize( hex( 'light-gray' ), 0.5 ); 
+    font-weight: $bold;
+    }

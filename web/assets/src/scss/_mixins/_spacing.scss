@@ -1,0 +1,5 @@
+@mixin spacing( $property, $spacing, $sides: [ top, right, left, bottom ] ) {
+    @each $side in $sides {
+        #{$property}-#{$side}: #{$spacing};
+    }
+}

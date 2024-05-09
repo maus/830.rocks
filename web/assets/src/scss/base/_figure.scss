@@ -1,0 +1,34 @@
+figure {
+    margin-bottom: $normal-spacing;
+
+    a { 
+        border-width: 0;
+        display: inline-block;
+
+        img { display: inline; }
+
+        &:hover img,
+        &:focus img { 
+            opacity: .9; 
+            }
+    }
+
+    .c-heading a { display: inline; }
+
+    img { display: block; }
+
+    figcaption { 
+        @extend %smaller;
+
+        margin-bottom: 0; 
+
+        a { border-bottom-width: 1px; }
+    }
+
+    img + figcaption,
+    a + figcaption {
+        margin-top: $tight-spacing;
+        margin-bottom: $tight-spacing;
+    }
+}
+

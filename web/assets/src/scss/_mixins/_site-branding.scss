@@ -1,0 +1,41 @@
+
+@mixin site-logo--white-type() {
+    @include _site-branding-link-rules;
+
+    .c-site-branding__link::after {
+        background-image: url( "../graphic/#{$logo-file--white-type}" );
+    }
+}
+
+@mixin site-logo--icon-only() {
+    @include _site-branding-link-rules;
+
+    overflow: hidden;
+    
+    .c-site-branding__link::after {
+        background-image: url( "../graphic/#{$icon-file}" ) !important;
+        background-size: auto 92.8%;
+        overflow: hidden;
+    }
+}
+
+@mixin _site-branding-link-rules() {
+    .c-site-branding__link {
+        background: none;
+        position: relative;
+
+        &::after {
+            background-position: #{$startDirection} top;
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: '';
+            height: 100%;
+            #{$startDirection}: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            }
+    }
+
+    .c-site-logo__image { opacity: 0; }
+}

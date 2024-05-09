@@ -1,0 +1,33 @@
+@mixin people-card( $fit: 'comfy' ) {
+    @include card( $fit );
+
+    .c-index-card { 
+        margin-bottom: 0; 
+
+        & > [class*="__media-wrapper"] { 
+            @include container-ratio( 1, 1 );
+        }
+        
+        &,
+        &__headshot,
+        .c-social-links__items { margin-bottom: 0; }
+    
+        & > [class*="__media-wrapper"],
+        &.h-card .c-headshot__image { 
+            @include leaf-border-radius( $controls-border-radius );
+        }
+
+        .p-role {
+            @extend %smaller;
+        }
+
+        &__entity__links,
+        .c-social-links,
+        .h-adr {
+            @include sr-only();
+        }
+    
+        &:last-child { margin-bottom: $normal-spacing; }
+    }
+
+}

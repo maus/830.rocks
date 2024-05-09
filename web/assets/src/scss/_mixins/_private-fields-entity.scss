@@ -1,0 +1,14 @@
+@mixin private-fields-entity() {
+    
+    [class*='--private'] {
+        @include with-icon( $normal-spacing, 'notice' ); 
+
+        border-#{$startDirection}: $thick-border-width solid hex( 'notice' );
+        padding-#{$startDirection}: #{to-number( $gutter-width ) * 2 - to-number( $thick-border-width )};
+
+        &::before {
+            #{$startDirection}: $tight-spacing;
+        }
+    }
+    
+}

@@ -1,0 +1,183 @@
+%form-row { @include row; }
+
+%form-group {
+    @include row;
+
+    display: block;
+    margin: 0 0 $normal-spacing;
+}
+
+%form-input {
+    border: $medium-border-width solid hex( 'text-color' );
+    border-radius: $controls-border-radius;
+    display: block;
+    height: #{to-number( $normal-spacing ) * 2 - ( to-number( $hairline-spacing ) - to-number( $medium-border-width ) ) * 2};
+    padding: #{to-number( $hairline-spacing ) - to-number( $medium-border-width )} $tight-spacing;
+    width: 100%;
+
+    &:focus {
+        border-color: hex( 'link-border-color' );
+        }
+
+    &[invalid] {
+        box-shadow: red 0 0 $thin-border-width $thin-border-width;
+    }
+}
+
+%form-input__inline {
+    @extend %form-input;
+
+    display: inline-block;
+    height: $tight-spacing;
+    margin-#{$endDirection}: $hairline-spacing;
+    width: $tight-spacing;
+
+    &[invalid] {
+        box-shadow: red 0 0 $thin-border-width $thin-border-width;
+    }
+}
+
+%form-field__label,
+%form-field__description { margin-bottom: $tight-spacing; }
+
+%form-field__label {
+    @include relative-font-size( $normal-spacing, $tight-leading );
+
+    font-weight: $bold;
+    display: block;
+    }
+
+%form-field__description {
+    display: block;
+    font-style: normal;
+    font-size: inherit;
+    font-weight: normal;
+    margin-top: -$hairline-spacing;
+    margin-bottom: $tight-spacing;
+    }
+
+%form-field__description__below {
+    @extend %form-field__description;
+
+    margin-top: $tight-spacing;
+    margin-bottom: 0;
+    }
+
+%form-field__description--error {
+    background-color: hex( 'danger' );
+    padding: $hairline-spacing;
+}
+
+label {
+    font-weight: $bold;
+    margin-bottom: 0;
+    display: block;
+    }
+
+input,
+textarea,
+select { @extend %form-input; }
+
+input[type=radio],
+input[type=checkbox] { @extend %form-input__inline; }
+
+input[type=file] { padding: 0; }
+
+textarea { height: $huge-spacing; }
+
+.form-row { @extend %form-row; }
+
+.u-text--center .form-row { display: inline-block; }
+
+.form-group { @extend %form-group; }
+
+.form-input,
+.form-field__label,
+.form-field__description { display: block; }
+
+.form-field__label { 
+    @extend %form-field__label; 
+}
+
+.form-input--radio + .form-field__label,
+.form-input--checkbox + .form-field__label { 
+    display: inline;
+    font: inherit;
+    font-weight: normal; 
+    }
+
+.form-field__description { 
+    @extend %form-field__description; 
+}
+
+.form-field__description--error { 
+    @extend %form-field__description--error; 
+
+    margin-bottom: 0;
+}
+
+.form-input + .form-field__description { 
+    @extend %form-field__description__below; 
+}
+
+.form-input + .form-field__description.form-field__description--error { margin-top: 0; }
+
+.c-field--legal-consent .form-field__description { @extend %smaller; }
+
+.form-row {
+    @include row;
+
+    @media ( min-width: $breakpoint-small ) {
+        label { float: #{$startDirection}; }
+
+        [dir='#{$oppositeDirection}'] & label { float: #{$endDirection}; }
+
+        .form-field__label,
+        .form-input { display: inline-block; }
+
+        .form-field__label { 
+            margin-bottom: 0; 
+            margin-#{$endDirection}: $tight-spacing;
+        }
+        
+        [dir='#{$oppositeDirection}'] & .form-field__label { 
+            margin-#{$endDirection}: 0;
+            margin-#{$startDirection}: $tight-spacing; 
+        }
+
+        .form-input { 
+            border-radius: $controls-border-radius;
+            border-top-#{$endDirection}-radius: 0;
+            border-bottom-#{$endDirection}-radius: 0;
+            border-#{$endDirection}-width: 0;
+            width: auto; 
+        }
+
+        [dir='#{$oppositeDirection}'] & .form-input { 
+            border-radius: $controls-border-radius;
+            border-top-#{$startDirection}-radius: 0;
+            border-bottom-#{$startDirection}-radius: 0;
+            border-#{$startDirection}-width: 0;
+            border-#{$endDirection}-width: $controls-border-radius;
+        }
+
+        button, input[type="submit"] { 
+            margin-top: 0; 
+        }
+
+        label + button, 
+        label + input[type="submit"] {
+            border-radius: $controls-border-radius;
+            border-top-#{$startDirection}-radius: 0;
+            border-bottom-#{$startDirection}-radius: 0;
+            height: #{to-number( $normal-spacing ) * 2 - ( to-number( $hairline-spacing ) - to-number( $medium-border-width ) ) * 2};
+            }
+
+        [dir='#{$oppositeDirection}'] & label + button, 
+        [dir='#{$oppositeDirection}'] & label + input[type="submit"] {
+            border-radius: $controls-border-radius;
+            border-top-#{$endDirection}-radius: 0;
+            border-bottom-#{$endDirection}-radius: 0;
+        }
+    }
+}

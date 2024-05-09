@@ -1,0 +1,65 @@
+@mixin caron-deco( $size: $hairline-spacing ) {
+    display: block;
+    line-height: calc( #{$size} * 1.5 );
+    height: calc( #{$size} * 4.5 );
+    margin-bottom: #{$normal-spacing};
+    max-width: calc( #{$size} * 4.5 );
+    text-align: center;
+
+    span {
+        @include complementary( 'background', 'awareness' );
+        
+        border-radius: 50% 0;
+        display: inline-block;
+        height: $size;
+        margin-#{$endDirection}: calc( #{$size} / 1.5 );
+        position: relative;
+        transform: rotate( -30deg );
+        vertical-align: top;
+        width: $size;
+        z-index: $z-index-base;
+
+        &::before {
+            @include accent( 'background', 'awareness' );
+
+            border-radius: 0 50%;
+            bottom: calc( #{$size} / 6 );
+            content: '';
+            display: block;
+            height: 100%;
+            #{$startDirection}: calc( -#{$size} / 3 );
+            position: absolute;
+            width: 100%;
+            transform: rotate( 60deg );
+            z-index: $z-index-negative;
+        }
+    }
+
+    span:nth-of-type( 3 ),
+    span:nth-of-type( 5 ),
+    span:nth-of-type( 6 ) { margin-#{$endDirection}: 0; }
+    
+    span:nth-of-type( 4n + 2 ) {
+        @include complementary( 'background', 'community' );
+
+        &::before {
+            @include accent( 'background', 'community' );
+        }
+    }
+    
+    span:nth-of-type( 4n + 3 ) {
+        @include complementary( 'background', 'education' );
+
+        &::before {
+            @include accent( 'background', 'education' );
+        }
+    }
+    
+    span:nth-of-type( 4n ) {
+        @include complementary( 'background', 'support' );
+
+        &::before {
+            @include accent( 'background', 'support' );
+        }
+    }
+}

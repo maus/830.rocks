@@ -1,0 +1,8 @@
+@mixin color-to-filter( $color-name ) {
+    @if map-get( $colors, $color-name ) {
+        $rule: map-get( $color-filters, $color-name );
+        filter: brightness(0) saturate(100%) #{$rule};
+    } @else {
+        @warn "The color doesn't have an associated filter";
+    }
+}

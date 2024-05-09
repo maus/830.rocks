@@ -14,6 +14,7 @@ require_once ABSPATH . "engine/engine.php";
             document.documentElement.className = document.documentElement.className.replace( "no-js", "with-js" );
         </script>
         <?= openGraphMeta() ?>
+        <link media="all" rel="stylesheet" href="<?= ASSETS_URL ?>/css/app.css">
         <style>
             .with-js .js-hidden { display: none; }
         </style>
@@ -21,7 +22,7 @@ require_once ABSPATH . "engine/engine.php";
     <body class='<?php echo get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>    
     	<?php include get_pageTemplate(); ?>
         
-		<?php display_pagesMenu(); ?>
+		<?= display_pagesMenu() ?>
 
         <script>
             if( document.getElementById( 'rsvp-data' ) != null ) {
@@ -50,7 +51,10 @@ require_once ABSPATH . "engine/engine.php";
             }
         </script>
         
-        <?php if ( $_SERVER['REMOTE_ADDR'] != '127.0.0.1' ) : // exclude staging ?>
+        <?php 
+        if ( $_SERVER['REMOTE_ADDR'] != '127.0.0.1' ) : 
+            // exclude staging 
+            ?>
             <!-- Google tag (gtag.js) -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-RL9B59G10R"></script>
             <script>
@@ -60,6 +64,8 @@ require_once ABSPATH . "engine/engine.php";
 
                 gtag('config', 'G-RL9B59G10R');
                 </script>
-        <?php endif; ?>
+            <?php 
+        endif; 
+        ?>
     </body>
 </html>

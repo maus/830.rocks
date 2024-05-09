@@ -1,0 +1,52 @@
+@mixin leaf-deco( $size: $hairline-spacing ) {
+    display: block;
+    height: $normal-spacing;
+    margin-bottom: calc( #{$normal-spacing} - #{$size} );
+
+    span {
+        @include accent( 'background', 'awareness' );
+        
+        border-radius: 50% 50% 50% 0;
+        display: inline-block;
+        height: $size;
+        margin-#{$endDirection}: calc( #{$size} / 3 );
+        position: relative;
+        vertical-align: top;
+        width: $size;
+
+        &::after {
+            @include accent( 'background', 'awareness' );
+
+            border-radius: 50% 0 50% 50%;
+            top: 0;
+            content: '';
+            display: block;
+            height: $size;
+            #{$startDirection}: 0;
+            position: absolute;
+            width: $size;
+            z-index: $z-index-negative;
+        }
+    }
+    
+    span:nth-child( 4n + 2 ) {
+        @include accent( 'background', 'community' );
+        &::after {
+            @include accent( 'background', 'community' );
+        }
+}
+    
+    span:nth-child( 4n + 3 ) {
+        @include accent( 'background', 'education' );
+        &::after {
+            @include accent( 'background', 'education' );
+        }
+    }
+    
+    span:nth-child( 4n ) {
+        @include accent( 'background', 'support' );
+        &::after {
+            @include accent( 'background', 'support' );
+        }
+    }
+}

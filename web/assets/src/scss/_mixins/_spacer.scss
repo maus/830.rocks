@@ -1,0 +1,17 @@
+@mixin spacer( $fit: 'comfy' ) {
+    padding: $normal-spacing $gutter-width 1px; 
+
+    @if $fit != 'compact' {
+        @include media-query( $breakpoint-medium ) {
+            padding: $large-spacing $gutter-width $tight-spacing;
+            }
+        
+        @if $fit == 'comfy' {
+            @include media-query( $breakpoint-x-large ) {
+                padding: $double-spacing calc( #{$gutter-width} * 2 ) $normal-spacing;
+                }
+        }
+    }
+    
+    @include collapsed-first-child();
+}

@@ -1,0 +1,59 @@
+@use "sass:math";
+
+@mixin workflow-card() {
+
+    &[class*='--not-active'],
+    &[class*='--with-issues'] {
+        box-shadow: $thick-border-width $thick-border-width 0 0 hex( 'notice' );
+    }
+    
+    &[class*='--not-published'] {
+        box-shadow: $thick-border-width $thick-border-width 0 0 hex( 'error' );
+    }
+
+    &[class*='--with-workflow-info'] {
+        margin-top: $tight-spacing;
+        position: relative;
+        
+        & .c-workflow-info {
+            position: absolute;
+            margin-#{$startDirection}: $tight-spacing;
+            max-width: calc( 100% - #{$tight-spacing} * 2 );
+            top: -#{$tight-spacing};
+            #{$endDirection}: $tight-spacing;
+            white-space: nowrap;
+            z-index: $z-index-level-2;
+        }
+
+        & .c-workflow-info__items {
+            @extend %micro;
+
+            line-height: $half-large-spacing;
+            height: $normal-spacing;
+            padding: 0;
+            padding-#{$startDirection}: $hairline-spacing;
+        }
+
+        @media ( min-width: $breakpoint-large ) {
+            & .c-workflow-info__items {
+                padding-#{$startDirection}: $hairline-spacing;
+            }
+        }
+
+        .c-workflow-info__items__item { 
+            margin-#{$endDirection}: $hairline-spacing; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            }
+
+        @for $i from 1 through 10 {
+            $width: math.div( 1, $i );
+            $percentage: math.floor( math.percentage( $width ) );
+
+            .c-workflow-info__items--#{$i} .c-workflow-info__items__item {
+                max-width: calc( $percentage - #{$hairline-spacing} );
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,11 @@
+@mixin overlay( $overlay-color-name: 'dark-blue' ) {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: transparentize( hex( $overlay-color-name ), 0.8 );
+    z-index: $z-index-base;
+    }

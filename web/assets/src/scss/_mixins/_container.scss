@@ -1,0 +1,34 @@
+@use "sass:math";
+
+@mixin container( $fixed: true, $huge: false ) {
+    width: 100%;
+    padding-right: $gutter-width;
+    padding-left: $gutter-width;
+    margin-right: auto;
+    margin-left: auto;
+
+    @if $fixed {
+        @media ( min-width: $breakpoint-small ) {
+            max-width: $container-max-width-small;
+        }
+
+        @media ( min-width: $breakpoint-medium ) {
+            max-width: $container-max-width-medium;
+        }
+
+        @media ( min-width: $breakpoint-large ) {
+            max-width: $container-max-width-large;
+        }
+
+        @media ( min-width: $breakpoint-x-large ) {
+            max-width: $container-max-width-x-large;
+        }
+
+        @if( $huge ) {
+            @media ( min-width: $breakpoint-huge ) {
+                max-width: $container-max-width-huge;
+            }
+        }
+    }
+
+}

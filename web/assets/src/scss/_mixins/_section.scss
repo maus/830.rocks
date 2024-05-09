@@ -1,0 +1,42 @@
+@mixin section() {
+    @include row;
+    @include collapsed-first-child();
+
+    padding-top: $large-spacing;
+    padding-bottom: $tight-spacing;
+
+    & > .l-section:first-child {
+        padding-top: $large-spacing;
+        margin-top: -$large-spacing;
+    }
+
+    @include media-query( $breakpoint-large ) {
+        padding-top: $double-spacing;
+        padding-bottom: $normal-spacing;
+
+        & > .l-section:first-child {
+            padding-top: $double-spacing;
+            margin-top: -$double-spacing;
+        }
+    }
+
+    &[class*='has-overlay'] {
+        @include has-overlay();
+    }
+
+    &[class*='has-overlay--light'] {
+        @include has-overlay( 'inverted' );
+    }
+
+    &[class*='has-overlay'],
+    &[class*="cover"] {
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .c-heading:first-child { padding-top: 0; }
+
+    &:not( [class*='has-overlay'] ):not( [class*='u-background'] ):not( [class*='cover'] ):not( [class*='t-theme'] ) + &:not( [class*='has-overlay'] ):not( [class*='u-background'] ):not( [class*='cover'] ):not( [class*='t-theme'] ) { padding-top: 0; }
+    
+}

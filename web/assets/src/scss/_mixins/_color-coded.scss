@@ -1,0 +1,29 @@
+@mixin color-coded() {
+    &[class*='--notice'],
+    &[class*='--warning'] {
+        background-color: hex( 'notice' );
+        color: get-contrast-color( 'notice' );
+    }
+
+    &[class*='--status'],
+    &[class*='--success'] {
+        background-color: hex( 'success' );
+        color: get-contrast-color( 'success' );
+    }
+
+    &[class*='--error'],
+    &[class*='--danger'] {
+        background-color: hex( 'error' );
+        color: get-contrast-color( 'error' );
+    }
+
+    &[class*='--neutral'] {
+        background-color: hex( 'dark-blue' );
+        color: hex( 'white' );
+    }
+
+    &[class*='--muted'] {
+        background-color: hex( 'muted' );
+        color: hex( 'text-color' );
+    }
+}

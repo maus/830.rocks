@@ -1,0 +1,13 @@
+@mixin expanding-background( $color-id ) {
+    background-image: linear-gradient( 180deg, rgba( hex( $color-id ), 1 ) 0%, rgba( hex( $color-id ), 1 ) 100% );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: $thick-border-width $medium-border-width;
+    transition: background-size 300ms, color 300ms;
+
+    &:hover,
+    &:focus { 
+        background-size: $thick-border-width 100%;
+        color: get-contrast-color( $color-id );
+    }
+}

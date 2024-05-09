@@ -1,0 +1,383 @@
+@use "sass:color";
+
+@mixin theme( $theme-id ) {
+    $theme: map-get( $themes, $theme-id );
+    $accent-color-name: get-theme-accent-color-name( $theme );
+    $accent-color: hex( $accent-color-name );
+    $accent-color-contrast-color: get-contrast-color( $accent-color-name );
+    $accent-color-contrast-color-name: get-contrast-color-name( $accent-color-name );
+    $complementary-color-name: get-theme-complementary-color-name( $theme );
+    $complementary-color: hex( $complementary-color-name );
+    $complementary-color-constrast-color: get-contrast-color( $complementary-color-name );
+
+    @if $theme-id == 'awareness' {
+        background-color: color.scale( $accent-color, $lightness: 98% );
+    } @else {
+        background-color: color.scale( $accent-color, $lightness: 93% );
+    }
+
+    ::selection {
+        background-color: $accent-color;
+        color: hex( 'inverted' );
+        }
+    
+    a:not( .c-button ):not( .c-link--icon-only ),
+    details summary > strong {
+        @include accent( 'border', $theme-id );
+    }
+    
+    a:not( .c-button ):not( .c-link--icon-only ):not( .c-link--minimal ) {
+        @include expanding-background( $accent-color-name )
+    }
+
+    [class*='dashboard-block'] a:not( .c-button ):not( .c-link--icon-only ),
+    [class*='list-item__header'] a:not( .c-button ):not( .c-link--icon-only ),
+    a[class*='minimal'] { 
+        @include minimal-link( $accent-color-name );
+    }
+
+    a[class*='muted']:not( .c-button ):not( .c-link--icon-only ),
+    a[class*='disabled']:not( .c-button ):not( .c-link--icon-only ) {
+        @include expanding-background( 'light-gray' );
+
+        border-bottom-color: hex( 'light-gray' );
+    }
+
+    .r-site-header#site-header [aria-controls="country-switcher"] {
+        background: none;   
+    }
+
+    .c-meta a:not( .c-button ):not( .c-link--icon-only ) {
+        @include minimal-link( 'light-gray' );
+    }
+
+    blockquote:before {
+        @include accent( 'color', $theme-id );
+    }
+    
+    .c-hero::after {
+        border-color: lighten( $accent-color, 30% );
+    }
+    
+    .c-section-header .c-heading,
+    .c-heading,
+    .c-section-header .c-section-header__supra,
+    .c-section-header .c-section-header__sub,
+    .c-heading--minor,
+    .r-content > [class*='--full'] > [class*='__content'] > h2,
+    .r-content > [class*='--full'] > [class*='__content'] > h3 {
+        color: hex( $complementary-color-name );
+    }
+
+    .r-page-lead {
+        .c-section-header .c-heading {
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+
+    .c-menu {
+
+        .c-menu__item__link,
+        .c-menu__item__sub-menu  { border-color: hex( $complementary-color-name ); }
+
+        .c-menu__item__link:not( [class*='__link--current'] ):hover,
+        .c-menu__item__link:not( [class*='__link--current'] ):focus {
+            @include expanding-background( $accent-color-name );
+        }
+
+        .c-menu__item .c-menu__item__link:not( [class*='__link--current'] ) { 
+            background-size: 0 0; 
+        }
+
+        .c-menu__item .c-menu__item__link[class*='__link--current'],
+        .c-menu__item .c-menu__item__link[class*='__link--current']:hover {
+            background-size: $thick-border-width $medium-border-width;
+        }
+    }
+
+    .c-stat {
+        .c-stat__highlight {
+            color: $accent-color;
+        }
+
+        .c-stat__figure {
+            color: hex( $complementary-color-name );
+        }
+    }
+
+    .c-stat--highlight  { color: hex( $complementary-color-name ); }
+    
+    .c-stat--progress-bar {
+        .c-stat__figure {
+            color: $accent-color-contrast-color;
+        }
+
+        .c-stat__progress-bar {
+            background: $accent-color;
+        }
+    }
+
+    .c-stat--progress-bar--floating {
+
+        .c-stat__number {
+            color: $accent-color;
+        } 
+    
+    }
+
+    .c-figures--mixed {
+
+        .c-stat__text {
+            background: $accent-color;
+            color: $accent-color-contrast-color;
+        }
+
+        .c-stat__figure,
+        .c-stat__highlight { color: inherit; }
+
+    }
+
+    .c-icon:not( [class*='icon-sia'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ),
+    [class*="__icon"]:not( [class*='icon-sia'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ) {
+        @include color-to-filter( #{$accent-color-name} );
+    }
+
+    .c-icon[class*='icon--map'] img {
+        @include color-to-filter( #{$accent-color-name} );
+    }
+
+    .c-separator,
+    [class*="--separator"]::after,
+    [class*="--separator"]::before { background-color: $accent-color; }
+
+    .c-lead,
+    .c-faq__title,
+    .o-question { color: hex( $complementary-color-name ); }
+
+    .c-heading + .c-lead,
+    .c-section-header + .c-lead { color: hex( 'text-color' ); }
+
+    .c-banner .c-lead,
+    .r-page-lead .c-lead { color: hex( 'headline-color' ); }
+
+    .c-index-card__entity {
+        
+        .p-name { color: hex( $complementary-color-name ); }
+
+    }
+
+    .c-info-box {
+        &:before {
+            background: hex( $complementary-color-name );
+            }
+    }
+
+    .c-cta {
+        border-color: hex( $complementary-color-name );
+    }
+
+    .c-cta__lead {
+        color: $accent-color-contrast-color;
+    }
+
+    .c-rankings .c-rankings__items__item::before {
+        background-color: $accent-color;
+    }
+
+    .c-timeline &.c-timeline__items__item,
+    .c-timeline .c-timeline__items__item {
+        &:after { 
+            background: $accent-color;
+            }
+        
+        &:before,
+        & > hr { 
+            border-color: hex( $complementary-color-name );
+        }
+    }
+
+    .c-tag {
+        border-color: hex( $complementary-color-name );
+        }
+
+    .c-date--graphic {
+        .c-date__day,
+        .c-date__month,
+        .c-date__year { background: hex( $complementary-color-name ); }
+
+        .c-date__day + .c-date__month { background: lighten( hex( $complementary-color-name ), 10% ); }
+
+        .c-date__day + .c-date__year,
+        .c-date__month + .c-date__year { background: lighten( hex( $complementary-color-name ), 20% ); }
+    }
+
+    .c-callout .c-callout__content-wrapper {
+        &::after {
+            @include accent( 'background', $theme-id );
+        }
+
+        .c-icon:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ) {
+            @include color-to-filter( $accent-color-contrast-color-name );
+        }
+    }
+
+    .featherlight-content,
+    .c-callout .c-callout__content-wrapper,
+    &.c-page-section .c-page-section__content-wrapper,
+    .c-page-section .c-page-section__content-wrapper {
+        @if $theme-id == 'awareness' {
+            background-color: color.scale( $accent-color, $lightness: 98% );
+        } @else {
+            background-color: color.scale( $accent-color, $lightness: 93% );
+        }
+    }
+
+    .c-callout--text-only .c-callout__content-wrapper,
+    &.c-page-section--figures .c-page-section__content-wrapper,
+    .c-page-section--figures .c-page-section__content-wrapper {
+        @if $theme-id == 'awareness' {
+            background-color: color.scale( $complementary-color, $lightness: 91% );
+        } @else {
+            background-color: color.scale( $complementary-color, $lightness: 88% );
+        }
+    }
+
+    &.c-page-section--media .c-callout .c-callout__content-wrapper,
+    .c-page-section--media .c-callout .c-callout__content-wrapper {
+        background: none;
+    }
+
+    .c-banner {
+        @if $theme-id == 'awareness' {
+            background-color: color.scale( $accent-color, $lightness: 98% );
+        } @else {
+            background-color: color.scale( $accent-color, $lightness: 93% );
+        }
+    }
+
+    .c-banner[class*='--has-overlay'] { 
+
+        .c-section-header__supra span { 
+            background-color: $complementary-color;
+        }
+
+    }
+
+    [class*='background--accent'],
+    &[class*='background--accent'] { 
+        @include container-with-background( #{$accent-color-name} ); 
+
+        ::selection {
+            background-color: hex( $complementary-color-name );
+            color: $complementary-color-constrast-color;
+            }
+
+        .c-separator,
+        [class*="--separator"]::after,
+        [class*="--separator"]::before { background-color: hex( $complementary-color-name ); }
+    }
+
+    [class*='background--accent'],
+    &[class*='background--accent'] {
+        .c-callout__content-wrapper {
+            background: none;
+
+            .c-icon:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ) {
+                @include color-to-filter( $accent-color-contrast-color-name );
+            }
+        }
+        
+        [class*='__leaf-deco'] span:nth-child(1n),
+        [class*='__leaf-deco'] span:nth-child(1n)::after {
+            @include complementary( 'background', $theme-id );
+        }
+
+        .c-icon:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ),
+        [class*="__icon"]:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ) {
+            @include color-to-filter( $accent-color-contrast-color-name );
+        }
+
+        .c-stat__text, 
+        .c-stat__figure,
+        .c-stat__highlight { color: inherit; }
+    }
+
+    [class*='has-overlay']:not( [class*='has-overlay--light'] ) { 
+        &::before {
+            background: transparentize( $complementary-color, 0.8 ) !important;
+        }
+
+        .c-heading { color: $complementary-color-constrast-color !important; }
+
+        .c-icon:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ),
+        [class*="__icon"]:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ) {
+            @include color-to-filter( 'white' );
+        }
+    }
+
+    [class*='has-overlay--light'] { 
+        .c-heading { color: $complementary-color !important; }
+
+        .c-icon:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ),
+        [class*="__icon"]:not( [class*='icon-SIA'] ):not( [class*='icon-un-sdg'] ):not( [class*='icon-leaf'] ):not( [class*='icon--flag'] ):not( .c-icon--negative ) {
+            @include color-to-filter( $complementary-color-name );
+        }
+    }
+
+    [class*='has-overlay--accent']::before { 
+        &::before {
+            @if $theme-id == 'awareness' {
+                background: transparentize( $accent-color, 0.8 ) !important;
+            } @else {
+                background: transparentize( $accent-color, 0.5 ) !important;
+            }
+        }
+    }
+
+    [class*='filter--accent'] {
+        @include color-to-filter( #{$accent-color-name} );
+    }
+
+    [class*='background--complementary'], 
+    &[class*='background--complementary'] { 
+        @include container-with-background( #{$complementary-color-name} ); 
+
+        a:not( .c-button ):not( .c-link--icon-only ):not( .c-link--minimal ):not( .c-site-branding__link ) {
+            @include expanding-background( $accent-color-name );
+
+            border-bottom-color: $accent-color;
+        }
+
+        .c-button:not([class*='button--']):not([disabled]),
+        button,
+        input[type="submit"] {
+            background-color: $accent-color;
+            color: $accent-color-contrast-color;
+            }
+        
+        .c-callout__content-wrapper {
+            background: none;
+        }
+        
+        [class*='__leaf-deco'] span:nth-child(1n),
+        [class*='__leaf-deco'] span:nth-child(1n)::after {
+            @include accent( 'background', $theme-id );
+        }
+
+        [class*='--with-icon']::before,
+        .c-callout .c-icon svg {
+            @include color-to-filter( $accent-color-name );
+        }
+
+        [class*='--with-icon']:hover::before {
+            @include color-to-filter( 'inverted' );
+        }
+
+        .c-stat__text, 
+        .c-stat__figure,
+        .c-stat__highlight { color: inherit; }
+        
+    }
+
+}

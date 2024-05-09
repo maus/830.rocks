@@ -1,0 +1,11 @@
+@mixin accent( $rule-base, $theme-id: '' ) {
+    @if $theme-id != '' {
+        @if $rule-base != 'color' {
+            $rule-base: #{$rule-base}-color;
+        }
+        
+        #{$rule-base}: hex( get-theme-accent-color-name( $theme-id ) );
+    } @else {
+        @warn "The accent() mixin needs a theme argument";
+    }
+}

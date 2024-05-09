@@ -1,0 +1,15 @@
+@use "sass:math";
+
+@mixin container-ratio( $wide, $high ) {
+    overflow: hidden;
+    padding: 0 0 percentage( math.div( $high, $wide ) );
+    position: relative;
+
+    > *:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+}

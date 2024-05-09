@@ -1,0 +1,72 @@
+@use "sass:math";
+
+@function hex( $color-name ) {
+    @return map-get( $colors, $color-name );
+}
+
+@function rgb( $color-name ) {
+    $hex: hex( $color-name );
+    $RGB: ( red( $hex ), green($hex), blue( $hex ) );
+
+    @return $RGB;
+}
+
+@function get-contrast-color-name( $color-name ) {
+    $contrast-color-name: null;
+    @if has-low-contrast( $color-name ) {
+        $contrast-color-name: 'text-color';
+    } @else {
+        $contrast-color-name: 'inverted';
+    }
+
+    @return $contrast-color-name;
+}
+
+@function get-contrast-color( $color-name ) {
+    $contrast-color: null;
+    @if has-low-contrast( $color-name ) {
+        $contrast-color: hex( 'text-color' );
+    } @else {
+        $contrast-color: hex( 'inverted' );
+    }
+
+    @return $contrast-color;
+}
+
+@function has-low-contrast( $color-name ) {
+    $color: hex( $color-name );
+    $has-low-contrast: false;
+    @if contrast( #FFFFFF, $color ) < 8 {
+        $has-low-contrast: true;
+    } 
+
+    @return $has-low-contrast;
+}
+
+@function luminance( $hex ) {
+    $RGB: (
+      'red': red( $hex ),
+      'green': green( $hex ),
+      'blue': blue( $hex )
+    );
+  
+    @each $name, $value in $RGB {
+      $adjusted: 0;
+      $value: math.div( $value, 255 );
+  
+      @if $value < 0.03928 {
+        $value: math.div( $value, 12.92 );
+      } @else {
+        $value: math.div( $value + .055, 1.055 );
+        $value: math.pow( $value, 3 );
+      }
+  
+      $RGB: map-merge($RGB, ($name: $value));
+    }
+
+    @return (map-get($RGB, 'red') * .2126) + (map-get($RGB, 'green') * .7152) + (map-get($RGB, 'blue') * .0722);
+}
+
+@function contrast( $first-color, $second-color ) {
+    @return math.div( luminance( $first-color ), luminance( $second-color ) );
+}

@@ -1,0 +1,6 @@
+@use "sass:math";
+
+@mixin relative-font-size( $vertical-space, $line-height: $leading ) {
+    font-size: #{math.div( to-number( $vertical-space ), to-number( $line-height ) )};
+    line-height: $vertical-space;
+}

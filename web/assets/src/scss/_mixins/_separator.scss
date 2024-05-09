@@ -1,0 +1,7 @@
+@mixin separator( $background-color-name: 'gray', $width: 100% ) {
+    background: hex( $background-color-name );
+    display: block;
+    height: $medium-border-width;
+    margin: #{to-number( $large-spacing ) - to-number( $medium-border-width )} 0;
+    width: $width;
+}

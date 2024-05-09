@@ -1,0 +1,15 @@
+@mixin workflow-entity() {
+
+    &[class*='--full'] &__workflow-info {
+        position: absolute;
+        text-align: end;
+        #{$endDirection}: $gutter-width;
+        top: calc( $normal-spacing - $hairline-spacing );
+        z-index: $z-index-level-2;
+
+        @media ( min-width: $breakpoint-large ) {
+            top: calc( $normal-spacing - $tight-spacing );
+        }
+    }
+        
+}

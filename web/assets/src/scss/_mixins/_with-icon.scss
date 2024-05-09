@@ -1,0 +1,198 @@
+@mixin with-icon( $container-size, $background-color-name: 'white' ) {
+    padding-#{$startDirection}: #{to-number( $container-size ) + to-number( $thick-border-width )};
+    position: relative;
+
+    &::before {
+        @if( $background-color-name != 'none' ) {
+            @include color-to-filter( get-contrast-color-name( $background-color-name ) );
+        }
+
+        content: ' ';
+        display: block;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: $container-size;
+        #{$startDirection}: 0;
+        position: absolute;
+        top: 0;
+        width: #{to-number( $container-size ) - to-number( $thick-border-width )};
+        z-index: $z-index-level-2;
+    }
+
+    &[class*='icon--reversed'] {
+
+        padding-#{$startDirection}: 0;
+        padding-#{$endDirection}: #{to-number( $container-size ) + to-number( $thick-border-width )};
+
+        &::before {
+            #{$startDirection}: auto;
+            #{$endDirection}: 0;
+        }
+
+    }
+
+    &[class*='--icon-only'] {
+        height: $container-size;
+        overflow: hidden;
+        padding: 0;
+        text-indent: $container-size;
+        vertical-align: top;
+        white-space: nowrap;
+        width: $container-size;
+
+        &::before {
+            height: $container-size;
+            #{$startDirection}: 0;
+            position: absolute;
+            top: 0;
+            width: $container-size;
+        }
+    }
+
+    &[class*='--close']::before {
+        background-color: none;
+        background-image: url( '../graphic/icon-close.svg' );
+    }
+
+    &[class*='--dashboard']::before {
+        background-image: url( '../graphic/noun_dashboard_1515370.svg' );
+    }
+    
+    &[class*='--date']::before {
+        background-image: url( '../graphic/noun_date_1515275.svg' );
+    }
+    
+    &[class*='--arrow-up']::before {
+        background-image: url( '../graphic/icon-arrow.svg' );
+    }
+    
+    &[class*='--view']::before,
+    &[class*='--forward']::before {
+        background-image: url( '../graphic/icon-arrow.svg' );
+        transform: rotate( 90deg * $transformDirection );
+    }
+    
+    &[class*='--download']::before {
+        background-image: url( '../graphic/noun_Download_1515282.svg' );
+    }
+    
+    &[class*='--cancel']::before,
+    &[class*='--delete']::before {
+        @include color-to-filter( 'error' );
+
+        background-image: url( '../graphic/noun_Delete_1515567.svg' );
+    }
+    
+    &[class*='--feedback']::before {
+        background-image: url( '../graphic/noun_Megaphone_1515584.svg' );
+    }
+    
+    &[class*='--globe']::before {
+        background-image: url( '../graphic/noun-globe-1515236.svg' );
+    }
+    
+    &[class*='--help']::before {
+        background-image: url( '../graphic/noun_Buoy_1515358.svg' );
+    }
+    
+    &[class*='--heart']::before,
+    &[class*='--likes']::before {
+        background-image: url( '../graphic/noun-heart-1515286.svg' );
+    }
+    
+    &[class*='--directions']::before,
+    &[class*='--location']::before {
+        background-image: url( '../graphic/noun-location-pin-1515429.svg' );
+    }
+    
+    &[class*='--outcomes']::before {
+        background-image: url( '../graphic/noun_Navigation_1515427.svg' );
+    }
+    
+    &[class*='--private']::before {
+        background-image: url( '../graphic/noun_Key_1515230.svg' );
+    }
+    
+    &[class*='--search']::before {
+        background-image: url( '../graphic/noun_Magnifying Glass_1515330.svg' );
+    }
+    
+    &[class*='--edit']::before,
+    &[class*='--settings']::before {
+        background-image: url( '../graphic/noun_Settings_1515651.svg' );
+    }
+    
+    &[class*='--tag']::before {
+        background-image: url( '../graphic/noun_Tag_1515302.svg' );
+    }
+
+    &[class*='--upload']::before {
+        background-image: url( '../graphic/noun_Upload_1515287.svg' );
+    }
+
+    &[class*='--website']::before {
+        background-image: url( '../graphic/noun-web-1515383.svg' );
+    }
+
+    &[class*='--facebook']::before {
+        background-image: url( '../graphic/social/facebook-icon.svg' );
+    }
+
+    &[class*='--instagram']::before {
+        background-image: url( '../graphic/social/instagram-icon.svg' );
+    }
+
+    &[class*='--linkedin']::before {
+        background-image: url( '../graphic/social/linkedin-icon.svg' );
+    }
+
+    &[class*='--twitter']::before {
+        background-image: url( '../graphic/social/twitter-icon.svg' );
+    }
+
+    &[class*='--tiktok']::before {
+        background-image: url( '../graphic/social/tiktok-icon.svg' );
+    }
+
+    &[class*='--vk']::before {
+        background-image: url( '../graphic/social/icons8-vk.com-100.png' );
+    }
+
+    &[class*='--xing']::before {
+        background-image: url( '../graphic/social/icons8-xing-100.png' );
+    }
+
+    &[class*='--youtube']::before {
+        background-image: url( '../graphic/social/youtube-icon.svg' );
+    }
+
+    &[class*='--email']::before {
+        background-image: url( '../graphic/noun-mail-1515222.svg' );
+    }
+
+    &[class*='--un-sdgs']::before {
+        background-image: url( '../graphic/icon-un-sdgs.svg' );
+    }
+
+    &[class*='stage--']::before {
+        @if( $startDirection == 'left' ) {
+            background-position: -.1rem top;
+        } @else {
+            background-position: calc( 100% - .1rem ) top;
+        }
+        width: $container-size;
+    }
+
+    &[class*='stage--idea']::before {
+        background-image: url( '../graphic/noun_label_1355375.svg' );
+    }
+
+    &[class*='stage--venture']::before {
+        background-image: url( '../graphic/noun_Quality badge_1353889.svg' );
+    }
+
+    &[class*='stage--winner']::before {
+        background-image: url( '../graphic/noun_degree_1195053.svg' );
+    }
+}

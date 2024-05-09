@@ -5,4 +5,5 @@ web/rsvp.csv
 
 # Ignore folders.
 stats/*
-
+/vendor
+node_modules

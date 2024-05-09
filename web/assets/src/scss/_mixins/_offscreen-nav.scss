@@ -1,0 +1,82 @@
+@mixin offscreen-nav() {
+
+    .js-toggle {
+        @include js-toggle();
+
+        height: $large-spacing;
+        margin:  0;
+        width: $large-spacing;
+    }
+
+    .with-js & {
+
+        nav {
+            transition: background 300ms;
+            
+            &:not( [class*='js-is-active'] ) > .c-menu {
+                @include offscreen();
+            }
+            
+            &.js-is-active {
+                @include container-with-background( 'inverted' );
+                
+                height: 100%;
+                #{$startDirection}: 0;
+                position: fixed;
+                text-align: end;
+                top: 0;
+                width: 100%;
+                z-index: 2000;
+    
+                > .js-toggle {
+                    margin: $large-spacing $gutter-width $tight-spacing;
+                    top: -#{$thick-border-width};
+                }
+    
+                > .c-menu {
+                    display: block;
+                    text-align: end;
+                    padding-right: $gutter-width;
+                    padding-left: $gutter-width;
+                    }
+    
+                .c-menu__item {
+                    display: block;
+                    font-size: $normal-spacing;
+                    }
+
+                > .c-menu > .c-menu__item > .c-menu__item__link { 
+                    text-transform: uppercase;
+                    }
+    
+                .c-menu__item__link {
+                    display: inline-block;
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding: 0 $hairline-spacing;
+                    }
+    
+                .c-menu__item__sub-menu { 
+                    display: block;
+                    margin: -$hairline-spacing $tight-spacing $hairline-spacing;
+                    margin-#{$endDirection}: 0;
+                    position: static;
+                    width: auto;
+                    }
+    
+                .c-menu__item__sub-menu__item { 
+                    background: transparent;
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    }
+    
+                .c-menu__item__sub-menu__item__link, 
+                .c-menu__item__sub-menu__item__link:hover, 
+                .c-menu__item__sub-menu__item__link:focus {
+                    text-decoration: none;    
+                }
+            }
+        }
+    }
+}

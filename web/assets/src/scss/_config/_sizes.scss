@@ -1,0 +1,45 @@
+@use "sass:math";
+
+$small: .875rem;
+$micro: .75rem;
+
+$leading: 1.5;
+$tight-leading:  1.2;
+
+$hairline-spacing: #{math.div( $leading, 4 )}rem; /* 6px */
+$tight-spacing: #{math.div( $leading, 2 )}rem; /* 12px */
+$half-large-spacing: #{math.div( $leading * 3, 4 )}rem; /* 18px */
+$normal-spacing: #{$leading}rem; /* 24px */
+$large-spacing: #{$leading * 1.5}rem; /* 36px */
+$double-spacing: #{$leading * 2}rem; /* 48px */
+$x-large-spacing: #{$leading * 3}rem; /* 72px */
+$huge-spacing: #{$leading * 4}rem; /* 96px */
+$x-huge-spacing: #{$leading * 5}rem; /* 144px */
+
+$gutter-width: $normal-spacing;
+
+$black:     800;
+$bold:      700;
+$light:     300;    
+$medium:    500;
+$normal:    400;
+
+$text-readability-width: 35em;
+
+$thin-border-width: 1px;
+$medium-border-width: #{math.div( $leading, 12 )}rem;
+$thick-border-width: #{math.div( $leading, 6 )}rem;
+
+$controls-border-radius: $thick-border-width;
+
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-x-large: 1200px;
+$breakpoint-huge: 1600px;
+
+$container-max-width-small: 540px;
+$container-max-width-medium: 720px;
+$container-max-width-large: 960px;
+$container-max-width-x-large: 1140px;
+$container-max-width-huge: 1320px;
