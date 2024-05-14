@@ -1,6 +1,7 @@
 <header>
     <h1>A Taste of Bucharest</h1>
     <p>Lede: tips for explorers</p>
+    <hr />
 </header>
 <div id='text'>
     <section>

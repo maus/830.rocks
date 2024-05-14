@@ -1,6 +1,7 @@
 <header>
     <h1>To the Sea</h1>
     <p>The party don’t stop here. Join us at the seaside for sun, sand, and celebration. Pack your beach essentials and join the fun!</p>
+    <hr />
 </header>
 <div id='text'>
     <section>
