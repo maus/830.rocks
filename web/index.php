@@ -19,8 +19,8 @@ require_once ABSPATH . "engine/engine.php";
             .with-js .js-hidden { display: none; }
         </style>
     </head>
-    <body class='<?php echo get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>    
-    	<?php include get_pageTemplate(); ?>
+    <body class='<?= get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>    
+    	<?php pageTemplate(); ?>
         
 		<?= display_pagesMenu() ?>
 

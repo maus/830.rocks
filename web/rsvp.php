@@ -54,7 +54,7 @@
         </form>
     </details>
     <hr />
-    <h2>CIOs TODOs</h2>
+    <h2>CIOs TODOs (as of February 6)</h2>
     <p>We are too excited to wait before inviting you (and, frankly, getting that <i>répondez s'il vous plaît</i>), so for now the website is only wearing its birthday suit.</p> 
     <p>There's a roadmap and we'll let you know about updates</p>
     <ol>

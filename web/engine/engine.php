@@ -26,15 +26,58 @@ $pages = [
 	'the-big-day' => [
 		'title' => 'The Big Day',
 		'locked' => TRUE,
+		'og:title' => "Ana & Marius's Big Day",
+		'description' => "The agenda, getting to Boho Forest and then safely back home."
 	],
 	'to-the-sea' => [
 		'title' => 'Trip to the Sea',
 		'locked' => TRUE,
 	],
-	'on-bucharest' => [
-		'title' => 'Going to Bucharest',
+	'bucharest-city-break' => [
+		'title' => 'A Taste of Bucharest',
 		'locked' => TRUE
 	]
+];
+
+$agenda = [
+	[
+		'time' => '16:45',
+		'title' => 'Arrival',
+		'description' => "Arrive at the location, enjoy the atmosphere while having a glass of champagne or non-alcoholic drinks.
+			
+			Catch up with old friends and meet new guests.",
+	],
+	[
+		'time' => '17:30',
+		'title' => 'Ceremony',
+		'description' => "Witness Ana and Marius tying the knot! Official style.",
+	],
+	[
+		'time' => '17:45',
+		'title' => 'Cocktail hour',
+		'description' => "Take pictures, eat a cold ice cream and slowly find your seat at the table."
+	],
+	[
+		'time' => '18:30',
+		'title' => 'Cocktail hour',
+		'description' => "It is time to have fun! 
+
+		We will serve food all night long in buffet style.
+		
+		Expect some surprises during the night
+		
+		Let’s dance the night away!"
+	],
+	[
+		'time' => '23:00',
+		'title' => 'Cake',
+		'description' => "We cut the cake and eat it too"
+	],
+	[
+		'time' => '03:00',
+		'title' => 'Closing time',
+		'description' => "We thank you for being part of our special celebration night and we wish you a good journey home."
+	],
 ];
 
 define( "SITEROOT", get_siteRoot() );
@@ -44,6 +87,7 @@ define( "IMGS_PATH", ABSPATH . 'assets/dist/graphic/' );
 define( "VIDEO_URL", ASSETS_URL . 'video/' );
 define( "THUMBS_URL", IMGS_URL . 'thumbs/' );
 define( "THUMBS_PATH", IMGS_PATH . 'thumbs/' );
+define( "COMPONENTS_PATH", ABSPATH . 'engine/components/' );
 define( 'PAGE', page() );
 
 require_once ABSPATH . 'engine/vendor/parsedown/Parsedown.php';
@@ -83,8 +127,16 @@ function page() {
 	return $page = isset( $_GET['page'] ) ? $_GET['page'] : array_keys( $pages )[0]; 
 }
 
-function get_pageTemplate() {
-	return PAGE . ".php";
+function pageTemplate() {
+	include PAGE . ".php";
+}
+
+function component( $slug ) {
+	global $agenda;
+
+	$parsedownExtra = new ParsedownExtra();
+
+	include COMPONENTS_PATH . $slug . ".php";
 }
 
 function version_asset( $URL ) {
