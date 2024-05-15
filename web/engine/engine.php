@@ -25,17 +25,14 @@ $pages = [
 	],
 	'the-big-day' => [
 		'title' => 'The Big Day',
-		'locked' => TRUE,
 		'og:title' => "Ana & Marius's Big Day",
 		'description' => "The agenda, getting to Boho Forest and then safely back home."
 	],
 	'to-the-sea' => [
 		'title' => 'Trip to the Sea',
-		'locked' => TRUE,
 	],
 	'bucharest-city-break' => [
 		'title' => 'A Taste of Bucharest',
-		'locked' => TRUE
 	]
 ];
 
