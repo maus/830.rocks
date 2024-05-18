@@ -40,7 +40,7 @@ $agenda = [
 	[
 		'time' => '16:45',
 		'title' => 'Arrival',
-		'description' => "Arrive at the location, enjoy the atmosphere while having a glass of champagne or non-alcoholic drinks.
+		'description' => "Arrive at the location, get into the atmosphere while having a glass of champagne or non-alcoholic drinks.
 			
 			Catch up with old friends and meet new guests.",
 	],
@@ -52,28 +52,22 @@ $agenda = [
 	[
 		'time' => '17:45',
 		'title' => 'Cocktail hour',
-		'description' => "Take pictures, eat a cold ice cream and slowly find your seat at the table."
+		'description' => "Take pictures, eat a cold Eugenia ice cream and slowly find your seat at the table."
 	],
 	[
 		'time' => '18:30',
-		'title' => 'Cocktail hour',
-		'description' => "It is time to have fun! 
-
-		We will serve food all night long in buffet style.
-		
-		Expect some surprises during the night
-		
-		Let’s dance the night away!"
+		'title' => 'Party',
+		'description' => "Time to have fun! Let’s dance the night away!"
 	],
 	[
 		'time' => '23:00',
-		'title' => 'Cake',
-		'description' => "We cut the cake and eat it too"
+		'title' => 'Wedding cake',
+		'description' => "We cut the cake and eat it too."
 	],
 	[
 		'time' => '03:00',
 		'title' => 'Closing time',
-		'description' => "We thank you for being part of our special celebration night and we wish you a good journey home."
+		'description' => "We'll be thanking you for being part of our special celebration night and wishing you a safe trip home."
 	],
 ];
 
