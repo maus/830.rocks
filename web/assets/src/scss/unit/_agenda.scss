@@ -1,0 +1,11 @@
+.c-agenda {
+    @include list--unstyled();
+
+    &__item {
+
+        &__title {
+           @extend %small-caps-stack;
+        }
+
+    }
+}

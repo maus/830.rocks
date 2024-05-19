@@ -14,15 +14,20 @@ require_once ABSPATH . "engine/engine.php";
             document.documentElement.className = document.documentElement.className.replace( "no-js", "with-js" );
         </script>
         <?= openGraphMeta() ?>
+        <link rel="stylesheet" href="https://use.typekit.net/unl8rgd.css">
         <link media="all" rel="stylesheet" href="<?= ASSETS_URL ?>/css/app.css">
         <style>
             .with-js .js-hidden { display: none; }
         </style>
     </head>
-    <body class='<?= get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>    
-    	<?php pageTemplate(); ?>
+    <body class='<?= get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>
+        <div class='r-page-wrapper'>
+            <?php pageTemplate() ?>
+        </div>
         
-		<?= display_pagesMenu() ?>
+        <div class='r-navigation'>
+            <?php pagesMenu() ?>
+        </div>
 
         <script>
             if( document.getElementById( 'rsvp-data' ) != null ) {

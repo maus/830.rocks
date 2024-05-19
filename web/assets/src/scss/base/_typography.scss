@@ -1,21 +1,26 @@
 
 %sans-stack {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'roc-grotesk', sans-serif;
 }
 
 %serif-stack {
-    font-family: 'PT Serif', sans-serif; 
+    font-family: 'mrs-eaves', serif; 
 }
 
 %headline-stack {
-    font-family: 'PT Serif', sans-serif; 
+    font-family: 'mrs-eaves', serif;
+}
+
+%small-caps-stack {
+    font-family: 'mrs-eaves-roman-small-caps', serif;
+    font-weight: $normal;
 }
 
 %headline {
     @extend %headline-stack;
     @include relative-font-size( $large-spacing, $tight-leading );
 
-    color: hex( 'dark-blue' );
+    color: hex( 'headline-color' );
     font-weight: normal;
     line-height: $tight-leading;
 }

@@ -1,4 +1,4 @@
-<div id='text'>
+<div class='r-page-content'>
     <h1>830ROCKS</h1>
     <p>Or Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest.</p>
     <div style='max-width: 30rem;'>

@@ -1,9 +1,9 @@
-<header>
+<header class='r-page-lead'>
     <h1>A Taste of Bucharest</h1>
     <p>Lede: tips for explorers</p>
     <hr />
 </header>
-<div id='text'>
+<div class='r-page-content'>
     <section>
         <h2>Our Highlights</h2>
         <p>Not unlike the list that Google and TripAdvisor are happy to provide, these are our recommendations for a quick Bucharest city break.</p>

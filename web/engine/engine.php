@@ -12,6 +12,7 @@ $pages = [
 		'title' => "RSVP",
 		'og:title' => "RSVP to Ana & Marius's Wedding",
 		'description' => "We'd love for you to join us on August 30th for Ana and Marius's Big Day.",
+		'theme' => 'stately'
 	],
 	'process-rsvp' => [
 		'title' => '🤞 Sending',
@@ -26,13 +27,16 @@ $pages = [
 	'the-big-day' => [
 		'title' => 'The Big Day',
 		'og:title' => "Ana & Marius's Big Day",
-		'description' => "The agenda, getting to Boho Forest and then safely back home."
+		'description' => "The agenda, getting to Boho Forest and then safely back home.",
+		'theme' => 'wedding'
 	],
 	'to-the-sea' => [
 		'title' => 'Trip to the Sea',
+		'theme' => 'party',
 	],
 	'bucharest-city-break' => [
 		'title' => 'A Taste of Bucharest',
+		'theme' => 'art-deco',
 	]
 ];
 
@@ -162,7 +166,7 @@ function is_from_theJournal( $page = '' ) {
 	return in_array( $page, array_keys( $journal ) );
 }
 
-function display_pagesMenu() {
+function pagesMenu() {
 	global $pages;
 
 	$output = "<nav>
@@ -420,7 +424,11 @@ function get_pageClass( $page = '' ) {
 	
 	$parts = explode( "_", $page );
 
-	$classes = array( 'the-' . $parts[0] );
+	$classes = [ 'p-' . $parts[0] ];
+
+	if( ! empty( $pages[$page]['theme'] ) ) {
+		$classes[] = 't-' . $pages[$page]['theme'];
+	}
 
 	if ( is_from_theJournal( $page ) ) {
 		if ( get_image( $page ) ) {

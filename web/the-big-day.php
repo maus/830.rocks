@@ -1,9 +1,9 @@
-<header>
-    <h1>Agenda</h1>
+<header class='r-page-lead'>
+    <h1>The Big Day</h1>
     <p>Lede: in nature, outside, romantic, relaxed. Expect some surprises during the night</p>
     <hr />
 </header>
-<div id='text'>
+<div class='r-page-content'>
     <?php component( 'agenda' ) ?>
     <section>
         <h2>Practical Information</h2>

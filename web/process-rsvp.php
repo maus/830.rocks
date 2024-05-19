@@ -21,7 +21,7 @@ fputcsv( $RSVPResource, [
 fclose( $RSVPResource );
 
 ?>
-<div id='text'>
+<div class='r-page-content'>
     <h1>You rock</h1>
     <p>Thank you for your response.</p>
 </div>

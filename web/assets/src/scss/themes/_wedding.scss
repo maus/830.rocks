@@ -1,0 +1,18 @@
+.t-wedding {
+
+    @extend %serif-stack;
+
+    h2,
+    h3 {
+        font-family: 'mrs-eaves-roman-small-caps', serif;
+    }
+
+    .r-page-lead {
+
+        h1 {
+            font-style: italic;
+        }
+
+    }
+
+}
