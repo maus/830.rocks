@@ -1,13 +1,13 @@
 .r-page-lead {
 
     h1 {
-        @include relative-font-size( $huge-spacing, 1 );
+        @include relative-font-size( $double-spacing, 1 );
 
-        margin-bottom: $normal-spacing;
+        margin-bottom: $tight-spacing;
     }
 
     p {
-        @include relative-font-size( $large-spacing, 1 );
+        @include relative-font-size( $large-spacing, $tight-leading );
     }
 
 }

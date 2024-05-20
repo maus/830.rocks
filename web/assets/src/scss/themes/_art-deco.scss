@@ -1,24 +1,17 @@
 .t-art-deco {
 
+    font-family: 'din-2014-narrow';
+    font-weight: $light;
+
     .r-page-wrapper {
 
-        font-family: 'din-2014';
-        font-weight: $light;
 
         h1,
-        h2 {
+        h2,
+        h3 {
             font-family: 'pinot-grigio-modern';
-            font-weight: $light;
         }
     
-    }
-
-    .r-page-lead {
-
-        p {
-            font-family: 'din-2014-narrow';
-        }
-
     }
 
 }

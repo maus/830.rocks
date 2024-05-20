@@ -5,6 +5,13 @@ if( isset( $_POST['submit'] ) ) {
 }
 
 $pages = [    	
+	'home' => [
+		'title' => get_siteTitle(),
+		'locked' => TRUE,
+		'og:title' => "Ana & Marius's Big Website",
+		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest.",
+		'menuLabel' => '8:30',
+	],
 	'rsvp' => [
 		'image' => 'infinity.jpg',
 		'thumb' => 'thumbs/infinity.jpg',
@@ -12,17 +19,12 @@ $pages = [
 		'title' => "RSVP",
 		'og:title' => "RSVP to Ana & Marius's Wedding",
 		'description' => "We'd love for you to join us on August 30th for Ana and Marius's Big Day.",
-		'theme' => 'stately'
+		'theme' => 'stately',
+		'hidden' => TRUE,
 	],
 	'process-rsvp' => [
 		'title' => '🤞 Sending',
 		'hidden' => TRUE,
-	],
-	'home' => [
-		'title' => get_siteTitle(),
-		'locked' => TRUE,
-		'og:title' => "Ana & Marius's Big Website",
-		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest." 
 	],
 	'the-big-day' => [
 		'title' => 'The Big Day',
@@ -32,10 +34,12 @@ $pages = [
 	],
 	'to-the-sea' => [
 		'title' => 'Trip to the Sea',
+		'menuLabel' => 'The Seaside',
 		'theme' => 'party',
 	],
 	'bucharest-city-break' => [
 		'title' => 'A Taste of Bucharest',
+		'menuLabel' => 'The City',
 		'theme' => 'art-deco',
 	]
 ];
@@ -170,8 +174,8 @@ function pagesMenu() {
 	global $pages;
 
 	$output = "<nav>
-	<p>🍔 Navigation</p>
-	<ul id='site-navigation' class='off-canvas'>";
+	<p class='sr-only'>🍔 Navigation</p>
+	<ul id='site-navigation' class='c-menu'>";
 		$first = true;
 		foreach ( $pages as $link => $page ) {
 			if( ! empty( $page['hidden'] ) ) {
@@ -179,20 +183,29 @@ function pagesMenu() {
 			}
 
 			$linkText = format_linkText( $link );
-			$aClass = ( PAGE == $link ) ? "active" : "";
+			$aClass = "c-";
 			
-			$liAttributes = "";	
+			$liClasses = [
+				"c-menu__item--{$link}",
+			];
 			if ( $first ) {
-				$liAttributes = " class='first'";
+				$liClasses[] = "c-menu__item--first";
 				$first = false;
 			}
+
+			if( PAGE == $link ) {
+				$liClasses[] = "c-menu__item--active";
+			}
+
+			$liClass = implode( " ", $liClasses );
 			
 			if( ! empty( $page['locked'] ) ) {
 				$link = '';
-				$linkText = "<s>❌ {$linkText}</s>";
+				$linkText = "<s>{$linkText}</s>";
 			}
 
-			$output .= "<li" . $liAttributes . "><a href='" . $link . "' class='" . $aClass . "'>" . $linkText . "</a></li>";
+
+			$output .= "<li class='" . $liClass . "'><a href='" . $link . "' class='" . $aClass . "'>" . $linkText . "</a></li>";
 		}
 	$output .= "</ul>
 	</nav>";
@@ -201,9 +214,19 @@ function pagesMenu() {
 }
 
 function format_linkText( $link ) {
-	$linkText = get_title( $link );
+	$linkText = get_menuLabel( $link );
 	
 	return $linkText;
+}
+
+function get_menuLabel( $page = '' ) {
+	global $pages;
+	
+	if ( ! $page ) {
+		$page = PAGE;	
+	}
+	
+	return $pages[$page]['menuLabel'] ?? $pages[$page]['title'];
 }
 
 function get_title( $page = '' ) {

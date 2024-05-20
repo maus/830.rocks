@@ -3,18 +3,19 @@
     .r-page-wrapper {
 
         h1,
-        h2 {
+        h2,
+        h3 {
             font-family: 'roc-grotesk-extrawide';
         }
+        
+    }
     
+    .r-site-navigation {
+        font-weight: $bold;
     }
 
     .r-page-lead {
-
-        p {
-            font-family: 'gopher';
-        }
-
+        font-family: 'gopher';
     }
 
 }

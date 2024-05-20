@@ -1,6 +1,6 @@
 <header class='r-page-lead'>
     <h1>A Taste of Bucharest</h1>
-    <p>Lede: tips for explorers</p>
+    <p>The hometown of Ana and Marius offers something for everyone. If you have some time to explore, you can party hard in the “new Berlin” or enjoy the beautiful streets of the “little Paris of the East”. In any case, this is a city of contrasts, with a unique heart and vibe.</p>
     <hr />
 </header>
 <div class='r-page-content'>

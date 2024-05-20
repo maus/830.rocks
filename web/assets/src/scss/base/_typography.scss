@@ -73,6 +73,10 @@ h3 {
     margin: 0;
     }
 
+h3 {
+    @extend %small-caps-stack;
+}
+
 h4,
 h5,
 h6 {

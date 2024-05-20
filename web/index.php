@@ -21,14 +21,14 @@ require_once ABSPATH . "engine/engine.php";
         </style>
     </head>
     <body class='<?= get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>
+        <div class='r-site-navigation'>
+            <?php pagesMenu() ?>
+        </div>
+
         <div class='r-page-wrapper'>
             <?php pageTemplate() ?>
         </div>
         
-        <div class='r-navigation'>
-            <?php pagesMenu() ?>
-        </div>
-
         <script>
             if( document.getElementById( 'rsvp-data' ) != null ) {
                 document.getElementById( 'rsvp-yup' ).addEventListener( 'change', function( ev ) {

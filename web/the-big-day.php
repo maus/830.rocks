@@ -1,6 +1,6 @@
 <header class='r-page-lead'>
     <h1>The Big Day</h1>
-    <p>Lede: in nature, outside, romantic, relaxed. Expect some surprises during the night</p>
+    <p>We will celebrate in an outdoor location in the woods, with relaxed vibes, just perfect for this romantic occasion.</p>
     <hr />
 </header>
 <div class='r-page-content'>

@@ -1,0 +1,21 @@
+.r-site-navigation {
+    @include container();
+
+    .c-menu {
+        @include list--horizontal();
+    }
+
+    li { 
+        margin-top: $normal-spacing;
+    }
+    
+    a {
+        padding: $normal-spacing 0 0;
+    }
+
+    .c-menu__item--active a {
+        border: none;
+        pointer-events: none;
+    }
+
+}
