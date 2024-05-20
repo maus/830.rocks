@@ -1,16 +1,52 @@
+@use 'sass:color';
+
 .t-wedding {
 
-    @extend %serif-stack;
+    background-color: hex( 'wedding-background' );
+    color: hex( 'wedding-text' );
 
-    h2,
-    h3 {
-        @extend %small-caps-stack;
+    a {
+        color: hex( 'wedding-accent' );
+        border-bottom-color: hex( 'wedding-accent' );
     }
 
+    ::selection {
+        background-color: hex( 'wedding-accent' );
+        color: get-contrast-color( 'wedding-accent' );
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: hex( 'wedding-heading' );
+    }
+
+    &,
+    h1 {
+        font-family: 'mrs-eaves', serif;
+    }
+
+    h2,
+    h3,
+    .c-agenda__item__title {
+        font-family: 'mrs-eaves-roman-small-caps', serif;
+    }
+    
+    .c-agenda__item__title { 
+        font-size: 1rem;
+        text-transform: none;
+    }
+    
     .r-page-lead {
 
-        h1 {
-            font-style: italic;
+        font-style: italic;
+
+        @media ( min-width: $breakpoint-large ) {
+            padding-top: $huge-spacing;
+
+            h1 {
+                @include relative-font-size( $huge-spacing, 1 );
+            }
         }
 
     }

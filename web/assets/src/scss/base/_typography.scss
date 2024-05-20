@@ -1,19 +1,21 @@
 
 %sans-stack {
-    font-family: 'roc-grotesk', sans-serif;
+    font-family: 'Tahoma', sans-serif;
 }
 
 %serif-stack {
-    font-family: 'mrs-eaves', serif; 
+    font-family: 'Times New Roman', serif; 
 }
 
 %headline-stack {
-    font-family: 'mrs-eaves', serif;
+    @extend %serif-stack;
 }
 
-%small-caps-stack {
-    font-family: 'mrs-eaves-roman-small-caps', serif;
+%small-caps {
+    @extend %serif-stack;
+    font-size: .9rem;
     font-weight: $normal;
+    text-transform: uppercase;
 }
 
 %headline {
@@ -21,7 +23,7 @@
     @include relative-font-size( $large-spacing, $tight-leading );
 
     color: hex( 'headline-color' );
-    font-weight: normal;
+    font-weight: $normal;
     line-height: $tight-leading;
 }
 
@@ -45,14 +47,14 @@
 }
 
 html {
-    font-size: 100%;
+    font-size: 110%;
 
     @media ( min-width: $breakpoint-x-large ) {
-        font-size: 110%;
+        font-size: 120%;
     }
 
     @media ( min-width: $breakpoint-huge ) {
-        font-size: 125%;
+        font-size: 135%;
     }
 }
 
@@ -61,7 +63,7 @@ body {
 
     color: hex( 'text-color' );
     font-size: 1rem;
-    font-weight: $normal;
+    font-weight: $normal;    
     line-height: $normal-spacing;
 }
 
@@ -69,12 +71,12 @@ h1,
 h2,
 h3 {
     @extend %headline;
-
+    
     margin: 0;
     }
 
 h3 {
-    @extend %small-caps-stack;
+    @extend %small-caps;
 }
 
 h4,

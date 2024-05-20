@@ -1,5 +1,5 @@
 .r-site-navigation {
-    @include container();
+    @include container( false );
 
     .c-menu {
         @include list--horizontal();

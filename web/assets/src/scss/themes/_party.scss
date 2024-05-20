@@ -1,11 +1,27 @@
+@use 'sass:color';
+
 .t-party {
+
+    background-color: hex( 'party-background' );
+    color: hex( 'party-text' );
+
+    a {
+        color: hex( 'party-accent' );
+        border-bottom-color: hex( 'party-accent' );
+    }
+
+    ::selection {
+        background-color: hex( 'party-accent' );
+        color: get-contrast-color( 'party-accent' );
+    }
 
     .r-page-wrapper {
 
         h1,
         h2,
         h3 {
-            font-family: 'roc-grotesk-extrawide';
+            font-family: 'roc-grotesk-extrawide', serif;
+            color: hex( 'party-heading' );
         }
         
     }

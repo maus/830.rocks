@@ -48,9 +48,8 @@ $agenda = [
 	[
 		'time' => '16:45',
 		'title' => 'Arrival',
-		'description' => "Arrive at the location, get into the atmosphere while having a glass of champagne or non-alcoholic drinks.
-			
-			Catch up with old friends and meet new guests.",
+		'description' => "Arrive at the location, get into the atmosphere while having a glass of champagne or non-alcoholic drinks. 
+		Catch up with old friends and meet new guests.",
 	],
 	[
 		'time' => '17:30',
@@ -448,15 +447,10 @@ function get_pageClass( $page = '' ) {
 	$parts = explode( "_", $page );
 
 	$classes = [ 'p-' . $parts[0] ];
+	$classes[] = ! empty( $pages[$page]['theme'] ) ? 't-' . $pages[$page]['theme'] : 't-website';
 
-	if( ! empty( $pages[$page]['theme'] ) ) {
-		$classes[] = 't-' . $pages[$page]['theme'];
-	}
-
-	if ( is_from_theJournal( $page ) ) {
-		if ( get_image( $page ) ) {
-			$classes[] = 'has-media';
-		}
+	if ( get_image( $page ) ) {
+		$classes[] = 'has-media';
 	}
 	
 	return implode( ' ', $classes );

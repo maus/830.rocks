@@ -10,4 +10,8 @@
         @include relative-font-size( $large-spacing, $tight-leading );
     }
 
+    @media ( min-width: $breakpoint-medium ) {
+        padding-top: $double-spacing;
+    }
+
 }

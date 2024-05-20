@@ -1,7 +1,21 @@
+@use 'sass:color';
+
 .t-art-deco {
 
+    background-color: hex( 'art-deco-background' );
+    color: hex( 'art-deco-text' );
     font-family: 'din-2014-narrow';
     font-weight: $light;
+
+    a {
+        color: hex( 'art-deco-accent' );
+        border-bottom-color: hex( 'art-deco-accent' );
+    }
+
+    ::selection {
+        background-color: hex( 'art-deco-accent' );
+        color: get-contrast-color( 'art-deco-accent' );
+    }
 
     .r-page-wrapper {
 
@@ -9,6 +23,7 @@
         h1,
         h2,
         h3 {
+            color: hex( 'art-deco-heading' );
             font-family: 'pinot-grigio-modern';
         }
     
