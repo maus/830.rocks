@@ -1,0 +1,28 @@
+.c-color-palette {
+    display: flex;
+    
+    span {
+        flex: 1 0 auto;
+        height: $tight-spacing;
+    }
+
+    span:nth-child( 1 ) {
+        background-color: hex( 'accent' );
+    }
+
+    span:nth-child( 2 ) {
+        background-color: hex( 'headline-color' );
+    }
+
+    span:nth-child( 3 ) {
+        background-color: hex( 'background' );
+    }
+
+    span:nth-child( 4 ) {
+        background-color: hex( 'alt-background' );
+    }
+
+    span:nth-child( 5 ) {
+        background-color: hex( 'text-color' );
+    }
+}

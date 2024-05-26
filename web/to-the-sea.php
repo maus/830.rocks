@@ -1,8 +1,11 @@
 <header class='r-page-lead'>
     <h1>To the Sea</h1>
-    <p>'Cos the party don’t stop for three days. Take a trip with us to the seaside for sun, sand, and shindings. Pack your beach must-haves and keep rocking and rolling!</p>
+    <p>'Cos the party don’t stop for three days.</p>
 </header>
 <div class='r-page-content'>
+    <section>
+        <p>Take a trip with us to the seaside for sun, sand, and shindings. Pack your beach must-haves and keep rocking and rolling!</p>
+    </section>
     <section>
         <h2>Why Vama Veche?</h2>
         <p>Well, Ana and Marius' first getaway as a couple was in Vama Veche early August 2021.</p>

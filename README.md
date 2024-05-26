@@ -2,6 +2,8 @@
 
 ## Images
 
+- art deco by Olena Panasovska from <a href="https://thenounproject.com/browse/icons/term/art-deco/" target="_blank" title="art deco Icons">Noun Project</a> (CC BY 3.0)
+
 ## Typography
 
 All fonts are served by Adobe Fonts.

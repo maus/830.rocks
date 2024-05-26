@@ -9,8 +9,7 @@
         ?>
         <li class='c-agenda__item'>
             <div class='c-agenda__item__wrapper'>
-                <time class='c-agenda__item__time' datetime='<?= $dateTime->format( 'c' ) ?>'><?= $dateTime->format( 'H:i' ) ?></time>
-                <strong class='c-agenda__item__title'><?= $title ?></strong>
+                <time class='c-agenda__item__time' datetime='<?= $dateTime->format( 'c' ) ?>'><?= $dateTime->format( 'H:i' ) ?> </time><strong class='c-agenda__item__title'><?= $title ?></strong>
                 <div class='c-agenda__item__description'>
                     <p><?= nl2br( $description ) ?></p>
                 </div>

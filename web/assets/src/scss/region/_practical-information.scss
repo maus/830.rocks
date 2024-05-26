@@ -1,0 +1,15 @@
+.r-practical-information {
+    h1,
+    p {
+        margin: 0;
+    }
+
+    h1 {
+        @include relative-font-size( $normal-spacing );
+
+        font-family: 'roc-grotesk';
+        font-weight: $bold;
+        margin: 0;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,8 @@
+.r-colophon {
+    background: hex( 'text-color' );
+    color: get-contrast-color( 'text-color' );
+
+    & > section {
+        @include container( false );
+    }
+}

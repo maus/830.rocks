@@ -4,28 +4,37 @@ $colors: (
     'light-gray': #eee,
     'muted': #E3DDDD,
 
-    'text-color': #222,
-    'headline-color': #735B56,
-    'link-border-color': #D93D04,
+    'link-border-color': #C47451,
     'inverted': #fcfcfc,
     'white': #FFFFFF,
+    'gold': #F2B366,
 
     'error': #F08688,
     'success': #3BDBB4,
     'warning': #F0EE56,
 
-    'party-heading': #445CA6,
-    'party-text': #402C30,
-    'party-accent': #BF6565,
-    'party-background': #C9E9E6,
+    'headline-color': #2C2A15,
+    'text-color': #1B1614,
+    'accent': #8C2D1B,
+    'background': #D9C7C1,
+    'alt-background': #D9A19C,
 
-    'art-deco-heading': #735939,
-    'art-deco-text': #0A0A0D,
+    'party-heading': #445CA6,
+    'party-text': #222640,
+    'party-accent': #F24E29,
+    'party-background': #C9E9E6,
+    'party-alt-background': #3DD1F2,
+
     'art-deco-accent': #EB542A,
+    'art-deco-text': #0A0A0D,
+    'art-deco-heading': #735939,
+    'art-deco-alt-background': #F2B366,
     'art-deco-background': #F2CB9B,
 
-    'wedding-heading': #C1734A,
+    'wedding-main-heading': #C47451,
+    'wedding-heading': #2C2A15,
     'wedding-text': #596251,
-    'wedding-accent': #7E8657,
-    'wedding-background': #F2E9E1
+    'wedding-accent': #8C2E1B,
+    'wedding-background': #F2E9E1,
+    'wedding-alt-background': #CFAF96
     );

@@ -3,9 +3,20 @@
 
     &__item {
 
+        &__time {
+            display: inline-block;
+            width: $double-spacing;
+            
+        }
+
         &__title {
            @extend %small-caps;
         }
 
+        &__description {
+            padding-left: $double-spacing;
+        }
+
     }
+
 }

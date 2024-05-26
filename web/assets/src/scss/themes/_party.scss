@@ -1,27 +1,52 @@
 @use 'sass:color';
 
+$backgroundColor: 'party-background';
+$headingColor: 'party-heading';
+$accentColor: 'party-accent';
+$backgroundColorHex: hex( $backgroundColor );
+$headingColorHex: hex( $headingColor );
+$accentColorHex: hex( $accentColor );
+
 .t-party {
 
-    background-color: hex( 'party-background' );
     color: hex( 'party-text' );
+    
+    .u-background-container {
+        background: url( '../graphic/to-the-sea-bg.jpg' ) left top repeat-y;
+        background-size: cover;
+        padding-left: $gutter-width;
+        padding-top: $double-spacing;
+    }
 
+    @media ( min-width: $breakpoint-large ) {
+        .u-background-container {
+            padding-left: $double-spacing;
+        }
+    }
+    
+    .u-background-container-2 {
+        background-color: $backgroundColorHex;
+    }
+    
     a {
         color: hex( 'party-accent' );
         border-bottom-color: hex( 'party-accent' );
     }
 
     ::selection {
-        background-color: hex( 'party-accent' );
-        color: get-contrast-color( 'party-accent' );
+        background-color: $accentColorHex;
+        color: get-contrast-color( $accentColor );
     }
 
     .r-page-wrapper {
+
+        z-index: $z-index-base;
 
         h1,
         h2,
         h3 {
             font-family: 'roc-grotesk-extrawide', serif;
-            color: hex( 'party-heading' );
+            color: $headingColorHex;
         }
         
     }
@@ -32,6 +57,70 @@
 
     .r-page-lead {
         font-family: 'gopher';
+    }
+
+    .r-practical-information {
+        background: hex( 'party-alt-background' );
+    }
+
+    .r-colophon {
+        background: hex( 'party-text' );
+    }
+
+    .c-color-palette {
+        span:nth-child( 1 ) {
+            background-color: hex( 'party-text' );
+        }
+    
+        span:nth-child( 2 ) {
+            background-color: hex( 'party-heading' );
+        }
+    
+        span:nth-child( 3 ) {
+            background-color: hex( 'party-alt-background' );
+        }
+    
+        span:nth-child( 4 ) {
+            background-color: hex( 'party-background' );
+        }
+    
+        span:nth-child( 5 ) {
+            background-color: hex( 'party-accent' );
+        }
+    }
+
+    .r-page-content {
+        
+        section:nth-child( 2 ) {
+            margin-bottom: $double-spacing;
+            margin-top: $double-spacing;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -#{$normal-spacing};
+                top: -#{$normal-spacing};
+                left: -#{$normal-spacing};
+                right: -#{$normal-spacing};
+                z-index: $z-index-negative;
+            }
+            
+            &::before {
+                background: hex( 'party-text' );
+                transform: skewY( 2deg );
+            }
+            
+            &::after {
+                background: url( '../graphic/to-the-sea-kiss.jpg' ) center center no-repeat;
+                background-size: cover;
+                background-color: hex( 'party-alt-background' );
+                transform: skewX( -3deg );
+            }
+        }
+
     }
 
 }

@@ -117,9 +117,9 @@ AddType text/cache-manifest           manifest
   ExpiresByType image/svg+xml             "access plus 1 month"
   
 # css and javascript
-  ExpiresByType text/css                  "access plus 1 month"
-  ExpiresByType application/javascript    "access plus 1 month"
-  ExpiresByType text/javascript           "access plus 1 month"
+  # ExpiresByType text/css                  "access plus 1 month"
+  # ExpiresByType application/javascript    "access plus 1 month"
+  # ExpiresByType text/javascript           "access plus 1 month"
 </IfModule>
 
 

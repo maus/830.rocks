@@ -1,0 +1,11 @@
+.r-closing-time {
+
+    background: hex( 'alt-background' );
+    
+    & > section {
+        @include container( true );
+
+        padding-bottom: $normal-spacing;
+        padding-top: $normal-spacing;
+    }
+}

@@ -21,12 +21,42 @@ require_once ABSPATH . "engine/engine.php";
         </style>
     </head>
     <body class='<?= get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>
-        <div class='r-site-navigation'>
-            <?php pagesMenu() ?>
-        </div>
+        <div class='u-background-container'>
+            <div class='u-background-container-2'>
+                <div class='r-site-navigation'>
+                    <?php pagesMenu() ?>
+                </div>
 
-        <div class='r-page-wrapper'>
-            <?php pageTemplate() ?>
+                <div class='r-page-wrapper'>
+                    <?php pageTemplate() ?>
+                </div>
+            </div>
+
+            <?php
+            if( ! empty( $pages[PAGE]['practicalInformation'] ) ) :
+                ?>
+                <div class='r-practical-information r-closing-time'>
+                    <section class='c-cta'>
+                        <h1>Practical Information</h1>
+                        <p><?= $pages[PAGE]['practicalInformation'] ?></p>
+                        <p><a href='/good-to-know#<?= PAGE ?>'><?= get_menuLabel( PAGE ) ?> Logistics</a></p>
+                    </section>
+                </div>
+                <?php
+            endif;
+            ?>
+            <div class='c-color-palette'>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class='r-colophon r-closing-time'>
+                <section class='c-colophon'>
+                    <p>&copy; 2024 Ana & Marius, feel free to use everything. <a href='#'>Colophon and credits</a></p>
+                </section>
+            </div>
         </div>
         
         <script>

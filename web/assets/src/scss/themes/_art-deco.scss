@@ -3,9 +3,24 @@
 .t-art-deco {
 
     background-color: hex( 'art-deco-background' );
+    border: $hairline-spacing solid hex( 'art-deco-text' );
+    border-bottom: none;
     color: hex( 'art-deco-text' );
     font-family: 'din-2014-narrow';
     font-weight: $light;
+    position: relative;
+
+    &::before {
+        border: hex( 'art-deco-text' ) $thick-border-width solid;
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: $z-index-negative;
+        left: $hairline-spacing;
+        top: $hairline-spacing;
+        right: $hairline-spacing;
+        bottom: $hairline-spacing;
+    }
 
     a {
         color: hex( 'art-deco-accent' );
@@ -18,15 +33,118 @@
     }
 
     .r-page-wrapper {
-
+        position: static;
 
         h1,
         h2,
         h3 {
             color: hex( 'art-deco-heading' );
             font-family: 'pinot-grigio-modern';
+            text-transform: none;
         }
     
+    }
+
+    .r-page-lead::before,
+    .r-page-lead::after {
+        background-color: hex( 'art-deco-alt-background' );
+        border-radius: 50%;
+        border: $thick-border-width solid hex( 'art-deco-text');
+        content: '';
+        display: block;
+        height: 12rem;
+        width: 12rem;
+        position: absolute;
+        z-index: $z-index-negative;
+        top: -4rem;
+        left: 50%;
+        margin-left: -6rem;
+    }
+
+    .r-page-lead::after {
+        top: auto;
+        bottom: -4rem;
+    }
+
+    .r-page-lead {
+        background-color: hex( 'art-deco-alt-background' );
+        border: $thick-border-width solid hex( 'art-deco-text');
+        margin-bottom: $huge-spacing;
+        margin-top: $huge-spacing;
+        padding: $tight-spacing;
+        position: relative;
+
+        h1,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            color: inherit;
+        }
+    }
+
+    .r-practical-information {
+        background: transparent;
+        padding-bottom: 0;
+        position: relative;
+
+        &::before {
+            background: hex( 'art-deco-text' );
+            border-bottom: $hairline-spacing solid hex( 'art-deco-background' );
+            bottom: 0;
+            content: '';
+            display: block;
+            height: calc( $thick-border-width + $hairline-spacing );
+            padding: 0;
+            position: absolute;
+            left: $hairline-spacing;
+            right: $hairline-spacing;
+            z-index: $z-index-base;
+        }
+
+        section {
+            background: hex( 'art-deco-alt-background' );
+            border: hex( 'art-deco-text' ) $thick-border-width solid;
+            border-bottom: none;
+            position: relative;
+        }
+    }
+
+    .r-colophon {
+        background: hex( 'art-deco-text' );
+    }
+
+    .c-color-palette {
+        span:nth-child( 1 ) {
+            background-color: hex( 'art-deco-text' );
+        }
+    
+        span:nth-child( 2 ) {
+            background-color: hex( 'art-deco-alt-background' );
+        }
+    
+        span:nth-child( 3 ) {
+            background-color: hex( 'art-deco-heading' );
+        }
+    
+        span:nth-child( 4 ) {
+            background-color: hex( 'art-deco-background' );
+        }
+    
+        span:nth-child( 5 ) {
+            background-color: hex( 'art-deco-accent' );
+        }
+    }
+
+    .r-page-content section {
+        // background: url( '../graphic/noun-art-deco-2098231.png') center top no-repeat;
+        // background-size: 6rem;
+        // padding-top: 6rem;
+    }
+
+    @media ( min-width: $breakpoint-medium ) {
+        border-width: $normal-spacing;
     }
 
 }

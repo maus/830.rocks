@@ -7,7 +7,6 @@ if( isset( $_POST['submit'] ) ) {
 $pages = [    	
 	'home' => [
 		'title' => get_siteTitle(),
-		'locked' => TRUE,
 		'og:title' => "Ana & Marius's Big Website",
 		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest.",
 		'menuLabel' => '8:30',
@@ -26,21 +25,33 @@ $pages = [
 		'title' => '🤞 Sending',
 		'hidden' => TRUE,
 	],
+	'good-to-know' => [
+		'title' => 'Good to Know',
+		'og:title' => "Ana & Marius's Weekend Logistics",
+		'description' => "",
+		'theme' => 'stately',
+		'hidden' => TRUE,	
+	],
 	'the-big-day' => [
+		'theme' => 'wedding',
+		'menuLabel' => '<span>The </span>Big Day',
 		'title' => 'The Big Day',
 		'og:title' => "Ana & Marius's Big Day",
 		'description' => "The agenda, getting to Boho Forest and then safely back home.",
-		'theme' => 'wedding'
+		'practicalInformation' => "Transport to the venue and then safely back home, dress code, gifts policy.",
+		
 	],
 	'to-the-sea' => [
-		'title' => 'Trip to the Sea',
-		'menuLabel' => 'The Seaside',
 		'theme' => 'party',
+		'title' => 'Trip to the Sea',
+		'menuLabel' => '<span>The </span>Seaside',
+		'practicalInformation' => "Geographical details, getting there and back, accommodation.",
 	],
 	'bucharest-city-break' => [
-		'title' => 'A Taste of Bucharest',
-		'menuLabel' => 'The City',
 		'theme' => 'art-deco',
+		'title' => 'A Taste of Bucharest',
+		'menuLabel' => '<span>The </span>City',
+		'practicalInformation' => "Arriving in Bucharest, currency, getting around town."
 	]
 ];
 

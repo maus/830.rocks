@@ -47,14 +47,14 @@
 }
 
 html {
-    font-size: 110%;
+    font-size: 125%;
 
     @media ( min-width: $breakpoint-x-large ) {
-        font-size: 120%;
+        font-size: 140%;
     }
 
     @media ( min-width: $breakpoint-huge ) {
-        font-size: 135%;
+        font-size: 150%;
     }
 }
 

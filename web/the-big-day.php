@@ -3,10 +3,6 @@
     <p>We will celebrate in an outdoor location in the woods, with relaxed vibes, just perfect for this romantic occasion.</p>
 </header>
 <div class='r-page-content'>
-    <h2>Agenda</h2>
+    <h2>Evening delights</h2>
     <?php component( 'agenda' ) ?>
-    <section>
-        <h2>Practical Information</h2>
-        <p>Very nice food will be at your fingertips all night long. Buffet style.</p>
-    </section>
 </div>

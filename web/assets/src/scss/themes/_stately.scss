@@ -1,0 +1,152 @@
+.t-stately {
+    
+    background: hex( 'muted' );
+
+    &,
+    h1,
+    h2,
+    h3 {
+        font-family: 'roc-grotesk', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-weight: $bold;
+        margin: 0;
+    }
+
+    h2 {
+        @include relative-font-size( $normal-spacing, 1 );
+    }
+
+    h3 {
+        @include relative-font-size( $normal-spacing );
+    }
+
+    h3,
+    p {
+        margin-bottom: $tight-spacing;
+    }
+
+    .r-page-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .r-page-lead,
+    .r-page-content {
+        background: hex( 'white' );
+        border-color: hex( 'text-color' );
+        border-style: solid;
+        border-width: $medium-border-width;
+    }
+
+    .r-page-lead,
+    .r-page-content section {
+        padding: $normal-spacing;
+
+        header {
+            margin-bottom: $normal-spacing;
+        }
+    }
+
+    .r-page-lead {
+        border-bottom-width: 0;
+
+        & > * { 
+            margin: 0; 
+        }
+
+        h1 {
+            @include relative-font-size( $large-spacing, 1 );
+            
+            color: hex( 'accent' );
+            margin-top: $tight-spacing;
+            text-transform: uppercase;
+        }
+
+        p {
+            @include relative-font-size( $normal-spacing );
+
+            margin-bottom: $tight-spacing;
+        }
+    }
+
+    .r-page-content {
+
+        section {
+            border-bottom: $medium-border-width dashed hex( 'text-color' );
+            padding-bottom: $tight-spacing;
+        }
+
+        section:last-child {
+            border-bottom-width: 0;
+        }
+
+    }
+
+    @media ( min-width: $breakpoint-small ) {
+        .r-page-wrapper {
+            padding-left: $gutter-width;
+            padding-right: $gutter-width;
+        }
+    }
+
+    @media ( min-width: $breakpoint-medium ) {
+
+        .r-page-lead {
+            h1 {
+                @include relative-font-size( $double-spacing, 1 );
+            }
+
+            p {
+                @include relative-font-size( $normal-spacing, 1 );
+            }
+        }
+
+        h2 {
+            @include relative-font-size( $large-spacing, 1 );
+        }
+    
+        h3 {
+            @include relative-font-size( $normal-spacing, 1 );
+        }
+    }
+
+    @media ( min-width: $breakpoint-large ) {
+
+        .r-page-lead {
+
+            p {
+                @include relative-font-size( $large-spacing, $tight-leading );
+            }
+
+        }
+        
+        .r-page-content {
+
+            section {
+                display: flex;
+                gap: $gutter-width;
+            }
+
+            header {
+                border-right: $medium-border-width dotted hex( 'background' );
+                flex: 1;
+            }
+
+            div {
+                flex: 2;
+            }
+
+            h2 {
+                @include relative-font-size( $normal-spacing, 1 );
+                text-transform: uppercase;
+            }
+
+        }
+
+    }
+
+}

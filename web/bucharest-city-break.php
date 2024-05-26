@@ -1,6 +1,7 @@
 <header class='r-page-lead'>
     <h1>A Taste of Bucharest</h1>
-    <p>The hometown of Ana and Marius offers something for everyone. If you have some time to explore, you can party hard in the “new Berlin” or enjoy the beautiful streets of the “little Paris of the East”. In any case, this is a city of contrasts, with a unique heart and vibe.</p>
+    <p>The hometown of Ana and Marius offers something for everyone. A city of contrasts, with a unique heart and vibe.</p>
+    <p>If you have some time to explore, you can party hard in the “new Berlin” or enjoy the beautiful streets of the “little Paris of the East”.</p>
 </header>
 <div class='r-page-content'>
     <section>
@@ -38,12 +39,5 @@
         <h3>Linea closer to the moon</h3>
         <p>For beautiful views, a good cocktail and an international menu. Tip: book a table in advance and ask to sit outside. </p>
         <p><em>Fun fact:</em> As of April 2024 an ototo popped up on Zieglergasse to help elevate the Bobos who very much needed it.</p>
-    </section>
-    <section>
-        <h2>Practical Information</h2>
-        <p>We entered aerial Schengen this year!</p>
-        <p>The Romanian currency is Rol (Romanian Leu), with 1€ approx. 5 lei. Many places accept card, we LOVE Revolut, but bring some cash with you. </p>
-        <p><em>Getting around</em> Uber and Bolt are the best options. Ana does not recommend taxis, and if you feel adventurous, try the subway.</p>
-        <p><em>Fun(?) fact</em>: Marius does not love Revolut, to put it lightly</p>
     </section>
 </div>

@@ -1,5 +1,6 @@
 .r-page-wrapper {
     @include container( true );
 
-    padding-bottom: $double-spacing;
+    padding-bottom: $normal-spacing;
+    position: relative;
 }

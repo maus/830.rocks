@@ -1,16 +1,26 @@
 .r-site-navigation {
     @include container( false );
 
+    padding-top: $normal-spacing;
+    
     .c-menu {
         @include list--horizontal();
-    }
 
-    li { 
-        margin-top: $normal-spacing;
+        margin-bottom: 0;
     }
     
     a {
         padding: $normal-spacing 0 0;
+
+        span {
+            display: none;
+        }
+
+        @media ( min-width: $breakpoint-small ) {
+            span {
+                display: inline;
+            }
+        }
     }
 
     .c-menu__item--active a {
