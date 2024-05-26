@@ -98,8 +98,8 @@ $accentColorHex: hex( $accentColor );
     .r-page-content {
         
         section:nth-child( 2 ) {
-            margin-bottom: $double-spacing;
-            margin-top: $double-spacing;
+            margin-bottom: $x-large-spacing;
+            margin-top: $x-large-spacing;
             position: relative;
 
             &::before,

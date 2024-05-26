@@ -1,8 +1,6 @@
 .r-site-navigation {
     @include container( false );
 
-    padding-top: $normal-spacing;
-    
     .c-menu {
         @include list--horizontal();
 
@@ -10,6 +8,7 @@
     }
     
     a {
+        display: inline-block;
         padding: $normal-spacing 0 0;
 
         span {
@@ -21,6 +20,26 @@
                 display: inline;
             }
         }
+    }
+
+    .c-menu__item--first a {
+        background: url( '../graphic/830.png' ) center center no-repeat;
+        background-size: contain;
+        border: none;
+        display: inline-block;
+        margin-bottom: -#{$normal-spacing};
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+        width: $large-spacing;
+    }
+
+    @media ( min-width: $breakpoint-x-large ) {
+
+        .c-menu__item--first a {
+            width: $double-spacing;
+        }
+
     }
 
     .c-menu__item--active a {
