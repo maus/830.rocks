@@ -103,7 +103,7 @@ $accentColorHex: hex( $accentColor );
                 position: absolute;
                 bottom: -#{$normal-spacing};
                 top: -#{$normal-spacing};
-                left: -#{$normal-spacing};
+                left: -#{$double-spacing};
                 right: -#{$normal-spacing};
                 z-index: $z-index-negative;
             }

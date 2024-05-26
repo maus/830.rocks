@@ -5,7 +5,7 @@ $diff = $lastUpdate->diff( $weddingDate )->format( "%a" );  //find difference
 $daysLeft = intval( $diff );   //rounding days
 ?>
 
-<header class='r-page-lead'>
+<header class='r-page-lead' id='toc'>
     <code>Last updated: <?= $lastUpdate->format( 'd.m.Y' ) ?> (<?= $daysLeft ?> days left)</code>
     <h1>Logistics</h1>
     <p>Getting to Bucharest, the wedding at Boho Forest, and, finally, Vama Veche.</p>
@@ -15,7 +15,8 @@ $daysLeft = intval( $diff );   //rounding days
     <section id='bucharest-city-break'>   
         <header>
             <h2>Bucharest and Romania</h2>
-            <code>Ref: <a href='/bucharest-city-break'>The City</a></code>
+            <code>Ref: <a href='/bucharest-city-break'>The City</a><br />
+            TOC: <a href='#toc'>Back to top</a></code>
         </header>
         <div>
             <h3>Getting to Bucharest</h3>
@@ -39,7 +40,8 @@ $daysLeft = intval( $diff );   //rounding days
     <section id='the-big-day'>
         <header>
             <h2>Wedding Day</h2>
-            <code>Ref: <a href='/the-big-day'>The Big Day</a></code>
+            <code>Ref: <a href='/the-big-day'>The Big Day</a><br />
+            TOC: <a href='#toc'>Back to top</a></code>
         </header>
         <div>
             <h3>Venue</h3>
@@ -62,7 +64,8 @@ $daysLeft = intval( $diff );   //rounding days
     <section id='to-the-sea'>
         <header>
             <h2>Vama Veche</h2>
-            <code>Ref: <a href='/to-the-sea'>The Seaside</a></code>
+            <code>Ref: <a href='/to-the-sea'>The Seaside</a><br />
+            TOC: <a href='#toc'>Back to top</a></code>
         </header>
         <div>
             <h3>Where is Vama Veche?</h3>
