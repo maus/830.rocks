@@ -1,6 +1,7 @@
 .r-page-wrapper {
     @include container( true );
 
+    min-height: calc( 100vh - 12.8rem );
     padding-bottom: $normal-spacing;
     position: relative;
 }

@@ -1,5 +1,9 @@
 @use 'sass:color';
 
+.r-site-navigation--magazine-pages .c-menu__item--the-big-day {
+    background-color: hex( 'wedding-accent' );
+}
+
 .t-wedding {
 
     background-color: hex( 'wedding-background' );
@@ -29,6 +33,10 @@
         .u-background-container-2 {
             background-size: 35vw;
         }
+    }
+
+    .c-menu__item--first a {
+        @include color-to-filter( 'wedding-text' );
     }
 
     .r-page-wrapper {

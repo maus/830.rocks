@@ -7,6 +7,10 @@ $backgroundColorHex: hex( $backgroundColor );
 $headingColorHex: hex( $headingColor );
 $accentColorHex: hex( $accentColor );
 
+.r-site-navigation--magazine-pages .c-menu__item--to-the-sea {
+    background-color: hex( 'party-background' );
+}
+
 .t-party {
 
     color: hex( 'party-text' );
@@ -42,6 +46,10 @@ $accentColorHex: hex( $accentColor );
     ::selection {
         background-color: $accentColorHex;
         color: get-contrast-color( $accentColor );
+    }
+
+    .c-menu__item--first a {
+        @include color-to-filter( 'party-text' );
     }
 
     .r-page-wrapper {

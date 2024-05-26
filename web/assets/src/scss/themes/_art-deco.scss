@@ -1,5 +1,9 @@
 @use 'sass:color';
 
+.r-site-navigation--magazine-pages .c-menu__item--bucharest-city-break {
+    background-color: hex( 'art-deco-alt-background' );
+}
+
 .t-art-deco {
 
     background-color: hex( 'art-deco-background' );
@@ -30,6 +34,10 @@
     ::selection {
         background-color: hex( 'art-deco-accent' );
         color: get-contrast-color( 'art-deco-accent' );
+    }
+
+    .c-menu__item--first a {
+        @include color-to-filter( 'text-color' );
     }
 
     .r-page-wrapper {

@@ -1,0 +1,57 @@
+.p-home {
+
+    &,
+    .u-background-container-2 {
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .u-background-container-2 {
+        padding-top: $normal-spacing;
+    }
+    
+    .r-page-wrapper {
+        display: flex;
+
+        header {
+            margin-top: auto;
+
+            & > * {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}
+
+.p-home--retro {
+    background-image: url( '../graphic/retro-background-preloader.jpg');
+    
+    .u-background-container-2 {
+        background-image: url( '../graphic/retro-background.jpg');
+    }
+}
+
+.p-home {
+    background-image: url( '../graphic/biennale-background-preloader.jpg');
+
+    .r-page-lead {
+        &,
+        h1 {
+            color: hex( 'white' );
+        }
+
+        h1 {
+            @include relative-font-size( $double-spacing, 1 );
+        }
+
+        p {
+            @include relative-font-size( $normal-spacing, 1 );
+        }
+    }
+    
+    .u-background-container-2 {
+        background-image: url( '../graphic/biennale-background.jpg');
+    }
+}

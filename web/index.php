@@ -23,14 +23,34 @@ require_once ABSPATH . "engine/engine.php";
     <body class='<?= get_pageClass(); ?>' <?= get_pageBackgroundStyle() ?>>
         <div class='u-background-container'>
             <div class='u-background-container-2'>
-                <div class='r-site-navigation'>
-                    <?php pagesMenu() ?>
-                </div>
+                <?php
+                if( PAGE != 'home' ) :
+                    ?>
+                    <div class='r-site-navigation'>
+                        <?= pagesMenu() ?>
+                    </div>
+                    <?php
+                else :
+                    ?>
+                    <div class='c-site-branding'><span class='sr-only'><?= get_siteTitle() ?></span></div>
+                    <?php
+                endif;
+                ?>
 
                 <div class='r-page-wrapper'>
                     <?php pageTemplate() ?>
                 </div>
             </div>
+
+            <?php
+            if( PAGE == 'home' ) :
+                ?>
+                <div class='r-site-navigation r-site-navigation--magazine-pages'>
+                    <?= pagesMenu( TRUE ) ?>
+                </div>
+                <?php
+            endif;
+            ?>
 
             <?php
             if( ! empty( $pages[PAGE]['practicalInformation'] ) ) :

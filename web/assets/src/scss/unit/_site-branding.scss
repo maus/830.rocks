@@ -1,0 +1,10 @@
+.c-site-branding {
+    @include color-to-filter( 'accent' );
+
+    background: url( '../graphic/830.png' ) center center no-repeat;
+    background-size: contain;
+    display: block;
+    height: $double-spacing;
+    margin-left: $normal-spacing;
+    width: $double-spacing;
+}

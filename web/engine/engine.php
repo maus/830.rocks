@@ -10,6 +10,7 @@ $pages = [
 		'og:title' => "Ana & Marius's Big Website",
 		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest.",
 		'menuLabel' => '8:30',
+		'practicalInformation' => 'Everything you need to know to get to the city, the big day, or the seaside.'
 	],
 	'rsvp' => [
 		'image' => 'infinity.jpg',
@@ -180,7 +181,7 @@ function is_from_theJournal( $page = '' ) {
 	return in_array( $page, array_keys( $journal ) );
 }
 
-function pagesMenu() {
+function pagesMenu( $skipHome = FALSE ) {
 	global $pages;
 
 	$output = "<nav>
@@ -192,12 +193,18 @@ function pagesMenu() {
 				continue;
 			}
 
+			if ( $link == 'home' && $skipHome ) {
+				continue;
+			} 
+
 			$linkText = format_linkText( $link );
-			$aClass = "c-";
+			$aClass = "c-{$link}";
 			
 			$liClasses = [
+				'c-menu__item',
 				"c-menu__item--{$link}",
 			];
+
 			if ( $first ) {
 				$liClasses[] = "c-menu__item--first";
 				$first = false;
