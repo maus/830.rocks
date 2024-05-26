@@ -35,7 +35,7 @@
     }
 
     .r-site-navigation {
-        margin-bottom: $double-spacing;
+        margin-bottom: $normal-spacing;
     }
 
     .r-page-lead,
@@ -98,6 +98,10 @@
     }
 
     @media ( min-width: $breakpoint-medium ) {
+
+        .r-site-navigation {
+            margin-bottom: $double-spacing;
+        }
 
         .r-page-lead {
             h1 {

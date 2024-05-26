@@ -13,13 +13,19 @@ $accentColorHex: hex( $accentColor );
     
     .u-background-container {
         background: url( '../graphic/to-the-sea-bg.jpg' ) left top repeat-y;
-        background-size: cover;
-        padding-left: $gutter-width;
+        background-size: 150vw;
         padding-top: $double-spacing;
     }
-
-    @media ( min-width: $breakpoint-large ) {
+    
+    @media ( min-width: $breakpoint-small ) {
         .u-background-container {
+            background-size: contain;
+        }
+    }
+    
+    @media ( min-width: $breakpoint-huge ) {
+        .u-background-container {
+            background-size: cover;
             padding-left: $double-spacing;
         }
     }
@@ -114,11 +120,24 @@ $accentColorHex: hex( $accentColor );
             }
             
             &::after {
-                background: url( '../graphic/to-the-sea-kiss.jpg' ) center center no-repeat;
-                background-size: cover;
+                background: url( '../graphic/to-the-sea-kiss.jpg' ) left top repeat;
+                background-size: 50%;
                 background-color: hex( 'party-alt-background' );
                 transform: skewX( -3deg );
             }
+        }
+
+    }
+
+    @media ( min-width: $breakpoint-medium ) {
+
+        .r-page-content {
+        
+            section:nth-child( 2 )::after {
+                background-size: cover;
+
+            }
+
         }
 
     }

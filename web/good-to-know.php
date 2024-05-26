@@ -69,7 +69,7 @@ $daysLeft = intval( $diff );   //rounding days
         </header>
         <div>
             <h3>Where is Vama Veche?</h3>
-            <p>On very South end of the Romanian sea side, about 200km East of Bucharest and less than 2km from the border with Bulgaria.</p>
+            <p>On the very South end of the Romanian sea side, about 200km East of Bucharest and less than 2km from the border with Bulgaria.</p>
             <h3>Getting there</h3>
             <p>Information will follow as soon as we have a number of people that join us.</p>
             <h3>Accommodation</h3>
