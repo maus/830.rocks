@@ -51,6 +51,7 @@
 }
 
 .r-site-navigation--magazine-pages {
+    @include relative-font-size( $normal-spacing, $tight-leading );
     padding: 0;
 
     .c-menu {
@@ -64,10 +65,18 @@
 
     a { 
         border: none;
-        padding: $normal-spacing;
+        padding: $tight-spacing;
 
         span {
-            display: inline;
+            display: block;
         }
+    }
+
+    @media ( min-width: $breakpoint-small ) {
+        
+        a {
+            padding: $normal-spacing;
+        }
+
     }
 }
