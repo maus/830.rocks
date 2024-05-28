@@ -70,6 +70,16 @@
         span {
             display: block;
         }
+
+        small {
+            @include relative-font-size( $half-large-spacing, $tight-leading );
+
+            font-family: 'roc-grotesk', serif;
+            font-weight: $normal;
+            display: none;
+            letter-spacing: 0;
+            text-transform: none;
+        }
     }
 
     @media ( min-width: $breakpoint-small ) {
@@ -77,6 +87,32 @@
         a {
             padding: $normal-spacing;
         }
+
+    }
+
+    @media ( min-width: $breakpoint-medium ) {
+        
+
+        a {
+            span {
+                display: inline;
+            }
+
+            small {
+                display: block;
+                padding-top: $tight-spacing;
+            }
+        }
+
+    }
+
+    @media ( min-width: $breakpoint-large ) {
+        
+        @include relative-font-size( $normal-spacing, 1 );
+        @include container( true );
+
+        padding-left: 0;
+        padding-right: 0;
 
     }
 }

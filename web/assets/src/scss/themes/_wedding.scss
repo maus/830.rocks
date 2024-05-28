@@ -1,7 +1,7 @@
 @use 'sass:color';
 
 .r-site-navigation--magazine-pages .c-menu__item--the-big-day {
-    background-color: hex( 'wedding-accent' );
+    background-color: transparentize( hex( 'wedding-accent' ), .1 );
     color: hex( 'wedding-background' );
     font-family: 'mrs-eaves-roman-small-caps', serif;
 }

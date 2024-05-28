@@ -40,17 +40,17 @@ require_once ABSPATH . "engine/engine.php";
                 <div class='r-page-wrapper'>
                     <?php pageTemplate() ?>
                 </div>
-            </div>
 
-            <?php
-            if( PAGE == 'home' ) :
-                ?>
-                <div class='r-site-navigation r-site-navigation--magazine-pages'>
-                    <?= pagesMenu( TRUE ) ?>
-                </div>
                 <?php
-            endif;
-            ?>
+                if( PAGE == 'home' ) :
+                    ?>
+                    <div class='r-site-navigation r-site-navigation--magazine-pages'>
+                        <?= pagesMenu( TRUE, TRUE ) ?>
+                    </div>
+                    <?php
+                endif;
+                ?>
+            </div>
 
             <?php
             if( ! empty( $pages[PAGE]['practicalInformation'] ) ) :
@@ -74,7 +74,7 @@ require_once ABSPATH . "engine/engine.php";
             </div>
             <div class='r-colophon r-closing-time'>
                 <section class='c-colophon'>
-                    <p>&copy; 2024 Ana & Marius, feel free to use everything. <a href='#'>Colophon and credits</a></p>
+                    <p>&copy; 2024 Ana & Marius, feel free to use everything. <a href='https://github.com/maus/830.rocks' target='_blank' rel='no-follow'>Colophon and credits</a></p>
                 </section>
             </div>
         </div>

@@ -1,7 +1,7 @@
 @use 'sass:color';
 
 .r-site-navigation--magazine-pages .c-menu__item--bucharest-city-break {
-    background-color: hex( 'art-deco-alt-background' );
+    background-color: transparentize( hex( 'art-deco-alt-background' ), .1 );
     font-weight: bold;
     letter-spacing: $hairline-spacing;
     text-transform: uppercase;

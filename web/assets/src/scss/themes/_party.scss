@@ -9,7 +9,11 @@ $accentColorHex: hex( $accentColor );
 
 .r-site-navigation--magazine-pages .c-menu__item--to-the-sea {
     color: hex( 'party-background' );
-    background-color: hex( 'party-text' );
+    background-color: transparentize( hex( 'party-text' ), .1 );
+
+    @media ( min-width: $breakpoint-small ) {
+        letter-spacing: 1px;
+    }
 }
 
 .t-party {

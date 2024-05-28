@@ -26,6 +26,18 @@ $pages = [
 		'title' => '🤞 Sending',
 		'hidden' => TRUE,
 	],
+	'diet-participation' => [
+		'thumb' => 'thumbs/mirror-mirror.jpg',
+		'title' => "Diet & participation",
+		'og:title' => "Your Details to Ana & Marius's Wedding",
+		'description' => "Organization is in full swing and we need a bit more information for Ana and Marius's Big Day.",
+		'theme' => 'stately',
+		'hidden' => TRUE,
+	],
+	'process-diet-participation' => [
+		'title' => '🤞 Sending',
+		'hidden' => TRUE,
+	],
 	'good-to-know' => [
 		'title' => 'Good to Know',
 		'og:title' => "Ana & Marius's Weekend Logistics",
@@ -45,12 +57,14 @@ $pages = [
 	'to-the-sea' => [
 		'theme' => 'party',
 		'title' => 'Trip to the Sea',
+		'description' => 'Take a trip with us to the seaside for sun, sand, and shindings.',
 		'menuLabel' => '<span>The </span>Seaside',
 		'practicalInformation' => "Geographical details, getting there and back, accommodation.",
 	],
 	'bucharest-city-break' => [
 		'theme' => 'art-deco',
 		'title' => 'A Taste of Bucharest',
+		'description' => 'About Bucharest, a city of contrasts, with a unique heart and vibe.',
 		'menuLabel' => '<span>The </span>City',
 		'practicalInformation' => "Arriving in Bucharest, currency, getting around town."
 	]
@@ -181,7 +195,7 @@ function is_from_theJournal( $page = '' ) {
 	return in_array( $page, array_keys( $journal ) );
 }
 
-function pagesMenu( $skipHome = FALSE ) {
+function pagesMenu( $skipHome = FALSE, $includeDescription = FALSE ) {
 	global $pages;
 
 	$output = "<nav>
@@ -198,6 +212,9 @@ function pagesMenu( $skipHome = FALSE ) {
 			} 
 
 			$linkText = format_linkText( $link );
+			if( $includeDescription && ! empty( $pages[$link]['description'] ) ) {
+				$linkText .= "<small>{$pages[$link]['description']}</small>";
+			}
 			$aClass = "c-{$link}";
 			
 			$liClasses = [

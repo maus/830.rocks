@@ -6,6 +6,7 @@ RewriteRule ^assets/(js|css|parts)/(.*)\.[\d]+\.(js|css|png|jpg|gif|jpeg)$ asset
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^rsvp/rec([a-zA-Z0-9]{14})/?$ index.php?page=rsvp&id=$1 [L]
+RewriteRule ^diet-participation/rec([a-zA-Z0-9]{14})/?$ index.php?page=diet-participation&id=$1 [L]
 RewriteRule ^([a-z0-9-_]+)/?$ index.php?page=$1 [L]
 
 # hacks.mozilla.org/2009/07/cross-site-xmlhttprequest-with-cors/
