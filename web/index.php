@@ -32,7 +32,7 @@ require_once ABSPATH . "engine/engine.php";
                     <?php
                 else :
                     ?>
-                    <div class='c-site-branding'><?= get_siteTitle() ?></div>
+                    <div class='c-site-branding'><span class='sr-only'><?= get_siteTitle() ?></span></div>
                     <?php
                 endif;
                 ?>

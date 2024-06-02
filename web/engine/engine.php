@@ -29,17 +29,19 @@ $pages = [
 	],
 	'diet-participation' => [
 		'thumb' => 'thumbs/biennale-thumb.jpg',
-		'title' => "Diet & participation",
+		'title' => "Diet & Participation",
 		'og:title' => "Your Details to Ana & Marius's Wedding",
 		'description' => "Organization is in full swing and we need a bit more information for Ana and Marius's Big Day.",
 		'theme' => 'stately',
 		'hidden' => TRUE,
+		'practicalInformation' => "Everything you need to know to get to the city, the big day, or the seaside.",
 	],
 	'process-diet-participation' => [
 		'title' => '🤞 Sending',
 		'hidden' => TRUE,
 	],
 	'good-to-know' => [
+		'thumb' => 'thumbs/arsenale-thumb.jpg',
 		'theme' => 'stately',
 		'menuLabel' => '<span>The </span>Logistics',
 		'title' => 'Good to Know',
@@ -48,6 +50,7 @@ $pages = [
 		'hidden' => TRUE,	
 	],
 	'the-big-day' => [
+		'thumb' => 'thumbs/opera-thumb.jpg',
 		'theme' => 'wedding',
 		'menuLabel' => '<span>The </span>Big Day',
 		'title' => 'The Big Day',
@@ -242,8 +245,9 @@ function pagesMenu( $skipHome = FALSE, $includeDescription = FALSE ) {
 			if( ! empty( $page['locked'] ) ) {
 				$link = '';
 				$linkText = "<s>{$linkText}</s>";
+			} elseif( $link == 'home' ) {
+				$link = '';
 			}
-
 
 			$output .= "<li class='" . $liClass . "'><a href='/" . $link . "' class='" . $aClass . "'>" . $linkText . "</a></li>";
 		}
@@ -391,11 +395,13 @@ function openGraphMeta() {
 	foreach( [
 		'title',
 		'description',
-		'image'
+		'image',
+		'thumb'
 	] as $elementId ) {
 		if( empty( $pageData[$elementId] ) ) {
 			continue;
 		}
+		$graphElementId = $elementId;
 		switch( $elementId ) {
 			case 'title' :
 				$value = get_siteTitle() . " 🎉 " . ( ! empty( $pageData["og:{$elementId}"] ) ? $pageData["og:{$elementId}"] : $pageData[$elementId] );
@@ -409,12 +415,17 @@ function openGraphMeta() {
 				}
 				break;
 
+			case 'thumb' :
+				$value = $pageData['thumb'];
+				$graphElementId = 'image';
+				break;
+
 			default :
 				$value = ! empty( $pageData["og:{$elementId}"] ) ? $pageData["og:{$elementId}"] : $pageData[$elementId];
 				break;
 		}
 		?>
-		<meta name="og:<?= $elementId ?>" content="<?= $value ?>" />
+		<meta name="og:<?= $graphElementId ?>" content="<?= $value ?>" />
 		<?php
 	}
 }
