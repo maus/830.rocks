@@ -619,6 +619,77 @@ function maybe_getDetailsExportData( $recordId = NULL ) {
 	return NULL;
 }
 
+function post_dataToAirtable( $data, $action ) {
+	$endpoints = [
+		'checkin' => 'apptc5EBsQzOowXuj/wflz0WFm7Y62ZEOUu/wtrEtXrC2aBJAuwcU',
+		'errors' => 'apptc5EBsQzOowXuj/wfl9o5blLhTehiHis/wtreR6XBGtoVS8pAS',
+	];
+
+	if( ! isset( $endpoints[$action] ) ) {
+
+		return "No endpoint for {$action}";
+	}
+
+	$token = 'DVzzFBoRJzHn4j7zYNDgvEApxnLssV';
+	$baseUrl = 'https://hooks.airtable.com/workflows/v1/genericWebhook';
+    $suffix = $endpoints[$action];
+    $endpoint = "{$baseUrl}/{$suffix}";
+
+	$postData = [
+		'token' => $token,
+		'data' => $data,
+	];
+
+	$curlOptions = [
+        CURLOPT_POST => TRUE,
+		CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+        ],
+        CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_URL => $endpoint,
+		CURLOPT_POSTFIELDS => json_encode( $postData ),
+    ];
+
+    if( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
+        $curlOptions[CURLOPT_SSL_VERIFYHOST] = 0;
+        $curlOptions[CURLOPT_SSL_VERIFYPEER] = 0;
+    }
+
+    $ch = curl_init();
+    curl_setopt_array( $ch, $curlOptions );
+    $curlResponse = curl_exec( $ch );
+
+	if( $curlResponse === FALSE ){
+		$error = curl_error( $ch );
+		curl_close( $ch );
+
+		return $error;
+	}
+
+	$response = json_decode( $curlResponse, TRUE );
+	
+	curl_close( $ch );
+
+	if( ! is_array( $response ) ) {
+		$error = $curlResponse;
+
+		return $error;
+	}
+
+    if(	empty( $response['success'] ) ) {
+		if( ! empty( $response['error'] ) && ! empty( $response['error']['message'] ) ) {
+			$error = $response['error']['message'];
+		} else {
+			$error = json_encode( $response );
+		}
+
+		return $error;
+	}
+
+	return TRUE;
+}
+
 function get_pageClass( $page = '' ) {
 	global $pages;
 	
