@@ -416,7 +416,7 @@ function openGraphMeta() {
 				break;
 
 			case 'thumb' :
-				$value = $pageData['thumb'];
+				$value = get_thumb( PAGE );
 				$graphElementId = 'image';
 				break;
 
