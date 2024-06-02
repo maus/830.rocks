@@ -1,19 +1,7 @@
 jQuery( document ).ready( function() {
 	
 	jQuery( '#overlay' ).addClass( 'off-canvas' );
-	
-	jQuery( '#trigger-overlay' ).click( function( ev ) {
-		ev.preventDefault();
 		
-		_dymm_show_videoOverlay();
-		
-		return false;
-	} );
-	
-	jQuery( '#overlay' ).click( function( ev ) {
-		_dymm_hide_videoOverlay();
-	} );
-	
 	jQuery( document ).click( function( ev ) {
 		var $image = jQuery( '#image' ),
 			$overlay = jQuery( '#overlay' );

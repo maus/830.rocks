@@ -1,8 +1,5 @@
 <?php 
 
-define( "ABSPATH", dirname( __FILE__ ) . '/' ); 
-require_once ABSPATH . "engine/engine.php"; 
-
 if( ! isset( $_POST['submit-rsvp'] ) ) {
     exit;
 }

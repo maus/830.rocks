@@ -1,22 +1,33 @@
 <?php 
 
-define( "ABSPATH", dirname( __FILE__ ) . '/' ); 
-require_once ABSPATH . "engine/engine.php"; 
+if( ! isset( $_POST['submit-diet-participation'] ) ) {
+    exit;
+}
 
-// if( ! isset( $_POST['submit-diet-participation'] ) ) {
-//     exit;
-// }
+if( empty( $_POST['checkin'] ) ) {
+    exit;
+}
 
-// $RSVPResource = fopen( ABSPATH . 'diet-participation.csv', 'a+' );
-// fputcsv( $RSVPResource, [
-//     $_POST['uuid'],
-//     $_POST['diet'],
-//     $_POST['to-the-sea'],
-//     $_POST['participation-details'],
-//     time()
-// ], ';' );
+$checkins = $_POST['checkin'];
+var_dump( $checkins );
+$dietParticipationResource = fopen( ABSPATH . 'diet-participation.csv', 'a+' );
+foreach( $checkins as $uuid => $input ) {
+    $checkinData = [];
+    $headerMap = get_detailsExportDataHeaderMap( TRUE );
+    foreach( $headerMap as $fieldId => $blank ) {
+        if( $fieldId == 'observations' && ! empty( $input[$fieldId] ) ) {
+            $input[$fieldId] = str_replace( [ "\r", "\n" ], ' ', $input[$fieldId] );
+        }
+        $checkinData[$fieldId] = $input[$fieldId] ?? '';
+    }
+    $checkinData['time'] = time();
 
-// fclose( $RSVPResource );
+    fputcsv( $dietParticipationResource, $checkinData, ';' );
+
+    
+}
+fclose( $dietParticipationResource );
+
 
 ?>
 <header class='r-page-lead'>

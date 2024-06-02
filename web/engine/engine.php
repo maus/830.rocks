@@ -239,7 +239,7 @@ function pagesMenu( $skipHome = FALSE, $includeDescription = FALSE ) {
 			}
 
 
-			$output .= "<li class='" . $liClass . "'><a href='" . $link . "' class='" . $aClass . "'>" . $linkText . "</a></li>";
+			$output .= "<li class='" . $liClass . "'><a href='/" . $link . "' class='" . $aClass . "'>" . $linkText . "</a></li>";
 		}
 	$output .= "</ul>
 	</nav>";
@@ -413,7 +413,7 @@ function openGraphMeta() {
 	}
 }
 
-function maybe_getData( $recordId = NULL ) {
+function maybe_getRSVPExportData( $recordId = NULL ) {
 	$headerMap = [
 		'uuid' => '',
 		'nick' => '',
@@ -421,7 +421,7 @@ function maybe_getData( $recordId = NULL ) {
 		'email' => '',
 	];
 
-	$res = fopen( ABSPATH . 'export.csv', 'r' );
+	$res = fopen( ABSPATH . 'export-invitees.csv', 'r' );
 	if( ! $res ) {
 		return $headerMap;
 	}
@@ -455,7 +455,6 @@ function maybe_getData( $recordId = NULL ) {
 					case 'First name' :
 						$headerMap['name'] = $key;
 						break;
-
 				}
 			}
 		} else {
@@ -463,6 +462,137 @@ function maybe_getData( $recordId = NULL ) {
 				foreach( $headerMap as $key => $idx ) {
 					$output[$key] = ! empty( $data[$idx] ) ? $data[$idx] : '';
 				}
+				return $output;
+			}
+		}
+		$idx++;
+	}
+	
+	return NULL;
+}
+
+function get_detailsExportDataHeaderMap( $formatForStorage = FALSE ) {
+	$output = [
+		'uuid' => '',
+		'name' => '',
+		'diet' => '',
+		'observations' => '',
+		'rsvp' => '',
+		'sea' => '',
+	];
+
+	if( ! $formatForStorage ) {
+		$output = array_merge( $output, [
+			'email' => '',
+			'nick' => '',
+			'uuid-bringing' => '',
+			'uuid-guest-of' => '',
+		] );
+	}
+
+	return $output;
+}
+
+function maybe_getDetailsExportData( $recordId = NULL ) {
+	$headerMap = get_detailsExportDataHeaderMap();
+
+	$res = fopen( ABSPATH . 'export-details.csv', 'r' );
+	if( ! $res ) {
+		return [
+			'check-ins' => [
+				$headerMap,
+			],
+			'success' => FALSE,
+		];
+	}
+
+	if( is_null( $recordId ) ) {
+		if( empty( $_GET ) || empty( $_GET['id'] ) || ! ctype_alnum( $_GET['id'] ) ) {
+			return [
+				'check-ins' => [
+					$headerMap,
+				],
+				'success' => FALSE,
+			];
+		}
+
+		$recordId = "rec{$_GET['id']}";
+	}
+
+	$idx = 0;
+	$uuidKey = NULL;
+	$headers = [];
+	while( ( $data = fgetcsv( $res, 1000, "," ) ) !== FALSE ) {
+		if( ! $idx ) {
+			$headers = $data;
+			foreach( $headers as $key => $header ) {
+				switch( $header ) {
+					case 'Uuid' :
+						$uuidKey = $key;
+						$headerMap['uuid'] = $key;
+						break;
+					case 'Email' :
+						$headerMap['email'] = $key;
+						break;
+					case 'Nick' :
+						$headerMap['nick'] = $key;
+						break;
+					case 'First name' :
+						$headerMap['name'] = $key;
+						break;
+					case 'Diet' :
+						$headerMap['diet'] = $key;
+						break;
+					case 'Observations' :
+						$headerMap['observations'] = $key;
+						break;
+					case 'RSVP' :
+						$headerMap['rsvp'] = $key;
+						break;
+					case 'To the sea' :
+						$headerMap['sea'] = $key;
+						break;
+					case 'Uuid (from Bringing)' :
+						$headerMap['uuid-bringing'] = $key;
+						break;
+					case 'Uuid (from Guest of)' :
+						$headerMap['uuid-guest-of'] = $key;
+						break;
+				}
+			}
+		} else {
+			if( $data[$uuidKey] == $recordId ) {
+				foreach( $headerMap as $key => $idx ) {
+					$checkinData[$key] = ! empty( $data[$idx] ) ? $data[$idx] : '';
+				}
+			
+				$checkinData['label'] = $checkinData['name'] ?: $checkinData['nick'];
+				
+				if( ! empty( $checkinData['uuid-bringing'] ) ) {
+					$checkinData['main-guest'] = TRUE;
+				}
+				
+				if( ! empty( $checkinData['uuid-guest-of'] ) ) {
+					$checkinData['invitee'] = TRUE;
+				}
+
+				$output = [
+					'check-ins' => [
+						$recordId => $checkinData,
+					],
+					'success' => true,
+				];
+
+				if( ! empty( $checkinData['uuid-bringing'] ) ) {
+					$guestUuids = explode( ", ", $checkinData['uuid-bringing'] );
+					foreach( $guestUuids as $guestUuid ) {
+						$inviteeData = maybe_getDetailsExportData( $guestUuid );
+						if( $inviteeData['success'] ) {
+							$output['check-ins'][$guestUuid] = reset( $inviteeData['check-ins'] );
+						}
+					} 
+				}
+
 				return $output;
 			}
 		}

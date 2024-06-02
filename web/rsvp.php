@@ -12,7 +12,7 @@
         <form method='POST' action='/process-rsvp'>
             <fieldset>
                 <?php
-                $data = maybe_getData(); 
+                $data = maybe_getRSVPExportData(); 
                 ?>
                 <input type='hidden' name='uuid' value='<?= $data['uuid'] ?>' />
                 <p><label>

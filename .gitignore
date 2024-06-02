@@ -1,6 +1,7 @@
 #Ignore files
 .ftpquota
 web/rsvp.csv
+web/diet-participation.csv
 *Zone.Identifier
 
 # Ignore folders.

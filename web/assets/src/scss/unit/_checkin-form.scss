@@ -1,0 +1,23 @@
+.u-checkin-form {
+
+    fieldset:not( .form-actions ) {
+        @media ( min-width: $breakpoint-large ) {
+            
+            border-bottom: 0;
+            display: flex;
+            gap: $gutter-width;
+            
+            .u-checkin-form__item__legend {
+                border-right: $medium-border-width dotted hex( 'background' );
+                flex: 1;
+            }
+
+            .u-checking-form__item__form-fields {
+                flex: 2;
+            }
+
+        }
+
+    }
+
+}

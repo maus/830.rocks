@@ -10,6 +10,7 @@
 %form-input {
     border: $medium-border-width solid hex( 'text-color' );
     border-radius: $controls-border-radius;
+    background-color: hex( 'light-gray' );
     display: block;
     height: #{to-number( $normal-spacing ) * 2 - ( to-number( $hairline-spacing ) - to-number( $medium-border-width ) ) * 2};
     padding: #{to-number( $hairline-spacing ) - to-number( $medium-border-width )} $tight-spacing;
@@ -43,8 +44,8 @@
 %form-field__label {
     @include relative-font-size( $normal-spacing, $tight-leading );
 
-    font-weight: $bold;
     display: block;
+    font-weight: $bold;
     }
 
 %form-field__description {
@@ -68,11 +69,62 @@
     padding: $hairline-spacing;
 }
 
-label {
-    font-weight: $bold;
-    margin-bottom: 0;
-    display: block;
+.form--compact {
+    %form-field__label,
+    %form-field__description { 
+        margin-bottom: $hairline-spacing; }
+
+    %form-field__label {
+        @include relative-font-size( $normal-spacing, $leading );
     }
+
+    %form-field__description {
+        @extend %smaller;
+    }
+
+    %form-input__inline {
+        margin-#{$endDirection}: 0;
+    }
+
+    .form--compact--inlined {
+        display: inline-block;
+        padding: 0 $hairline-spacing;
+        background-color: hex( 'light-gray' );
+        border-radius: $controls-border-radius;
+
+        &:not( :last-of-type ) {
+            margin-#{$endDirection}: $tight-spacing;
+        }
+    }
+}
+
+fieldset:not( :last-of-type ) {
+    margin-bottom: $normal-spacing;
+    border-bottom: $medium-border-width dotted hex( 'background' );
+}
+
+legend,
+.form__legend {
+    margin-bottom: $normal-spacing;
+}
+
+.form__legend > *:not( .form__legend__heading ),
+legend > *:not( .form__legend__heading ) {
+    @include relative-font-size( $normal-spacing, $leading );
+}
+
+.form__legend__heading {
+    @extend %headline;
+
+    @extend h4;
+
+    display: block;
+}
+
+label {
+    display: block;
+    margin-bottom: 0;
+}
 
 input,
 textarea,
@@ -91,19 +143,19 @@ textarea { height: $huge-spacing; }
 
 .form-group { @extend %form-group; }
 
-.form-input,
-.form-field__label,
-.form-field__description { display: block; }
+.form-input { display: block; }
 
 .form-field__label { 
     @extend %form-field__label; 
 }
 
+input[type='radio'] + .form-field__label,
+input[type='checkbox'] + .form-field__label,
 .form-input--radio + .form-field__label,
 .form-input--checkbox + .form-field__label { 
     display: inline;
     font: inherit;
-    font-weight: normal; 
+    font-weight: $normal; 
     }
 
 .form-field__description { 

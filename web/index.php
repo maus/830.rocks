@@ -32,7 +32,7 @@ require_once ABSPATH . "engine/engine.php";
                     <?php
                 else :
                     ?>
-                    <div class='c-site-branding'><span class='sr-only'><?= get_siteTitle() ?></span></div>
+                    <div class='c-site-branding'><?= get_siteTitle() ?></div>
                     <?php
                 endif;
                 ?>
@@ -101,6 +101,49 @@ require_once ABSPATH . "engine/engine.php";
                         document.getElementById( 'rsvp-email' ).removeAttribute( 'required' );
                         document.getElementById( 'rsvp-adults' ).removeAttribute( 'required' );
                         document.getElementById( 'rsvp-kids' ).removeAttribute( 'required' );
+                    }
+                }
+            }
+
+            if( document.getElementsByClassName( 'js-checkin-form__item__details__trigger' ).length > 0 ) {
+                let triggers = document.getElementsByClassName( 'js-checkin-form__item__details__trigger' );
+                
+                for( var i = 0; i < triggers.length; i++ ) {
+                    triggers[i].addEventListener( 'change', function( ev ) {
+                        let el = ev.target,
+                            elementId = el.getAttribute( 'id' ),
+                            idParts = elementId.split( '-' ),
+                            type = idParts[1],
+                            uuid = idParts[2],
+                            targetId = 'item-details-' + uuid,
+                            targetElement = document.getElementById( targetId );
+
+                        if( type == 'yup' ) {
+                            targetElement.classList.remove( 'js-hidden' );
+                            toggleRequiredDetails( true, targetElement );
+                        } else {
+                            targetElement.classList.add( 'js-hidden' );
+                            toggleRequiredDetails( false, targetElement );
+                        }
+                    } );
+                };
+                
+                function toggleRequiredDetails( $onOrOff, $targetElement = null ) {
+                    let formDetailsElements = $targetElement.querySelectorAll( '.form-element' );
+                    console.log( formDetailsElements );
+
+                    if( formDetailsElements.length > 0 ) {
+                        for( var j = 0; j < formDetailsElements.length; j++ ) {
+                            if( formDetailsElements[j].getAttribute( 'optional' ) != null ) {
+                                continue;
+                            }
+
+                            if( $onOrOff ) {
+                                formDetailsElements[j].setAttribute( 'required', $onOrOff );
+                            } else {
+                                formDetailsElements[j].removeAttribute( 'required' );
+                            }
+                        }
                     }
                 }
             }
