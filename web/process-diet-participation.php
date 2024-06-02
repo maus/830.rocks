@@ -9,8 +9,8 @@ if( empty( $_POST['checkin'] ) ) {
 }
 
 $checkins = $_POST['checkin'];
-var_dump( $checkins );
 $dietParticipationResource = fopen( ABSPATH . 'diet-participation.csv', 'a+' );
+
 foreach( $checkins as $uuid => $input ) {
     $checkinData = [];
     $headerMap = get_detailsExportDataHeaderMap( TRUE );
@@ -22,10 +22,9 @@ foreach( $checkins as $uuid => $input ) {
     }
     $checkinData['time'] = time();
 
-    fputcsv( $dietParticipationResource, $checkinData, ';' );
-
-    
+    fputcsv( $dietParticipationResource, $checkinData, ';' );    
 }
+
 fclose( $dietParticipationResource );
 
 
