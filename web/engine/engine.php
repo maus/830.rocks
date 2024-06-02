@@ -7,6 +7,7 @@ if( isset( $_POST['submit'] ) ) {
 $pages = [    	
 	'home' => [
 		'title' => get_siteTitle(),
+		'thumb' => 'thumbs/biennale-thumb.jpg',
 		'og:title' => "Ana & Marius's Big Website",
 		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest.",
 		'menuLabel' => '8:30',
@@ -27,7 +28,7 @@ $pages = [
 		'hidden' => TRUE,
 	],
 	'diet-participation' => [
-		'thumb' => 'thumbs/mirror-mirror.jpg',
+		'thumb' => 'thumbs/biennale-thumb.jpg',
 		'title' => "Diet & participation",
 		'og:title' => "Your Details to Ana & Marius's Wedding",
 		'description' => "Organization is in full swing and we need a bit more information for Ana and Marius's Big Day.",
@@ -39,10 +40,11 @@ $pages = [
 		'hidden' => TRUE,
 	],
 	'good-to-know' => [
+		'theme' => 'stately',
+		'menuLabel' => '<span>The </span>Logistics',
 		'title' => 'Good to Know',
 		'og:title' => "Ana & Marius's Weekend Logistics",
-		'description' => "",
-		'theme' => 'stately',
+		'description' => "Getting to Bucharest, the wedding at Boho Forest, and, finally, Vama Veche.",
 		'hidden' => TRUE,	
 	],
 	'the-big-day' => [
@@ -55,17 +57,21 @@ $pages = [
 		
 	],
 	'to-the-sea' => [
+		'thumb' => 'thumbs/la-mer-thumb.jpg',
 		'theme' => 'party',
 		'title' => 'Trip to the Sea',
+		'og:title' => "Join Ana & Marius in Vama Veche",
 		'description' => 'Take a trip with us to the seaside for sun, sand, and shindings.',
 		'menuLabel' => '<span>The </span>Seaside',
 		'practicalInformation' => "Geographical details, getting there and back, accommodation.",
 	],
 	'bucharest-city-break' => [
+		'thumb' => 'thumbs/retro-thumb.jpg',
 		'theme' => 'art-deco',
-		'title' => 'A Taste of Bucharest',
-		'description' => 'About Bucharest, a city of contrasts, with a unique heart and vibe.',
 		'menuLabel' => '<span>The </span>City',
+		'title' => 'A Taste of Bucharest',
+		'og:title' => "Ana & Marius's home town is worth a visit",
+		'description' => 'About Bucharest, a city of contrasts, with a unique heart and vibe.',
 		'practicalInformation' => "Arriving in Bucharest, currency, getting around town."
 	]
 ];
