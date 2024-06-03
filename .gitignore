@@ -3,6 +3,7 @@
 web/rsvp.csv
 web/diet-participation.csv
 *Zone.Identifier
+.env
 
 # Ignore folders.
 stats/*

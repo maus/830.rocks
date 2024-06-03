@@ -2,6 +2,8 @@
 
 define( "ABSPATH", dirname( __FILE__ ) . '/' ); 
 require_once ABSPATH . "engine/engine.php"; 
+
+$data = fetch_dataFromAirtable('recBUHQsNsrUM81qW');
 ?>
 
 <!doctype html>

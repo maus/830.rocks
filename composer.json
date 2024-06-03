@@ -1,0 +1,14 @@
+{
+    "name": "maus/830.rocks",
+    "description": "Ana & Marius's big day website",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "authors": [
+        {
+            "name": "Marius Marinescu",
+            "email": "marius@marinescu.biz"
+        }
+    ]
+}

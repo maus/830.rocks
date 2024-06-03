@@ -4,6 +4,11 @@ if( isset( $_POST['submit'] ) ) {
 	exit;
 }
 
+require ABSPATH . "../vendor/autoload.php";
+
+$dotenv = Dotenv\Dotenv::createImmutable(ABSPATH . '../' );
+$dotenv->load();
+
 $pages = [    	
 	'home' => [
 		'title' => get_siteTitle(),
@@ -624,6 +629,70 @@ function maybe_getDetailsExportData( $recordId = NULL ) {
 	return NULL;
 }
 
+/** 
+ * ! Not a valid use case because of speed
+ * 
+ * Issues:
+ * - "Bringing" is not part of the response, so would also need data from the CSV export
+ * - After getting "Bringing" Uuids from the CSV 2 more trips to the server are required
+ */
+function fetch_dataFromAirtable( $recordId = NULL ) {
+	$baseUrl = 'https://api.airtable.com/v0/';
+
+	$baseId = 'apptc5EBsQzOowXuj';
+	$tableId = 'tbljimTCF4XN0wuDp';
+	$token = $_ENV['AIRTABLE_API_TOKEN'];
+
+	if( is_null( $recordId ) ) {
+		if( empty( $_GET ) || empty( $_GET['id'] ) || ! ctype_alnum( $_GET['id'] ) ) {
+			return NULL;
+		}
+
+		$recordId = "rec{$_GET['id']}";
+	}
+
+	$endpoint = "{$baseUrl}{$baseId}/{$tableId}/{$recordId}";
+
+	$curlOptions = [
+		CURLOPT_URL => $endpoint,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+			'Authorization: Bearer ' . $token,
+        ],
+        CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_URL => $endpoint,
+    ];
+
+    if( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
+        $curlOptions[CURLOPT_SSL_VERIFYHOST] = 0;
+        $curlOptions[CURLOPT_SSL_VERIFYPEER] = 0;
+    }
+
+    $ch = curl_init();
+    curl_setopt_array( $ch, $curlOptions );
+    $curlResponse = curl_exec( $ch );
+
+	if( $curlResponse === FALSE ){
+		$error = curl_error( $ch );
+		curl_close( $ch );
+
+		return $error;
+	}
+
+	$response = json_decode( $curlResponse, TRUE );
+	
+	curl_close( $ch );
+
+	if( ! is_array( $response ) ) {
+		$error = $curlResponse;
+
+		return $error;
+	}
+
+}
+
 function post_dataToAirtable( $data, $action ) {
 	$endpoints = [
 		'checkin' => 'apptc5EBsQzOowXuj/wflz0WFm7Y62ZEOUu/wtrEtXrC2aBJAuwcU',
@@ -635,7 +704,7 @@ function post_dataToAirtable( $data, $action ) {
 		return "No endpoint for {$action}";
 	}
 
-	$token = 'DVzzFBoRJzHn4j7zYNDgvEApxnLssV';
+	$token = $_ENV['AIRTABLE_WEBHOOK_TOKEN'];
 	$baseUrl = 'https://hooks.airtable.com/workflows/v1/genericWebhook';
     $suffix = $endpoints[$action];
     $endpoint = "{$baseUrl}/{$suffix}";
