@@ -5,6 +5,11 @@
     background-size: contain;
     display: block;
     height: $double-spacing;
-    margin-left: $normal-spacing;
+    margin-left: $gutter-width;
     width: $double-spacing;
+
+    @media ( min-width: $breakpoint-medium ) {
+        height: $x-large-spacing;
+        width: $x-large-spacing;
+    }
 }

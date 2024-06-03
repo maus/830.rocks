@@ -279,6 +279,11 @@ function get_title( $page = '' ) {
 	if ( ! $page ) {
 		$page = PAGE;	
 	}
+
+	if( ! empty( $pages[$page]['og:title'] ) ) {
+
+		return $pages[$page]['og:title'];
+	}
 	
 	return $pages[$page]['title'];
 }
@@ -404,7 +409,7 @@ function openGraphMeta() {
 		$graphElementId = $elementId;
 		switch( $elementId ) {
 			case 'title' :
-				$value = get_siteTitle() . " 🎉 " . ( ! empty( $pageData["og:{$elementId}"] ) ? $pageData["og:{$elementId}"] : $pageData[$elementId] );
+				$value = get_siteTitle() . " &hearts;² " . ( ! empty( $pageData["og:{$elementId}"] ) ? $pageData["og:{$elementId}"] : $pageData[$elementId] );
 				break;
 
 			case 'image' :

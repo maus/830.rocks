@@ -9,7 +9,7 @@ require_once ABSPATH . "engine/engine.php";
 	<head>
     	<meta charset='utf-8' />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    	<title><?= get_siteTitle() ?> 🎉 <?= get_title() ?></title>
+    	<title><?= get_siteTitle() ?> &hearts;² <?= get_title() ?></title>
         <script>
             document.documentElement.className = document.documentElement.className.replace( "no-js", "with-js" );
         </script>
