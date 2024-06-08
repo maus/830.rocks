@@ -1,6 +1,6 @@
 <?php
 $weddingDate = new DateTime( "2024-08-30");   //Future date
-$lastUpdate = new DateTime( "2024-05-26" );  //current date or any date
+$lastUpdate = new DateTime( "2024-06-08" );  //current date or any date
 $diff = $lastUpdate->diff( $weddingDate )->format( "%a" );  //find difference
 $daysLeft = intval( $diff );   //rounding days
 ?>
@@ -41,6 +41,7 @@ $daysLeft = intval( $diff );   //rounding days
         <header>
             <h2>Wedding Day</h2>
             <code>Ref: <a href='/the-big-day'>The Big Day</a><br />
+            Date: 30.08.2024<br />
             TOC: <a href='#toc'>Back to top</a></code>
         </header>
         <div>
@@ -65,6 +66,7 @@ $daysLeft = intval( $diff );   //rounding days
         <header>
             <h2>Vama Veche</h2>
             <code>Ref: <a href='/to-the-sea'>The Seaside</a><br />
+            Date: 31.08&mdash;02.09.2024<br />
             TOC: <a href='#toc'>Back to top</a></code>
         </header>
         <div>
