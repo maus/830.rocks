@@ -59,7 +59,7 @@ if( $data['success'] ) {
                 <h2>Check-in</h2>
             </header>
             <div>
-                <p>Thanks for taking the time for a quick check-in. Below there's a form for you, <?= $mainGuestLabel ?>, and also for <?= $guestsLabel ?>.</p>
+                <p>Thanks for taking the time for a quick check-in. Below there are <?= $totalCheckins ?> forms, one each for you, <?= $mainGuestLabel ?>, and then also for <?= $guestsLabel ?>.</p>
             </div>
         </section>
         <?php

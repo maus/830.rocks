@@ -16,7 +16,7 @@ $pages = [
 		'og:title' => "Ana & Marius's Big Website",
 		'description' => "Ana-Maria R., Marius M., and you, rock on August 30th, 2024, at Boho Forest.",
 		'menuLabel' => '8:30',
-		'practicalInformation' => 'Everything you need to know to get to the city, the big day, or the seaside.'
+		'practicalInformation' => 'If you already checked out the vibes above and still need info on how to get to the city, the big day, or the seaside.'
 	],
 	'rsvp' => [
 		'image' => 'infinity.jpg',

@@ -66,6 +66,7 @@
     a { 
         border: none;
         padding: $tight-spacing;
+        text-decoration: underline;
 
         span {
             display: block;
@@ -94,6 +95,8 @@
         
 
         a {
+            text-decoration: none;
+
             span {
                 display: inline;
             }
@@ -101,6 +104,11 @@
             small {
                 display: block;
                 padding-top: $tight-spacing;
+
+                &::after {
+                    content: '..»';
+                    display: inline-block;
+                }
             }
         }
 
