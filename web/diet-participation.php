@@ -22,7 +22,7 @@ if( $data['success'] ) {
     if( $multiGuest ) {
         $formClass .= 'form--compact u-checkin-form--multi-guest ';
     } else {
-        $formStyle .= 'u-checkin-form--single-guest ';
+        $formClass .= 'u-checkin-form--single-guest ';
     }
 }
 ?>
