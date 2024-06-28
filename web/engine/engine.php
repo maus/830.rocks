@@ -45,6 +45,10 @@ $pages = [
 		'title' => '🤞 Sending',
 		'hidden' => TRUE,
 	],
+	'404' => [
+		'title' => '404',
+		'hidden' => TRUE,
+	],
 	'good-to-know' => [
 		'thumb' => 'thumbs/arsenale-thumb.jpg',
 		'theme' => 'stately',
@@ -523,14 +527,16 @@ function get_detailsExportDataHeaderMap( $formatForStorage = FALSE ) {
 function maybe_getDetailsExportData( $recordId = NULL ) {
 	$headerMap = get_detailsExportDataHeaderMap();
 
+	$errorOutput = [
+		'check-ins' => [
+			$headerMap,
+		],
+		'success' => FALSE,
+	];
+
 	$res = fopen( ABSPATH . 'export-details.csv', 'r' );
 	if( ! $res ) {
-		return [
-			'check-ins' => [
-				$headerMap,
-			],
-			'success' => FALSE,
-		];
+		return $errorOutput;
 	}
 
 	if( is_null( $recordId ) ) {
@@ -625,8 +631,8 @@ function maybe_getDetailsExportData( $recordId = NULL ) {
 		}
 		$idx++;
 	}
-	
-	return NULL;
+
+	return $errorOutput;
 }
 
 /** 
