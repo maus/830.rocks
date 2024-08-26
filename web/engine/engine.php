@@ -87,6 +87,7 @@ $pages = [
 		'practicalInformation' => "Arriving in Bucharest, currency, getting around town."
 	],
 	'the-menu' => [
+		'theme' => 'menu',
 		'title' => 'Meniul',
 		'og:title' => "Every menu item",
 		'description' => 'The full rundown of the food served on The Day and night.',

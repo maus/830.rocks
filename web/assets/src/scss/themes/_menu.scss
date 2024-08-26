@@ -1,0 +1,174 @@
+@use 'sass:color';
+
+.t-menu {
+
+    background-color: hex( 'wedding-background' );
+    color: hex( 'wedding-text' );
+
+    .u-background-container {
+        background: url( '../graphic/background-big-day.png' ) left $normal-spacing repeat-y;
+        background-size: 10px 50px;
+    }
+
+    @media (min-width: $breakpoint-medium ) {
+        .u-background-container {
+            background-size: 20px 100px;
+        }
+    }
+
+    @media (min-width: $breakpoint-large ) {
+        .u-background-container {
+            background-size: 30px 150px;
+        }
+    }
+
+    .u-background-container-2 {
+        background: url( '../graphic/mar.png' ) right bottom no-repeat;
+    }
+
+    .u-background-container-2 {
+        background-size: 50vw;
+        padding-bottom: 10vw;
+    }
+    
+    @media (min-width: $breakpoint-medium ) {
+        .u-background-container-2 {
+            background-size: 35vw;
+        }
+    }
+
+    .c-menu__item--first a {
+        @include color-to-filter( 'wedding-text' );
+    }
+
+    a {
+        color: hex( 'wedding-accent' );
+        border-bottom-color: hex( 'wedding-accent' );
+    }
+
+    ::selection {
+        background-color: hex( 'wedding-accent' );
+        color: get-contrast-color( 'wedding-accent' );
+    }
+
+    h2,
+    h3 {
+        color: hex( 'wedding-heading' );
+    }
+
+    &,
+    h1,
+    h2 {
+        font-family: 'mrs-eaves', serif;
+    }
+
+    h2 {
+        font-weight: $bold;
+    }
+
+    h3,
+    small[lang] {
+        font-family: 'mrs-eaves-roman-small-caps', serif;
+    }
+
+    small[lang] {
+        font-size: .65rem;
+        text-transform: uppercase;
+    }
+        
+    .r-page-lead {
+
+        font-style: italic;
+
+        h1 {
+            color: hex( 'wedding-main-heading' );
+            margin-top: $normal-spacing;
+            padding-top: $normal-spacing;
+        }
+
+    }
+
+    @media ( min-width: $breakpoint-medium ) {
+
+        .r-page-lead {
+            padding-top: $double-spacing;
+
+            h1 {
+                @include relative-font-size( $huge-spacing, 1 );
+            }
+        }
+        
+    }
+
+    @media ( min-width: $breakpoint-large ) {
+
+        .r-page-lead {
+            padding-top: $huge-spacing;
+
+            h1 {
+                padding-top: 0;
+            }
+        }
+        
+    }
+
+    .r-page-content {
+
+        ul, ol {
+            padding-left: $tight-spacing;
+        }
+
+        h4 { 
+            color: hex( 'wedding-accent' );
+            font-size: 1rem;
+            text-transform: none;
+
+            sup {
+                color: hex( 'text-color' );
+            }
+        }
+
+    }
+
+    @media ( min-width: $breakpoint-small ) {
+
+        .r-page-content {
+
+            ul, ol {
+                padding-left: 0;
+            }
+            
+        }
+
+    }
+
+    .r-practical-information {
+        background: hex( 'wedding-alt-background' );
+    }
+
+    .r-colophon {
+        background: hex( 'wedding-text' );
+    }
+
+    .c-color-palette {
+        span:nth-child( 1 ) {
+            background-color: hex( 'wedding-accent' );
+        }
+    
+        span:nth-child( 2 ) {
+            background-color: hex( 'wedding-text' );
+        }
+    
+        span:nth-child( 3 ) {
+            background-color: hex( 'wedding-heading' );
+        }
+    
+        span:nth-child( 4 ) {
+            background-color: hex( 'wedding-alt-background' );
+        }
+    
+        span:nth-child( 5 ) {
+            background-color: hex( 'wedding-background' );
+        }
+    }
+}
