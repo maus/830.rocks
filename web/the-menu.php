@@ -5,7 +5,7 @@
 <div class='r-page-content'>
     <div lang='ro-RO'>
         <h2 id='romanian'>Romana</h2>
-        <p>Aperitivele si felurile principale vor fi servite la bufet. Bauturile de pe meniul individual nu au nevoie de traducere, aici e insirata doar mancarea in ordine cvasi-alfabetica.</p>
+        <p>Aperitivele si felurile principale vor fi servite la bufet. Bauturile de pe meniul individual nu au nevoie de traducere, aici e insirata doar mancarea in ordine cvasi-alfabetica. Marius e foarte suparat ca a descoperit prea tarziu ca fontul ales nu contine diacritice romanesti, dar sigur o sa depaseasca tragedia.</p>
         <h4><sup>17:45</sup> Inghetata</h4>
         <ul>
             <li>Caramel sarat;</li>
