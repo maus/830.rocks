@@ -85,7 +85,13 @@ $pages = [
 		'og:title' => "Ana & Marius's home town is worth a visit",
 		'description' => 'About Bucharest, a city of contrasts, with a unique heart and vibe.',
 		'practicalInformation' => "Arriving in Bucharest, currency, getting around town."
-	]
+	],
+	'the-menu' => [
+		'title' => 'Meniul',
+		'og:title' => "Every menu item",
+		'description' => 'The full rundown of the food served on The Day and night.',
+		'hidden' => TRUE,
+	],
 ];
 
 $agenda = [
